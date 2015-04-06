@@ -1,1 +1,160 @@
-cv/cv.html
+<html>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Marek Ventur - CV</title>
+        <link href="http://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" type="text/css">
+
+        <!-- Inline CSS to make this file easier to move around -->
+        <style>
+            body {
+                font-family: 'Merriweather Sans', sans-serif;
+                line-height: 1.4em;
+            }
+            a, a:visited, a:active {
+                color: #555;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+
+            nav ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            nav {
+                padding-bottom: 0.5em;
+                border-bottom: 1px solid #555;
+            }
+
+            nav li { display: inline; }
+            nav li + li:before { content: " • ";}
+
+            h3 { margin-bottom:0; }
+            h4 { margin-top: 0.5em; }
+
+            .private-projects h2 { margin-bottom: 0.25em; }
+            .private-projects small { margin-top: 0; }
+
+            .education h4 { margin-bottom: 0; }
+            .education p { margin-top: 0.5em; }
+
+        </style>
+
+        <!-- Optimize for dead trees -->
+        <style type="text/css" media="print">
+            body {
+                font-size: 12px;
+            }
+        </style>
+
+
+        <article>
+            <header>
+                <h1>Marek Ventur</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="mailto:mail@marekventur.de">mail@marekventur.de</a></li>
+                    <li><a href="http://twitter.com/marekventur">@marekventur</a></li>
+                    <li><a href="https://github.com/marekventur">github.com/marekventur</a></li>
+                </ul>
+            </nav>
+            <summary>
+                <p>Looking for new and interesting things to work on, I moved from Germany to the UK in 2011. I enjoy finding new, creative and unusual solutions and using the newest technologies.</p>
+                <p>My focus and interest lies in back-end development that power large scale services that are used (and hopefully enjoyed) by many.</p>
+            </summary>
+            <section>
+                <h2>Employment history</h2>
+
+                <h3>Last.fm (Dec 2012 - Present), London</h3>
+                <h4>Java Developer</h4>
+
+                <summary class="job-tldr">Designing and maintaining back-end services in Java, venturing into Hadoop and Big Data</summary>
+
+                <ul>
+                    <li>Refactoring and enhancements for <a href="http://musicmanager.last.fm">Music Manager</a>, a plattform for labels that supplies most of Last.fm's streams (Java, Spring, Maven, Thrift)</li>
+                    <li>Data research (Hadoop, Hive, SQL)</li>
+                </ul>
+
+                <h3>Last.fm (Oct 2011 - Dec 2012), London</h3>
+                <h4>Web Developer</h4>
+
+                <summary class="job-tldr">Back-end focused, with occasional front end projects in a 10 to 5 developer sized agile team. <span class="keywords">(HTML, CSS, JS, PHP, Apache)</span></summary>
+
+                <ul>
+                    <li>Migrated a <a href="http://www.last.fm/tools/charts">chart-image generator service</a>, serving millions of requests per day, to Apache and ImageMagick</li>
+                    <li>Maintenance and debugging of infrastructure that handles user-uploaded images</li>
+                    <li>Suggested and implemented parts of Last.fm's "frictionless sharing" to Facebook</li>
+                    <li>Suggested, prototyped, designed and implemented main parts of Last.fm's <a href="http://www.last.fm/live">realtime charts</a> infrastructure (Node.js, WebSockets, Varnish)</li>
+                    <li>Integrating HTML5 app <a href="http://www.last.fm/discover">Last.fm/discover</a> into our stack after is has been developed by third part developers
+                    </li><li>Helped implement <a href="http://www.last.fm/labs">Labs</a>, a way to ship beta-grade-features for feedback, drove "labification" of first four labs</li>
+                    <li>Took part in a major <a href="http://blog.last.fm/2012/08/03/design-changes-to-lastfm">redesign project</a></li>
+                    <li>Had lots of fun <a href="http://www.last.fm/christmas">annoying my colleagues</a> over Christmas</li>
+                </ul>
+
+                <h3>IBM (Oct 2008 - Nov 2011), Mannheim and Mainz</h3>
+                <h4>Corporate Student, 6 internships</h4>
+
+                <summary class="job-tldr">3 months of University followed by 3 months of internships, repeated six times. A good way of getting into both the academical and the business side of IT.</summary>
+
+                <ul>
+                    <li>Planning, design and development of a virtual walkabout through an IBM datacenter, designed to be multi-lingual and multi-tenancy <span class="keywords">(Java, HTML, CSS, JS)</span></li>
+                    <li>Assisting an international team in analyzing SaaS offers and evaluation of leads created by business partners <span class="keywords">(EC2, AWS, GAE)</span></li>
+                    <li>Development of various tools to improve reusability of automated test cases on z/Linux <span class="keywords">(Linux, software testing)</span></li>
+                    <li>Development, roll out and support of a web based process planning tool <span class="keywords">(PHP, CSS, DB2)</span></li>
+                    <li>Integration of internal knowledge-sharing-plattform into other services to increase awareness of the service <span class="keywords">(Java)</span></li>
+                </ul>
+            </section>
+
+            <section class="education">
+                <h2>Stuff I'm good at (and like doing)</h2>
+                <ul>
+                    <li>Agile development (Scrum, Kanban)</li>
+                    <li>Apache on Linux</li>
+                    <li>Log file analysis (I love bash one-liners)</li>
+                    <li>Programming for a large scale environment (Java, PHP)</li>
+                    <li>SQL (MySQL, PostgreSQL, Hive)</li>
+                    <li>JavaScript, jQuery, NodeJS</li>
+                </ul>
+            </section>
+
+            <section class="education">
+                <h2>Education</h2>
+
+                <h3>Baden-Wuerttemberg Cooperative State University Mannheim (Oct 2008 - Nov 2011)</h3>
+                <h4>BSc Science, Business Informatics</h4>
+                <p>6 theoretical terms, 6 internships at IBM</p>
+            </section>
+
+            <section class="private-projects">
+                <h2>Private projects</h2>
+                <small>(Sorry, they are mostly in German)</small>
+                <ul>
+                    <li><a href="http://www.rapidletter.de">rapidletter.de</a> – Generate formal .pdf letters</li>
+                    <li><a href="http://www.wortopia.de">wortopia.de</a> – Multiplayer boggle clone</li>
+                    <li><a href="http://qtagr.com">qtagr.com</a> – A service to create changeable QR-Codes (Back when they were still cool)</li>
+                    <li><a href="http://youchoose.cloudfoundry.com/">YouChoose</a> – A collaborative YouTube playlisting service (Hackday project)</li>
+                    <li><a href="http://urmash.com/">u r mash</a> – A HTML/JS/node.js powered multiplayer racing game (Hackday project)</li>
+                </ul>
+            </section>
+            <section>
+
+                <h2>Also...</h2>
+                <ul>
+                    <li>I love living in London, but I wouldn't say no to discovering (and moving to) new great places</li>
+                    <li>I enjoy working on projects that have a positive impact on peoples lives</li>
+                    <li>Coming up with and prototyping new ideas is one of the things I most love about programming</li>
+                    <li>I can get really passionate about new technology. When can I have my brain interface?</li>
+                    <li>I'm terrible at playing foosball (but I still really like playing it)</li>
+                </ul>
+            </section>
+            <footer>
+                <p>Liked what you read? Get in touch <a href="mailto:mail@marekventur.de">mail@marekventur.de</a></p>
+            </footer>
+        </article>
+
+
+</div></body></html>
