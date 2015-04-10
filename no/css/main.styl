@@ -1,3 +1,69 @@
-html {
-    color: red;
+@import "../node_modules/nib/lib/nib/index.styl"
+@import "mixins.styl"
+@import "reset.styl"
+@import "colors.styl"
+
+body {
+    background-color: color-background;
+    color: color-text;
+    margin: 10px;
+    font-family: Arial;
+    font-size: 1.1em;
+    background-image: url(/img/cream-dust.png);
 }
+
+h1, h2, h3, h4 {
+    color: color-text;
+}
+
+container-width = 960px;
+.container {
+    width: container-width;
+    margin: 0 auto;
+}
+
+a, a:visited {
+    color: color-text;
+}
+
+h1 {
+    font-family: 'Bowlby One SC', cursive;
+    font-size: 4em;
+    margin-bottom: 10px;
+    /*text-shadow-3d(2px, 3px);*/
+
+    small {
+        font-size: 0.5em;
+    }
+}
+
+section {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    line-height: 1.2em;
+    margin-right: 20px;
+
+    width: (container-width -  @margin-right * 2 - @padding * 4) * 0.5;
+    float: left;
+    background: color-box-background
+    color: color-box-text;
+
+    a, a:visited {
+        color: color-box-text;
+    }
+
+    for color, i in color-box-headers {
+        &:nth-child({length(color-box-headers)}n + {i}) h2 {
+            color: color-box-headers[i];
+        }
+    }
+
+    h2 {
+        font-family: 'Bangers', cursive;
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+
+}
+
