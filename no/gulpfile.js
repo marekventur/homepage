@@ -4,6 +4,7 @@
 var gulp = require("gulp");
 var server = require("gulp-develop-server");
 var stylus = require("gulp-stylus");
+var concat = require('gulp-concat');
 var browserify = require('browserify');
 var babelify = require("babelify");
 var connect = require('gulp-connect');
@@ -31,9 +32,7 @@ gulp.task("js", function() {
 gulp.task("css", function() {
     return gulp.src("./css/main.styl")
         .pipe(stylus())
-        .on('error', function(e) {
-            console.log(e);
-        })
+        .pipe(concat('main.css'))
         .pipe(gulp.dest("./build"))
         .pipe(connect.reload());
 });
