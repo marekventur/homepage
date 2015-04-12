@@ -1,51 +1,83 @@
-@import "../node_modules/nib/lib/nib/index.styl"
-@import "mixins.styl"
-@import "reset.styl"
-@import "colors.styl"
+@import "nib"
+@import "mixins"
+@import "reset"
+@import "colors"
 
 body {
     background-color: color-background;
     color: color-text;
     margin: 10px;
     font-family: Arial;
-    font-size: 1.1em;
     background-image: url(/img/cream-dust.png);
 }
 
 h1, h2, h3, h4 {
     color: color-text;
+    clear: left;
+}
+
+h2.main-box, h2, h3 {
+    font-family: 'Bowlby One SC', cursive; /*Bangers*/
+    font-size: 1.0em;
+}
+
+h1 {
+    font-family: 'Bowlby One SC', cursive;
+    font-size: 5em;
+    @media screen and (max-width:700px) { font-size: 4em; }
+    @media screen and (max-width:600px) { font-size: 3.5em; }
+    @media screen and (max-width:500px) { font-size: 3em; }
+    @media screen and (max-width:450px) { font-size: 2.5em; }
+    @media screen and (max-width:375px) { font-size: 2em; }
+    @media screen and (max-width:300px) { font-size: 1.5em; }
+
+    margin-bottom: 10px;
+
+    small {
+        font-size: 0.5em;
+
+        @media screen and (max-width: 900px) {
+            display: none;
+        }
+    }
+}
+
+h3 {
+    position: relative;
+    color: color-box-text;
+
+    a {
+        text-decoration: none;
+    }
 }
 
 container-width = 960px;
 .container {
-    width: container-width;
+    max-width: container-width;
     margin: 0 auto;
+    position: relative;
 }
 
 a, a:visited {
     color: color-text;
 }
 
-h1 {
-    font-family: 'Bowlby One SC', cursive;
-    font-size: 4em;
-    margin-bottom: 10px;
-    /*text-shadow-3d(2px, 3px);*/
-
-    small {
-        font-size: 0.5em;
+.main-box-container {
+    ul {
+        text-align: justify;
     }
 }
 
-section {
+.main-box {
     display: block;
     margin-bottom: 10px;
     padding: 10px;
     line-height: 1.2em;
-    margin-right: 20px;
+    border-radius: 2px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
 
-    width: (container-width -  @margin-right * 2 - @padding * 4) * 0.5;
-    float: left;
     background: color-box-background
     color: color-box-text;
 
@@ -53,17 +85,139 @@ section {
         color: color-box-text;
     }
 
-    for color, i in color-box-headers {
-        &:nth-child({length(color-box-headers)}n + {i}) h2 {
+    h2, h3, p {
+        margin-bottom: 5px;
+    }
+}
+
+.main-box--half-size {
+    @media screen and (min-width:960px) {
+        display: block;
+        float: left;
+        width: container-width * 0.5 - 25px;
+
+        &:nth-child(2n+1) {
+            margin-right: 10px;
+        }
+    }
+}
+
+.main-box--thirds {
+    @media screen and (min-width:960px) {
+        display: block;
+        float: left;
+        width: container-width * 0.33 - 25px;
+
+        &:nth-child(3n+1),
+        &:nth-child(3n+2) {
+            margin-right: 10px;
+        }
+    }
+}
+
+h2.main-headline {
+    margin-bottom: 10px;
+    font-size: 2em;
+
+    /*for color, i in color-box-headers {
+        &:nth-child({length(color-box-headers)}n + {i}) {
             color: color-box-headers[i];
+        }
+    }*/
+}
+
+.interested-in,
+.good-at {
+    @media screen and (min-width:960px) {
+        li {
+            min-height: 38px;
         }
     }
 
-    h2 {
-        font-family: 'Bangers', cursive;
-        font-size: 1.2em;
-        margin-bottom: 5px;
+    em {
+        font-weight: bold;
     }
-
 }
 
+.things-i-did {
+    thumbnail-factor = 0.18; /* Original image size 997 x 732 */
+    thumbnail-width = 997px * thumbnail-factor;
+    thumbnail-height = 732px * thumbnail-factor;
+    one-column-point = container-width * 0.5 - 27px;
+
+    li {
+        min-height: thumbnail-height + 25px;
+
+        p {
+            position: relative;
+
+            &.qualifier {
+                color: color-box-text-minor;
+                font-size:0.8em;
+
+
+
+            }
+        }
+
+        ul.links {
+
+            li {
+                margin-right: 10px;
+                min-height: 0px;
+                display: inline-block;
+
+                a {
+                    text-decoration: none
+                    color: color-box-text-minor;
+                    font-size:1em;
+                }
+            }
+        }
+
+        img {
+            width: thumbnail-width;
+            height: thumbnail-height;
+
+            top: 10px;
+        }
+
+        @media screen and (min-width:one-column-point) {
+            p {
+                margin-left: thumbnail-width + 10px;
+
+                &.qualifier {
+                    position: absolute;
+                    bottom: 5px;
+                    margin-left: 0px;
+                    margin-bottom: 0px;
+                }
+            }
+            h3 {
+                margin-left: thumbnail-width + 10px;
+            }
+            ul.links {
+                position: absolute;
+                left: thumbnail-width + 20px;
+                bottom: 5px;
+                text-align: right;
+                right: 0px;
+            }
+            img {
+                position: absolute;
+            }
+        }
+    }
+}
+
+.get-in-touch {
+    h3 {
+        margin-bottom: 0px;
+        .fa {
+            font-size: 1.1em;
+            display: inline-block;
+            width: 1.3em;
+            text-align: center;
+        }
+    }
+}

@@ -8,61 +8,131 @@
     <meta name="description" content="Personal site of Marek Ventur">
     <meta name="author" content="Marek Ventur">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="/main.css">
-    <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Bowlby+One+SC' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Bangers" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <div class="container">
         <h1>Marek Ventur <small>dot com</small></h1>
-        <section class="introduction">
-            <h2>Hi! I'm Marek.</h2>
-            <p>I'm a developer and I enjoy working on Frontend and Backend tasks alike. I got my BSc degree working for IBM in Germany until I finally decided to move abroad. I arrived in London at <a href="http://last.fm">Last.fm</a> and have moved on to work at <a href="http://gamevy.com">Gamevy</a> since.</p>
-            <p>I spend a lot of my time walking through London listening to Science Fiction audio books (get in touch if you have any recommendations!). You might find me in a pub or sometimes at <a href="https://london.hackspace.org.uk/">London Hackspace</a>.</p>
-        </section>
-        <section class="good-at">
-            <h2>Things I'm good at:</h2>
-            <ul>
-                <li>Backend: Javascript, Java, PHP, SQL (Python)</li>
-                <li>Frontend: Javascript (jQuery, AngularJS), CSS, (Objective-C, C++)</li>
-                <li>Linux: Administration, Automation, Scaling, HTTP, stupid BASH one-liners</li>
-                <li>Prototyping/Hacking (Here's a <a href="http://u-r-mash.com/">hackday game</a> I helped make)</li>
-                <li>Languages: English, German</li>
-            </ul>
-        </section>
-         <section class="interested-in">
-            <h2>Things I'm interested in:</h2>
-            <ul>
-                <li>Machine Learning</li>
-                <li>Cryptography</li>
-                <li>Game Design</li>
-                <li>Hardware Programming (I wrote a lot of code for <a href="https://wiki.emfcamp.org/wiki/TiLDA_MKe">this</a>)</li>
-            </ul>
-        </section>
-        <section class="things-i-did">
-            <h2>Things I did</h2>
-            <ul>
-                <li><a href="http://www.rapidletter.de">rapidletter.de</a> – Generate formal .pdf letters [German, <a href="https://github.com/marekventur/rapidletter">Code</a>]</li>
-                <li><a href="http://www.wortopia.de">wortopia.de</a> – Multiplayer boggle clone. [German, <a href="https://github.com/marekventur/wortopia-node">Code</a>]</li>
-                <li>YouChoose – A collaborative YouTube playlisting service [Hackday team project, only <a href="https://github.com/hackfm/YouChoose">the code</a> has survived]</li>
-                <li><a href="http://urmash.com/">u r mash</a> – A HTML/JS/node.js powered multiplayer racing game [Hackday team project, <a href="https://github.com/hackfm/gamehack">Code</a>]</li>
-                <li><a href="https://last.fm/live">last.fm/live</a> - Constantly updating charts of what people are listening to right this minute.</li>
-                <li><a href="https://last.fm/christmas">last.fm/christmas</a> - How many people are currently listening to Christmas songs?</li>
-                <li><a href="https://clientroomradio.com/">clientroomradio.com</a> - Collective radio listening with chat, skip-voting and adaptive playlisting [<a href="https://github.com/clientroomradio/clientroomradio">Code</a>]</li>
-            </ul>
-        </section>
-        <section class="get-in-touch">
-            <h2>Get in touch:</h2>
-            <ul>
-                <li><a href="https://twitter.com/marekventur">Twitter</a></li>
-                <li><a href="https://last.fm/user/marekventur">Last.fm</a></li>
-                <li><a href="https://www.goodreads.com/user/show/8630594-marek-ventur">Goodreads</a></li>
-                <li><a href="https://foursquare.com/marekventur">Foursquare</a></li>
-                <li><a href="mailto:mail@marekventur.de">mail@marekventur.de</a></li>
-                <li>IRC: marekventur on Freenode</li>
-            </ul>
-        </section>
+        <div class="content">
+            <section class="introduction main-box=container">
+                <h2 class="main-headline">Hi! I'm Marek.</h2>
+                <div  class="main-box">
+                    <p>I'm a developer and enjoy working on Frontend and Backend tasks alike. I got my BSc degree working for IBM in Germany until I finally decided to move abroad. I arrived in London at <a href="http://last.fm">Last.fm</a> and have moved on to work at <a href="http://gamevy.com">Gamevy</a> since.</p>
+                    <p>I spend a lot of my time walking through London listening to Science Fiction audio books (get in touch if you have any recommendations!). You might find me in a pub or sometimes at <a href="https://london.hackspace.org.uk/">London Hackspace</a>.</p>
+                </div>
+            </section>
+            <section class="good-at main-box-container">
+                <h2 class="main-headline">Things I'm good at</h2>
+                <ul>
+                    <li class="main-box main-box--half-size"><em>Backend:</em> Javascript, Java, PHP, SQL (Python)</li>
+                    <li class="main-box main-box--half-size"><em>Frontend:</em> Javascript, CSS, (Objective-C, C++)</li>
+                    <li class="main-box main-box--half-size"><em>Linux:</em> Administration, Automation, Scaling, HTTP, stupid BASH one-liners</li>
+                    <li class="main-box main-box--half-size"><em>Prototyping/Hacking:</em> (I love testing game mechanics)</li>
+                    <li class="main-box main-box--half-size"><em>Game Design</em> </li>
+                    <li class="main-box main-box--half-size"><em>Languages:</em> English, German</li>
+                </ul>
+            </section>
+             <section class="interested-in main-box-container">
+                <h2 class="main-headline">Things I'm interested in</h2>
+                <ul>
+                    <li class="main-box main-box--half-size"><em>Machine Learning</em></li>
+                    <li class="main-box main-box--half-size"><em>Cryptography</em> (I once tried to write a public/private encryption from scatch in Delphi 3. It was terrible, but it worked)</li>
+
+                    <li class="main-box main-box--half-size"><em>Hardware Programming</em> (I wrote a lot of code for <a href="https://wiki.emfcamp.org/wiki/TiLDA_MKe">this</a>)</li>
+                </ul>
+            </section>
+            <section class="things-i-did main-box-container">
+                <h2 class="main-headline">Things I did</h2>
+                <ul>
+                    <li class="main-box main-box--half-size">
+                        <h3><a href="http://www.wortopia.de">wortopia.de</a></h3>
+                        <img src="/img/wortopia.png" alt="Screenshot">
+                        <p>Multiplayer boggle clone. Compete against other players by finding the most words on the board. Over 1800 active players find over 1M words every month.</p>
+                        <p class="qualifier">[German]</p>
+                        <ul class="links">
+                            <li><a href="https://github.com/marekventur/wortopia-node"><i class="fa fa-github-square"></i> code</a></li>
+                            <li><a href="http://wortopia.de"><i class="fa fa-external-link"></i> link</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-box main-box--half-size">
+                        <h3><a href="http://www.rapidletter.de">rapidletter.de</a></h3>
+                        <img src="/img/rapidletter-1.png" alt="Screenshot">
+                        <p>Online letter editor, with th3plates, account managh3ent and PDF export, based on standard letter formats. Serves about 1000 letters each month.</p>
+                        <p class="qualifier">[German]</p>
+                        <ul class="links">
+                            <li><a href="https://github.com/marekventur/rapidletter"><i class="fa fa-github-square"></i> code</a></li>
+                            <li><a href="http://www.rapidletter.de"><i class="fa fa-external-link"></i> link</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-box main-box--half-size">
+                        <h3><a href="http://urmash.com/">u r mash</a></h3>
+                        <img src="/img/urmash.png" alt="Screenshot">
+                        <p>Award-winning retro-style HTML5 racing game with multiplayer functionality and procedural map. From idea to finished game in 24h.</p>
+                        <p class="qualifier">[Hackday team project]</p>
+                        <ul class="links">
+                            <li><a href="https://github.com/hackfm/gamehack"><i class="fa fa-github-square"></i> code</a></li>
+                            <li><a href="http://urmash.com/"><i class="fa fa-external-link"></i> link</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-box main-box--half-size">
+                        <h3><a href="https://clientroomradio.com/">clientroomradio.com</a></h3>
+                        <img src="/img/clientroomradio.png" alt="Screenshot">
+                        <p>Collective music streaming with chat, skip-voting and adaptive playlisting. Listening is invite only, sorry.</p>
+                        <p class="qualifier">[Hackday team project]</p>
+                        <ul class="links">
+                            <li><a href="https://github.com/clientroomradio/clientroomradio"><i class="fa fa-github-square"></i> code</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="main-box main-box--half-size">
+                        <h3><a href="https://github.com/hackfm/YouChoose">YouChoose</a></h3>
+                        <img src="/img/youchoose.png" alt="Screenshot">
+                        <p>A collaborative YouTube playlisting service, suggest your favourite videos and up/down vote other's submissions.</p>
+                        <p class="qualifier">[Hackday team project]</p>
+                        <ul class="links">
+                            <li><a href="https://github.com/hackfm/YouChoose"><i class="fa fa-github-square"></i> code</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="main-box main-box--half-size">
+                        <h3><a href="https://last.fm/live">last.fm/live</a></h3>
+                        <img src="/img/lastfm-live.png" alt="Screenshot">
+                        <p>Charts that are never older than 10 seconds, based on what is scrobbled right now on the planet.</p>
+                        <p class="qualifier">[work project, last.fm]</p>
+                        <ul class="links">
+                            <li><a href="https://last.fm/live"><i class="fa fa-external-link"></i> link</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-box main-box--half-size">
+                        <h3><a href="https://last.fm/christmas">last.fm/christmas</a></h3>
+                        <img src="/img/lastfm-christmas.png" alt="Screenshot">
+                        <p>How many people are currently listening to Christmas songs?</p>
+                        <p class="qualifier">[work project, last.fm]</p>
+                        <ul class="links">
+                            <li><a href="https://last.fm/christmas"><i class="fa fa-external-link"></i> link</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </section>
+            <section class="get-in-touch main-box-container">
+                <h2 class="main-headline">Get in touch</h2>
+                <ul>
+                    <li class="main-box main-box--thirds"><h3><a href="https://twitter.com/marekventur"><i class="fa fa-twitter"></i> Twitter</a></h3></li>
+                    <li class="main-box main-box--thirds"><h3><a href="https://last.fm/user/marekventur"><i class="fa fa-lastfm"></i> Last.fm</a></h3></li>
+                    <li class="main-box main-box--thirds"><h3><a href="https://www.goodreads.com/user/show/8630594-marek-ventur"><i class="fa fa-book"></i> Goodreads</a></h3></li>
+                    <li class="main-box main-box--thirds"><h3><a href="https://foursquare.com/marekventur"><i class="fa fa-foursquare"></i> Foursquare</a></h3></li>
+                    <li class="main-box main-box--thirds"><h3><a href="mailto:mail@marekventur.de"><i class="fa fa-envelope-o"></i> mail@marekventur.de</a></h3></li>
+                    <li class="main-box main-box--thirds"><h3><i class="fa fa-weixin"></i> IRC: marekventur on Freenode</h3></li>
+                </ul>
+            </section>
+        </div>
     </div>
 
     <script src="/main.js"></script>

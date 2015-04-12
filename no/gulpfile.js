@@ -9,12 +9,15 @@ var browserify = require('browserify');
 var babelify = require("babelify");
 var connect = require('gulp-connect');
 var source = require("vinyl-source-stream");
+var nib = require("nib");
+var notify = require("gulp-notify");
+var htmlhint = require("gulp-htmlhint");
 
 gulp.task('server', function() {
-  connect.server({
-    root: __dirname + '/build',
-    livereload: true
-  });
+    connect.server({
+        root: __dirname + '/build',
+        livereload: true
+    });
 });
 
 gulp.task("js", function() {
@@ -31,14 +34,26 @@ gulp.task("js", function() {
 
 gulp.task("css", function() {
     return gulp.src("./css/main.styl")
-        .pipe(stylus())
-        .pipe(concat('main.css'))
+        .pipe(stylus({ use: [nib()] }))
+        .on('error', notify.onError(function(err) {
+            var errorName = err.name;
+            var errorMessage = err.message;
+            var lines = err.message.split("\n");
+            var shorterErrorMessage = [lines[5], lines[11]].join("\n")
+            console.log("[Stylus] " + errorName + "\n" + errorMessage);
+            return "[Stylus] " + errorName + "\n" + shorterErrorMessage;
+        }))
         .pipe(gulp.dest("./build"))
         .pipe(connect.reload());
 });
 
 gulp.task("html", function () {
     gulp.src("index.html")
+    .pipe(htmlhint())
+    .pipe(htmlhint.failReporter())
+    .on('error', notify.onError(function(err) {
+        return err.message;
+    }))
     .pipe(gulp.dest("build/"))
     .pipe(connect.reload());
 });
@@ -59,15 +74,3 @@ gulp.task("watch", ["build"], function () {
 });
 
 gulp.task("default", ["build", "server", "watch"]);
-
-//create folders using shell
-gulp.task('scaffold', function() {
-  return shell.task([
-      'mkdir dist',
-      'mkdir dist/fonts',
-      'mkdir dist/images',
-      'mkdir dist/scripts',
-      'mkdir dist/styles'
-    ]
-  );
-});
