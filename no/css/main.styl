@@ -9,22 +9,45 @@ body {
     margin: 10px;
     font-family: Arial;
     background-image: url(/img/cream-dust.png);
-    -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4 {
+em {
+    font-weight: bold;
+}
+
+a, a:visited {
+    color: color-box-text;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+/***********
+ * Container
+ ***********/
+
+container-width = 960px;
+collapse-point = container-width + 20px; /* Used for media queries, includes margin*/
+.container {
+    max-width: container-width;
+    margin: 0 auto;
+    position: relative;
+}
+
+/***********
+ * Headers
+ ***********/
+
+h1, h2, h3 {
     color: color-text;
     clear: left;
+    position: relative;
+    font-family: 'Bowlby One SC', cursive;
 
-}
-
-h2.main-box, h2, h3 {
-    font-family: 'Bowlby One SC', cursive; /*Bangers*/
-    font-size: 1.0em;
 }
 
 h1 {
-    font-family: 'Bowlby One SC', cursive;
     font-size: 5em;
     @media screen and (max-width:700px) { font-size: 4em; }
     @media screen and (max-width:600px) { font-size: 3.5em; }
@@ -44,131 +67,103 @@ h1 {
     }
 }
 
-h3 {
-    position: relative;
-    color: color-box-text;
+h2 {
+    margin-bottom: 10px;
+    font-size: 2em;
+}
 
+h3 {
+    color: color-box-text;
     a {
         text-decoration: none;
     }
 }
 
-container-width = 960px;
-.container {
-    max-width: container-width;
-    margin: 0 auto;
-    position: relative;
-}
+/***********
+ * Boxes
+ ***********/
 
-a, a:visited {
-    color: color-text;
-}
-
-.main-box-container {
-    ul {
-        text-align: justify;
-    }
-
-    &.half-size {
-        @media screen and (min-width:960px) {
-            display: block;
-            float: left;
-            width: container-width * 0.5 - 5px;
-
-            &:nth-child(2n+0) {
-                margin-right: 10px;
-            }
-        }
-    }
-}
-
-.main-box {
+box() {
     display: block;
-    margin-bottom: 10px;
-    padding: 10px;
     line-height: 1.2em;
     border-radius: 2px;
     text-align: left;
     position: relative;
     overflow: hidden;
-
-    background: color-box-background
+    background: color-box-background;
     color: color-box-text;
+    padding: 10px;
 
-    a, a:visited {
-        color: color-box-text;
-    }
-
-    h2, h3, p {
-        margin-bottom: 5px;
-    }
+    margin-bottom: 10px;
 }
 
-.main-box--half-size {
-    @media screen and (min-width:960px) {
+half-size(gap = 5px, childOffset=0) {
+    @media screen and (min-width:collapse-point) {
         display: block;
         float: left;
-        width: container-width * 0.5 - 25px;
+        width: container-width * 0.5 - gap;
 
-        &:nth-child(2n+1) {
+        &:nth-child(2n+{childOffset}) {
             margin-right: 10px;
         }
     }
 }
 
-h2.main-headline {
-    margin-bottom: 10px;
-    font-size: 2em;
-
-    /*for color, i in color-box-headers {
-        &:nth-child({length(color-box-headers)}n + {i}) {
-            color: color-box-headers[i];
-        }
-    }*/
+half-size-box(childOffset=1) {
+    box();
+    half-size(25px, childOffset);
 }
 
+/***********
+ * Sections
+ ***********/
+
 .introduction {
-    a, a:visited {
-        color: color-box-text;
-
-
+    .main-text {
+        box();
     }
 
-    @media screen and (min-width:960px) {
-        a.main-box--small,
-        a:visited.main-box--small {
-            text-decoration: none;
-            &:hover {
-                background: color-contrast;
-                color: color-contrast-text;
-            };
+    .contact {
+        a, .no-link {
+            box();
         }
-        .main-box--small {
-            width: 130px;
 
-            font-size: 2em;
-            text-align: center;
-            min-height: 70px;
-
-
-
-
-            .description {
+        @media screen and (min-width:collapse-point) {
+            li {
                 display: block;
-                font-size: 0.8rem;
-                text-decoration: none;
-                line-height: 1.2em;
-            }
+                float: left;
 
-        }
+                margin-left: 10px;
+                &:nth-child(1) {
+                    margin-left: 0px;
+                }
 
-        li {
-            margin-left: 12px;
-            display: block;
-            float: left;
+                a, &.no-link {
 
-            &:nth-child(1) {
-                margin-left: 0px;
+
+                    width: 131px;
+                    text-decoration: none;
+                    font-size: 2em;
+                    text-align: center;
+                    min-height: 70px;
+
+                    &:hover {
+                        background: color-contrast;
+                        color: color-contrast-text;
+                    }
+
+                    .description {
+                        display: block;
+                        font-size: 0.8rem;
+                        line-height: 1.2em;
+                    }
+                }
+
+                &:nth-child(2n+1) {
+                    a {
+                        width: 132px; /* Make some boxes 1px wider to make them align with 960px*/
+                    }
+                }
             }
         }
     }
@@ -176,18 +171,18 @@ h2.main-headline {
 
 .interested-in,
 .good-at {
-    @media screen and (min-width:960px) {
-        ul.main-box {
+    half-size();
+
+    ul {
+        box();
+
+        @media screen and (min-width:collapse-point) {
             min-height: 165px;
         }
-    }
 
-    li {
-        margin-bottom: 5px;
-    }
-
-    em {
-        font-weight: bold;
+        li {
+            margin-bottom: 5px;
+        }
     }
 }
 
@@ -198,6 +193,8 @@ h2.main-headline {
     one-column-point = container-width * 0.5 - 27px;
 
     li {
+        half-size-box();
+
         min-height: thumbnail-height + 25px;
 
         p {
@@ -206,14 +203,10 @@ h2.main-headline {
             &.qualifier {
                 color: color-box-text-minor;
                 font-size:0.8em;
-
-
-
             }
         }
 
         ul.links {
-
             li {
                 margin-right: 10px;
                 min-height: 0px;
@@ -230,7 +223,6 @@ h2.main-headline {
         img {
             width: thumbnail-width;
             height: thumbnail-height;
-
             top: 10px;
         }
 
