@@ -12,6 +12,7 @@ var source = require("vinyl-source-stream");
 var nib = require("nib");
 var notify = require("gulp-notify");
 var htmlhint = require("gulp-htmlhint");
+var merge = require('gulp-merge');
 
 gulp.task('server', function() {
     connect.server({
@@ -22,12 +23,15 @@ gulp.task('server', function() {
 
 gulp.task("js", function() {
     return browserify({
-            entries: "./js/main.js",
-            debug: true,
-            transform: [babelify]
-        })
+                entries: "./js/main.js",
+                debug: true,
+                transform: [babelify]
+            })
         .bundle()
-        .pipe(source("main.js"))
+        .on('error', notify.onError(function(err) {
+            return "[JS] " + err.message;
+        }))
+        .pipe(source('main.js'))
         .pipe(gulp.dest("build/"))
         .pipe(connect.reload());
 });
