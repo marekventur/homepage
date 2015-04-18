@@ -1,0 +1,20 @@
+{
+  "name": "marekventur.com",
+  "version": "0.0.0",
+  "homepage": "https://github.com/marekventur/homepage",
+  "authors": [
+    "Marek Ventur <marekventur@gmail.com>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome-stylus": "~4.3.0"
+  }
+}

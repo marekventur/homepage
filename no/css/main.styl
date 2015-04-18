@@ -3,6 +3,10 @@
 @import "reset"
 @import "colors"
 
+$fa-font-path = "/bower/font-awesome-stylus/fonts"
+@import "../bower/font-awesome-stylus/stylus/index"
+
+
 body {
     background-color: color-background;
     color: color-text;
@@ -124,12 +128,47 @@ half-size-box(childOffset=1) {
     }
 
     .contact {
-        a, .no-link {
+        a {
             box();
             text-decoration: none;
         }
 
+        .twitter a {
+            fa("twitter");
+            display: block;
+        }
+        .lastfm a {
+            fa("lastfm");
+            display: block;
+        }
+        .goodreads a {
+            fa("book");
+            display: block;
+        }
+        .foursquare a {
+            fa("foursquare");
+            display: block;
+        }
+        .email a {
+            fa("envelope-o");
+            display: block;
+        }
+        .irc a {
+            fa("weixin");
+            display: block;
+        }
+
+        @media screen and (max-width:collapse-point) {
+            a:before {
+                padding-right:4px;
+            }
+        }
+
         @media screen and (min-width:collapse-point) {
+            a:before {
+                line-height: 38px;
+            }
+
             li {
                 display: block;
                 float: left;
@@ -139,30 +178,32 @@ half-size-box(childOffset=1) {
                     margin-left: 0px;
                 }
 
-                a, &.no-link {
+                a{
 
 
-                    width: 131px;
+                    width: 151px;
 
                     font-size: 2em;
                     text-align: center;
                     min-height: 70px;
+                    padding: 10px 0px;
 
                     &:hover {
                         background: color-contrast;
                         color: color-contrast-text;
                     }
 
-                    .description {
+                    span {
                         display: block;
                         font-size: 0.8rem;
                         line-height: 1.2em;
                     }
+
                 }
 
                 &:nth-child(2n+1) {
                     a {
-                        width: 132px; /* Make some boxes 1px wider to make them align with 960px*/
+                        width: 152px; /* Make some boxes 1px wider to make them align with 960px*/
                     }
                 }
             }
@@ -212,6 +253,18 @@ half-size-box(childOffset=1) {
                 margin-right: 10px;
                 min-height: 0px;
                 display: inline-block;
+
+                &.code a {
+                    fa("github-square");
+                }
+
+                &.link a {
+                    fa("external-link");
+                }
+
+                a:before {
+                    padding-right: 3px;
+                }
 
                 a {
                     text-decoration: none

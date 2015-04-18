@@ -12,6 +12,7 @@ var source = require("vinyl-source-stream");
 var nib = require("nib");
 var notify = require("gulp-notify");
 var htmlhint = require("gulp-htmlhint");
+var bower = require('gulp-bower');
 
 gulp.task('server', function() {
     connect.server({
@@ -67,13 +68,19 @@ gulp.task("img", function () {
     .pipe(connect.reload());
 });
 
-gulp.task("build", ["js", "css", "html", "img"]);
+gulp.task("bower", function () {
+    return bower('./bower')
+    .pipe(gulp.dest('./build/bower'));
+});
+
+gulp.task("build", ["js", "css", "html", "img", "bower"]);
 
 gulp.task("watch", ["build"], function () {
     gulp.watch("index.html", ["html"]);
     gulp.watch("img/**", ["img"]);
     gulp.watch("js/*.js", ["js"]);
     gulp.watch("css/*.styl", ["css"]);
+    gulp.watch("bower.json", ["bower"]);
 });
 
 gulp.task("default", ["build", "server", "watch"]);
