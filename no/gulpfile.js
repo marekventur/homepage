@@ -73,7 +73,7 @@ gulp.task("bower", function () {
     .pipe(gulp.dest('./build/bower'));
 });
 
-gulp.task("build", ["js", "css", "html", "img", "bower"]);
+gulp.task("build", ["bower", "js", "css", "html", "img"]);
 
 gulp.task("watch", ["build"], function () {
     gulp.watch("index.html", ["html"]);
