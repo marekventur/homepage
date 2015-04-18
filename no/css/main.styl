@@ -192,7 +192,7 @@ half-size-box(childOffset=1) {
     thumbnail-height = 732px * thumbnail-factor;
     one-column-point = container-width * 0.5 - 27px;
 
-    li {
+    >ul>li {
         half-size-box();
 
         min-height: thumbnail-height + 25px;
@@ -218,6 +218,14 @@ half-size-box(childOffset=1) {
                     font-size:1em;
                 }
             }
+
+            @media screen and (min-width:one-column-point) {
+                position: absolute;
+                left: thumbnail-width + 20px;
+                bottom: 5px;
+                text-align: right;
+                right: 0px;
+            }
         }
 
         img {
@@ -240,16 +248,14 @@ half-size-box(childOffset=1) {
             h3 {
                 margin-left: thumbnail-width + 10px;
             }
-            ul.links {
-                position: absolute;
-                left: thumbnail-width + 20px;
-                bottom: 5px;
-                text-align: right;
-                right: 0px;
-            }
+
             img {
                 position: absolute;
             }
+        }
+
+        @media screen and (max-width:one-column-point) {
+            padding-bottom: 25px
         }
     }
 }
