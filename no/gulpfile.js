@@ -12,7 +12,6 @@ var source = require("vinyl-source-stream");
 var nib = require("nib");
 var notify = require("gulp-notify");
 var htmlhint = require("gulp-htmlhint");
-var merge = require('gulp-merge');
 
 gulp.task('server', function() {
     connect.server({
