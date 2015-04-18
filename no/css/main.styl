@@ -129,22 +129,29 @@ h2.main-headline {
 
 .introduction {
     a, a:visited {
-        text-decoration: none;
         color: color-box-text;
 
-        &:hover {
-            background: color-contrast;
-            color: color-contrast-text;
-        };
+
     }
 
     @media screen and (min-width:960px) {
+        a.main-box--small,
+        a:visited.main-box--small {
+            text-decoration: none;
+            &:hover {
+                background: color-contrast;
+                color: color-contrast-text;
+            };
+        }
         .main-box--small {
-
             width: 130px;
 
             font-size: 2em;
             text-align: center;
+            min-height: 70px;
+
+
+
 
             .description {
                 display: block;
@@ -169,6 +176,12 @@ h2.main-headline {
 
 .interested-in,
 .good-at {
+    @media screen and (min-width:960px) {
+        ul.main-box {
+            min-height: 165px;
+        }
+    }
+
     li {
         margin-bottom: 5px;
     }
