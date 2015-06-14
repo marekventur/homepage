@@ -7,9 +7,11 @@ var stylus = require("gulp-stylus");
 var concat = require('gulp-concat');
 var browserify = require('browserify');
 var babelify = require("babelify");
+var watchify = require("watchify");
 var connect = require('gulp-connect');
 var source = require("vinyl-source-stream");
 var nib = require("nib");
+var gutil = require("gulp-util");
 var notify = require("gulp-notify");
 var htmlhint = require("gulp-htmlhint");
 var bower = require('gulp-bower');
@@ -21,19 +23,37 @@ gulp.task('server', function() {
     });
 });
 
-gulp.task("js", function() {
+function bundleMainBrowserify(b) {
+    return b.bundle()
+        .on("error", function(err){
+            console.log(err.message);
+        })
+        .pipe(source("main.js"))
+        .pipe(gulp.dest("./build/"));
+}
+
+function createMainBrowserify() {
     return browserify({
-                entries: "./js/main.js",
-                debug: true,
-                transform: [babelify]
-            })
-        .bundle()
-        .on('error', notify.onError(function(err) {
-            return "[JS] " + err.message;
-        }))
-        .pipe(source('main.js'))
-        .pipe(gulp.dest("build/"))
+        entries: "./js/main.js",
+        transform: [babelify],
+        cache: {},        // for watchify
+        packageCache: {}, // for watchify
+        fullPaths: true
+    });
+}
+
+gulp.task("js", function() {
+    bundleMainBrowserify(createMainBrowserify());
+});
+
+gulp.task("js:watch", function() {
+    var b = watchify(createMainBrowserify());
+    b.on("log", gutil.log);
+    bundleMainBrowserify(b); // run build when watch is started
+    b.on("update", function() {
+        bundleMainBrowserify(b)
         .pipe(connect.reload());
+    });
 });
 
 gulp.task("css", function() {
@@ -75,10 +95,9 @@ gulp.task("bower", function () {
 
 gulp.task("build", ["bower", "js", "css", "html", "img"]);
 
-gulp.task("watch", ["build"], function () {
+gulp.task("watch", ["build", "js:watch"], function () {
     gulp.watch("index.html", ["html"]);
     gulp.watch("img/**", ["img"]);
-    gulp.watch("js/*.js", ["js"]);
     gulp.watch("css/*.styl", ["css"]);
     gulp.watch("bower.json", ["bower"]);
 });
