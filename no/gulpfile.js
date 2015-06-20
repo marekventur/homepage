@@ -14,7 +14,6 @@ var nib = require("nib");
 var gutil = require("gulp-util");
 var notify = require("gulp-notify");
 var htmlhint = require("gulp-htmlhint");
-var bower = require('gulp-bower');
 
 gulp.task('server', function() {
     connect.server({
@@ -88,18 +87,12 @@ gulp.task("img", function () {
     .pipe(connect.reload());
 });
 
-gulp.task("bower", function () {
-    return bower('./bower')
-    .pipe(gulp.dest('./build/bower'));
-});
-
-gulp.task("build", ["bower", "js", "css", "html", "img"]);
+gulp.task("build", [ "js", "css", "html", "img"]);
 
 gulp.task("watch", ["build", "js:watch"], function () {
     gulp.watch("index.html", ["html"]);
     gulp.watch("img/**", ["img"]);
     gulp.watch("css/*.styl", ["css"]);
-    gulp.watch("bower.json", ["bower"]);
 });
 
 gulp.task("default", ["build", "server", "watch"]);
