@@ -8,7 +8,7 @@ var concat = require('gulp-concat');
 var browserify = require('browserify');
 var babelify = require("babelify");
 var watchify = require("watchify");
-var connect = require('gulp-connect');
+var browserSync = require('browser-sync').create();
 var source = require("vinyl-source-stream");
 var nib = require("nib");
 var gutil = require("gulp-util");
@@ -16,9 +16,10 @@ var notify = require("gulp-notify");
 var htmlhint = require("gulp-htmlhint");
 
 gulp.task('server', function() {
-    connect.server({
-        root: __dirname + '/build',
-        livereload: true
+    browserSync.init({
+        server: {
+            baseDir: "./build/"
+        }
     });
 });
 
@@ -51,7 +52,7 @@ gulp.task("js:watch", function() {
     bundleMainBrowserify(b); // run build when watch is started
     b.on("update", function() {
         bundleMainBrowserify(b)
-        .pipe(connect.reload());
+        .pipe(browserSync.stream());
     });
 });
 
@@ -67,7 +68,7 @@ gulp.task("css", function() {
             return "[Stylus] " + errorName + "\n" + shorterErrorMessage;
         }))
         .pipe(gulp.dest("./build"))
-        .pipe(connect.reload());
+        .pipe(browserSync.stream());
 });
 
 gulp.task("html", function () {
@@ -78,13 +79,13 @@ gulp.task("html", function () {
         return err.message;
     }))
     .pipe(gulp.dest("build/"))
-    .pipe(connect.reload());
+    .pipe(browserSync.stream());
 });
 
 gulp.task("img", function () {
     gulp.src("img/*.png")
     .pipe(gulp.dest("build/img/"))
-    .pipe(connect.reload());
+    .pipe(browserSync.stream());
 });
 
 gulp.task("build", [ "js", "css", "html", "img"]);
