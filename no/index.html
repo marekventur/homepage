@@ -10,159 +10,51 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/main.css">
-    <link href="http://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/index.css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,300,100,700|Reenie+Beanie" rel="stylesheet" type="text/css">
+    <!--<script src="./main.js"></script>-->
     <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
 </head>
 
 <body>
     <div class="container">
-        <h1>Marek Ventur <small>dot com</small></h1>
-        <div class="content">
-            <section class="introduction">
-                <h2>Hi! I'm Marek</h2>
-                <div class="main-text">
-                    <p>After graduating as BSc and working for IBM Germany I decided to move abroad in 2011. I arrived in London at <a href="http://last.fm">Last.fm</a> and have now moved on to work at <a href="http://gamevy.com">Gamevy</a>. Enjoying both Backend and Frontend work I like to work on challenging projects and products I can believe in.</p>
-                    <p>I spend a lot of my time walking through London listening to Science Fiction audio books (get in touch if you have any recommendations!). You might find me in a pub or sometimes at <a href="https://london.hackspace.org.uk/">London Hackspace</a>.</p>
+        <section class="skills">
+
+            <div class="decoration">
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+            </div>
+
+            <div class="content">
+                <div class="game game-slingshot">
+                    <canvas width="900" height="470" style="pointer-events: none;"></canvas>
+                    @@include('./game/slingshot/game.svg')
                 </div>
 
-                <ul class="contact">
-                    <li class="twitter"><a href="https://twitter.com/marekventur"><span>Twitter</span></a></li>
-                    <li class="lastfm"><a href="https://last.fm/user/marekventur"><span>Last.fm</span></a></li>
-                    <li class="goodreads"><a href="https://www.goodreads.com/user/show/8630594-marek-ventur"><span>Goodreads</span></a></li>
-                    <li class="foursquare"><a href="https://foursquare.com/marekventur"><span>Foursquare</span></a></li>
-                    <li class="email"><a href="mailto:mail@marekventur.de"><span>mail@marekventur.de</span></a></li>
-                    <li class="irc"><a><span>IRC: marekventur on Freenode</span></a></li>
-                </ul>
-            </section>
+                <hgroup>
+                    <h1>Hi! I'm Marek Ventur</h1>
+                    <p>I'm an all-round developer and I love working on interesting and challenging projectes (not just games).</p>
+                </hgroup>
 
-            <section class="good-at">
-                <h2>Things I'm good at</h2>
-                <ul>
-                    <li><em>Backend:</em> Javascript, Java, PHP, SQL, Hadoop, (Python)</li>
-                    <li><em>Frontend:</em> Javascript, CSS, (Objective-C, C++)</li>
-                    <li><em>Linux:</em> Administration, Automation, Scaling, Monitoring/Graphing, HTTP, stupid BASH one-liners</li>
-                    <li><em>Prototyping/Hacking</em> I love testing game mechanics</li>
-                    <li><em>Languages:</em> English, German</li>
-                </ul>
-            </section>
 
-             <section class="interested-in">
-                <h2>Things I'm interested in</h2>
-                <ul>
-                    <li><em>Machine Learning</em></li>
-                    <li><em>Cryptography</em> I once tried to write a public/private encryption from scatch in Delphi 3. It didn't work that well.</li>
-                    <li><em>Game Design</em> </li>
-                    <li><em>Hardware Programming</em> I wrote a lot of code for <a href="https://wiki.emfcamp.org/wiki/TiLDA_MKe">this</a></li>
-                </ul>
-            </section>
-            <section class="things-i-did">
-                <h2>Things I did</h2>
-                <ul>
-                    <li>
-                        <h3><a href="http://www.wortopia.de">wortopia.de</a></h3>
-                        <img src="/img/wortopia.png" alt="Screenshot">
-                        <p>Multiplayer boggle clone. Compete against other players by finding the most words on the board. Over 1800 active players find over 1M words every month.</p>
-                        <p class="qualifier">[German]</p>
-                        <ul class="links">
-                            <li class="code"><a href="https://github.com/marekventur/wortopia-node">code</a></li>
-                            <li class="link"><a href="http://wortopia.de">link</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3><a href="http://www.rapidletter.de">rapidletter.de</a></h3>
-                        <img src="/img/rapidletter-1.png" alt="Screenshot">
-                        <p>Online letter editor, with templates, account managment and PDF export, based on standard letter formats. Serves about 1000 letters each month.</p>
-                        <p class="qualifier">[German]</p>
-                        <ul class="links">
-                            <li class="code"><a href="https://github.com/marekventur/rapidletter">code</a></li>
-                            <li class="link"><a href="http://www.rapidletter.de">link</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3><a href="http://urmash.com/">u r mash</a></h3>
-                        <img src="/img/urmash.png" alt="Screenshot">
-                        <p>Award-winning retro-style HTML5 racing game with multiplayer functionality and procedural map. From idea to finished game in 24h.</p>
-                        <p class="qualifier">[Hackday team project]</p>
-                        <ul class="links">
-                            <li class="code"><a href="https://github.com/hackfm/gamehack">code</a></li>
-                            <li class="link"><a href="http://urmash.com/">link</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3><a href="https://clientroomradio.com/">clientroomradio.com</a></h3>
-                        <img src="/img/clientroomradio.png" alt="Screenshot">
-                        <p>Collective music streaming with chat, skip-voting and adaptive playlisting. Listening is invite only, sorry.</p>
-                        <p class="qualifier"></p>
-                        <ul class="links">
-                            <li class="code"><a href="https://github.com/clientroomradio/clientroomradio">code</a></li>
-                        </ul>
-                    </li>
 
-                    <li>
-                        <h3><a href="http://youchoose.marekventur.com">YouChoose</a></h3>
-                        <img src="/img/youchoose.png" alt="Screenshot">
-                        <p>A collaborative YouTube vide queue with reddit-style up- and down-voting. Made for a hackday in 2012 as an elaborate way to rickroll others.</p>
-                        <p class="qualifier">[Hackday team project]</p>
-                        <ul class="links">
-                            <li class="code"><a href="https://github.com/hackfm/YouChoose">code</a></li>
-                            <li class="link"><a href="http://youchoose.marekventur.com">link</a></li>
-                        </ul>
-                    </li>
+            </div>
+        </section>
 
-                    <li>
-                        <h3><a href="https://last.fm/live">last.fm/live</a></h3>
-                        <img src="/img/lastfm-live.png" alt="Screenshot">
-                        <p>Charts that are never older than 10 seconds, based on what is scrobbled right now on the planet.</p>
-                        <p class="qualifier">[side project, last.fm]</p>
-                        <ul class="links">
-                            <li class="link"><a href="https://last.fm/live">link</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3><a href="https://last.fm/christmas">last.fm/christmas</a></h3>
-                        <img src="/img/lastfm-christmas.png" alt="Screenshot">
-                        <p>How many people are currently listening to Christmas songs?</p>
-                        <p class="qualifier">[side project, last.fm]</p>
-                        <ul class="links">
-                            <li class="link"><a href="https://last.fm/christmas">link</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3><a href="https://last.fm/christmas">last.fm Data Exporter</a></h3>
-                        <img src="/img/lastfm-dataexporter.png" alt="Screenshot">
-                        <p>Allows last.fm users to export their data. Uses Hadoop to collect and format the data in bulk and AWS SQS/SES/S3 to send the archives via email.</p>
-                        <p class="qualifier">[side project, last.fm]</p>
-                        <ul class="links">
-                            <li class="link"><a href="https://secure.last.fm/settings/dataexporter">link</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3><a href="http://icons.marekventur.com/">Raphaël Icon-Font</a></h3>
-                        <img src="/img/icons.png" alt="Screenshot">
-                        <p>Back in 2010 (before <a href="http://fontawesome.io/">Font Awesome</a> came around and did it much better) I've converted <a href="http://fontawesome.io/">some icons</a> into a font. It's still in heavy use.</p>
-                        <p class="qualifier"></p>
-                        <ul class="links">
-                            <li class="link"><a href="http://icons.marekventur.com/">link</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <h3><a href="https://github.com/Gamevy/rohrpost-server">Rohrpost</a></h3>
-                        <img src="/img/rohrpost.png" alt="Screenshot">
-                        <p>A websocket server that allows multiple backend applications to share connections. Supports load-balancing, staggered restarts, pub/sub and session management.</p>
-                        <p class="qualifier">[work project, gamevy]</p>
-                        <ul class="links">
-                            <li class="link"><a href="https://github.com/Gamevy/rohrpost-server">link</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
+        <section class="contact">
 
-        </div>
+        </section>
+
+        <section class="work">
+
+        </section>
     </div>
+
 
     <script src="/main.js"></script>
 
+<!--
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -172,5 +64,6 @@
         ga('create', 'UA-18674815-1', 'auto');
         ga('send', 'pageview');
     </script>
+-->
 </body>
 </html>

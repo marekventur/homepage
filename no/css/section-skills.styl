@@ -1,0 +1,74 @@
+@import "colors"
+@import "nib"
+
+.skills {
+    background-color: color-blue;
+    color: #ffffff;
+    font-weight: 300;
+    position: relative;
+    height: 470px;
+
+    .decoration {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        overflow: hidden;
+        height: 200px;
+
+        .cloud {
+            background-image: url("/img/cloud.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+
+            position: absolute;
+            animation: skills-cloud;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+
+            &:nth-child(1) {
+                top: 10px;
+                width: 212px;
+                height: 123px;
+
+                animation-delay: -70s;
+                animation-duration: 140s;
+            }
+
+            &:nth-child(2) {
+                top: 30px;
+                width: 106px;
+                height: 123px;
+
+                animation-delay: -50s;
+                animation-duration: 70s;
+            }
+
+            &:nth-child(3) {
+                top: 50px;
+                width: 106px;
+                height: 123px;
+
+                animation-delay: 0s;
+                animation-duration: 100s;
+            }
+        }
+    }
+
+    .content {
+        position: relative;
+
+        hgroup {
+            h1 {
+                margin-bottom: 10px;
+            }
+            padding-top: 100px;
+            width: 50%;
+        }
+    }
+}
+
+@keyframes skills-cloud {
+    0% { left: -20%; }
+    100% { left: 100%; }
+}

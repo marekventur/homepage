@@ -5,6 +5,7 @@ var gulp = require("gulp");
 var server = require("gulp-develop-server");
 var stylus = require("gulp-stylus");
 var concat = require('gulp-concat');
+var fileinclude = require("gulp-file-include");
 var browserify = require('browserify');
 var babelify = require("babelify");
 var watchify = require("watchify");
@@ -38,7 +39,7 @@ function createMainBrowserify() {
         transform: [babelify],
         cache: {},        // for watchify
         packageCache: {}, // for watchify
-        fullPaths: true
+        debug: true
     });
 }
 
@@ -57,7 +58,7 @@ gulp.task("js:watch", function() {
 });
 
 gulp.task("css", function() {
-    return gulp.src("./css/main.styl")
+    return gulp.src("./css/index.styl")
         .pipe(stylus({ use: [nib()] }))
         .on('error', notify.onError(function(err) {
             var errorName = err.name;
@@ -73,6 +74,10 @@ gulp.task("css", function() {
 
 gulp.task("html", function () {
     gulp.src("index.html")
+    .pipe(fileinclude({
+        prefix: "@@",
+        basepath: "@file"
+    }))
     .pipe(htmlhint())
     .pipe(htmlhint.failReporter())
     .on('error', notify.onError(function(err) {
@@ -83,7 +88,7 @@ gulp.task("html", function () {
 });
 
 gulp.task("img", function () {
-    gulp.src("img/*.png")
+    gulp.src(["img/*.png", "img/*.svg"])
     .pipe(gulp.dest("build/img/"))
     .pipe(browserSync.stream());
 });
@@ -91,7 +96,7 @@ gulp.task("img", function () {
 gulp.task("build", [ "js", "css", "html", "img"]);
 
 gulp.task("watch", ["build", "js:watch"], function () {
-    gulp.watch("index.html", ["html"]);
+    gulp.watch(["index.html", "game/**"], ["html"]);
     gulp.watch("img/**", ["img"]);
     gulp.watch("css/*.styl", ["css"]);
 });

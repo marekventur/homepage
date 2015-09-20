@@ -1,0 +1,7 @@
+blue:  #3498DB --- #ECF0F1 (light blue) # 2D729E (dark blue) #E74C3C (red) #44C650 (green)  #D8DCE1 #3B3B3B
+green: #44C650 --- #3498DB (blue) #A0D468 (light green) #E74C3C (red) #F5B8B6 (pink) #F6BB42 (orange)
+red:   #E74C3C --- #5E2905 (brown) #382104 (darker brown) 7ACAED (light blue)
+
+light: #F5ECD9 --- ##E84D5B (red text) #2BACB5 (blue text) #00A4E3 (blue) #E14B58 (red) #8E8E8E (grey)
+
+'circularbold'

@@ -2,7 +2,13 @@
   "name": "marekventur.com",
   "version": "0.0.1",
   "description": "Homepage",
-  "dependencies": {},
+  "dependencies": {
+    "ces": "0.0.4",
+    "jquery": "^2.1.4",
+    "matter-js": "liabru/matter-js",
+    "requestanimationframe": "0.0.22",
+    "tiny-ecs": "^2.0.0"
+  },
   "devDependencies": {
     "babel": "~5.5.8",
     "babelify": "~6.1.2",
@@ -16,12 +22,12 @@
     "gulp-concat": "^2.5.2",
     "gulp-copy": "0.0.2",
     "gulp-develop-server": "~0.4.3",
+    "gulp-file-include": "^0.13.7",
     "gulp-htmlhint": "^0.1.1",
     "gulp-imagemin": "^2.2.1",
     "gulp-notify": "^2.2.0",
     "gulp-stylus": "^2.0.5",
     "gulp-util": "^3.0.5",
-    "jquery": "^2.1.4",
     "minimist": "~1.1.1",
     "nib": "^1.1.0",
     "vinyl-source-stream": "~1.1.0",

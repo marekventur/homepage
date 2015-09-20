@@ -1,0 +1,78 @@
+<svg
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns="http://www.w3.org/2000/svg"
+    version="1.1"
+    width="2000"
+    height="470"
+    >
+
+
+    <svg class="slingshot-back" x="80" y="360">
+        <rect
+            class="wood"
+            width="17.285177"
+            height="53.88908"
+            x="48.805172"
+            y="60.614113" />
+        <rect
+            class="wood"
+            width="12.255508"
+            height="63.616123"
+            x="61.496441"
+            y="-9.3339729"
+            transform="matrix(0.98582078,0.16780163,-0.1160678,0.99324129,0,0)" />
+        <rect
+            class="rubber"
+            width="90"
+            height="8"
+            x="63"
+            y="4"
+            transform="rotate(70, 67, 8)" />
+    </svg>
+
+    <circle class="ball" cx="133" cy="364" r="13" />
+    <circle class="ball" cx="70" cy="457" r="13" />
+    <circle class="ball" cx="40" cy="457" r="13" />
+
+    <svg class="slingshot-front" x="80" y="360">
+        <rect
+            class="rubber"
+            width="62.058445"
+            height="8.2637339"
+            x="-32.231434"
+            y="31.865198"
+            transform="matrix(0.66076319,-0.75059444,0.67172737,0.74079844,0,0)" />
+        <rect
+            class="wood"
+            width="12.292152"
+            height="62.451996"
+            x="31.020546"
+            y="14.130968"
+            transform="matrix(0.94889707,-0.31558573,0.25363937,0.96729885,0,0)" />
+    </svg>
+
+
+
+    <g class="box box-small" transform="translate(730, 434) rotate(90)">
+        <rect width="70" height="25" x="-35" y="-12.5"/>
+        <text width="70" height="25" text-anchor="middle" dominant-baseline="middle">Jenkins</text>
+    </g>
+
+    <g class="box box-small" transform="translate(680, 434) rotate(90)">
+        <rect width="70" height="25" x="-35" y="-12.5" />
+        <text width="70" height="25" text-anchor="middle" dominant-baseline="middle">Apache</text>
+    </g>
+
+    <g class="box box-small" transform="translate(705, 383) rotate(0)">
+        <rect width="70" height="25" x="-35" y="-12.5"/>
+        <text width="70" height="25" text-anchor="middle" dominant-baseline="middle">Linux</text>
+    </g>
+
+    <g class="box box-small" transform="translate(708, 330) rotate(90)">
+        <rect width="70" height="25" x="-35" y="-12.5"/>
+        <text width="70" height="25" text-anchor="middle" dominant-baseline="middle">Something</text>
+    </g>
+</svg>
