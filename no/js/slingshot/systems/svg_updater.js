@@ -9,8 +9,12 @@ export default class SvgUpdaterSystem {
         this.entities.queryComponents([Box]).forEach(box => {
             let {x, y, angle, oldX, oldY, oldAngle} = box.box;
 
+            x = this.roundPosition(x);
+            y = this.roundPosition(y);
+            angle = this.roundPosition(angle * 180 / Math.PI);
+
             if (x !== oldX || y !== oldY || angle !== oldAngle) {
-                box.box.element.setAttribute("transform", `translate(${x}, ${y}) rotate(${angle * 180 / Math.PI})`);
+                box.box.element.setAttribute("transform", `translate(${x}, ${y}) rotate(${angle})`);
                 box.oldX = x;
                 box.oldY = y;
                 box.oldAngle = angle;
@@ -22,7 +26,8 @@ export default class SvgUpdaterSystem {
         this.entities.queryComponents([Ball]).forEach(ball => {
             let {x, y, oldX, oldY} = ball.ball;
 
-            //console.log(ball.ball.element);
+            x = this.roundPosition(x);
+            y = this.roundPosition(y);
 
             if (x !== oldX || y !== oldY ) {
                 ball.ball.element.setAttribute("cx", x);
@@ -32,5 +37,13 @@ export default class SvgUpdaterSystem {
             }
 
         });
+    }
+
+    roundPosition(input) {
+        return Math.round(input * 10) / 10;
+    }
+
+    roundAngle(input) {
+        return Math.round(input * 1000) / 1000;
     }
 }

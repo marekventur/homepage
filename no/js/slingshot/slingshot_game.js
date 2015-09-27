@@ -2,9 +2,11 @@ import {EntityManager} from "tiny-ecs";
 import {Box, Physics, Ball, UserInteraction} from "./components";
 import PhysicsSystem from "./systems/physics";
 import SvgUpdaterSystem from "./systems/svg_updater";
+import SlingshotUpdaterSystem from "./systems/slingshot_updater";
+import BoxExploderSystem from "./systems/box_exploder";
 import $ from "jquery";
 
-export default class Slingshot {
+export default class SlingshotGame {
     constructor(element) {
         this.element = element;
 
@@ -16,7 +18,13 @@ export default class Slingshot {
 
         this.systems = [
             new PhysicsSystem(this.entities),
-            new SvgUpdaterSystem(this.entities)
+            new BoxExploderSystem(this.entities),
+            new SvgUpdaterSystem(this.entities),
+            new SlingshotUpdaterSystem(
+                this.entities,
+                this.element.querySelector(".slingshot-front .elastic"),
+                this.element.querySelector(".slingshot-back .elastic")
+            )
         ];
     }
 

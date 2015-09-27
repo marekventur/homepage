@@ -1,17 +1,19 @@
 import {Physics, Box, Ball, UserInteraction} from "../components";
-import {Engine, World, Body, Vertices, Bodies, Runner, Constraint} from "matter-js/src/module/main";
+import {Engine, World, Body, Vertices, Bodies, Runner, Constraint, Events} from "matter-js/src/module/main";
 import _ from "underscore";
+
+const DEPTH_BOX_BREAK_THRESHOLD = 10;
 
 export default class PhysicsSystem {
     constructor(entities) {
         this.entities = entities;
-        this.engine = Engine.create(/*{
+        this.engine = Engine.create({
             render: {
                 controller: NoopRenderer
             },
             enableSleeping: true
-        }*/
-        {
+        }
+        /*{
             render: {
                 canvas: document.querySelector("canvas"),
                 options: {
@@ -34,8 +36,10 @@ export default class PhysicsSystem {
                     showIds: false,
                     showShadows: false
                 }
-            }
-        });
+            },
+            enableSleeping: false
+        }*/
+        );
 
         let initialBall = this.getBalls()[0];
         initialBall.ball.active = true;
@@ -50,6 +54,8 @@ export default class PhysicsSystem {
 
         World.add(this.engine.world, bodies);
         this.runner = Runner.create();
+
+        this.listenToEvents();
     }
 
     tick(time) {
@@ -88,7 +94,7 @@ export default class PhysicsSystem {
     }
 
     createGround() {
-        let ground = Bodies.rectangle(0, 520, 2000, 100, { isStatic: true });
+        let ground = Bodies.rectangle(0, 520, 10000, 100, { isStatic: true });
         ground.friction = 0.9;
         return ground;
     }
@@ -127,6 +133,8 @@ export default class PhysicsSystem {
                 angle: box.box.angle,
                 friction: 0.005
             });
+            body.isBox = true;
+            body.entity = box;
             box.physics.body = body;
             return body;
         });
@@ -136,6 +144,7 @@ export default class PhysicsSystem {
         let body = Bodies.circle(this.initialPoint.x, this.initialPoint.y, ball.ball.radius);
         body.density = 0.004;
         ball.physics.body = body;
+        body.isBall = true;
         return body;
     }
 
@@ -156,14 +165,46 @@ export default class PhysicsSystem {
     checkPull() {
         let userInteraction = this.entities.queryComponents([UserInteraction])[0];
         if (userInteraction) {
-            this.interactionConstraint.pointA.x = Math.min(130, Math.max(0, userInteraction.userInteraction.x));
-            this.interactionConstraint.pointA.y = userInteraction.userInteraction.y;
+            let x = Math.min(130, Math.max(0, userInteraction.userInteraction.x));
+            let y = userInteraction.userInteraction.y;
+
+            // Make sure the ball doesn't get stuck in the slingshot stand
+            if (x > 108 && y > 407) {
+                y = 407;
+            }
+
+            this.interactionConstraint.pointA.x = x;
+            this.interactionConstraint.pointA.y = y;
             this.interactionConstraint.stiffness = 0.5;
         } else if (this.interactionConstraint.stiffness === 0.5) {
             this.interactionConstraint.pointA.x = this.initialPoint.x;
             this.interactionConstraint.pointA.y = this.initialPoint.y;
             this.interactionConstraint.stiffness = 0.005;
         }
+    }
+
+    listenToEvents() {
+        Events.on(this.engine, "collisionStart", event => {
+            event.pairs.forEach(pair => {
+                if (pair.bodyA.isBall || pair.bodyB.isBall) {
+                    //let ballBody = pair.bodyA.isBall ? pair.bodyA : pair.bodyB;
+                    let otherBody = pair.bodyA.isBall ? pair.bodyB : pair.bodyA;
+                    if (otherBody.isBox) {
+                        if (pair.collision.depth > DEPTH_BOX_BREAK_THRESHOLD) {
+                            this.breakBox(otherBody);
+                        }
+                    }
+                }
+            });
+        });
+    }
+
+    breakBox(box) {
+        // There seems to be a bug in matter.js that makes removing objects impossible.
+        // Will wait until I've heard back from dev
+        /*Composite.removeBody(this.engine.world, box, true);
+        box.entity.box.explode = true;
+        console.log(box.entity.box);*/
     }
 }
 

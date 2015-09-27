@@ -4,11 +4,11 @@ require("requestanimationframe");
 /*eslint-enable */
 
 import $ from "jquery";
-import Slingshot from "./slingshot/slingshot";
+import SlingshotGame from "./slingshot/slingshot_game";
 
 class HomepageManager {
     constructor() {
-        this.slingshot = new Slingshot(document.querySelector(".game-slingshot"));
+        this.slingshot = new SlingshotGame(document.querySelector(".game-slingshot"));
     }
 
     start() {
