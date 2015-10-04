@@ -1,19 +1,20 @@
-import {Physics, Box, Ball, UserInteraction} from "../components";
-import {Engine, World, Body, Vertices, Bodies, Runner, Constraint, Events} from "matter-js/src/module/main";
+import {Physics, Box, Ball, UserInteraction, Enemy} from "../components";
+import {Engine, World, Body, Vertices, Bodies, Runner, Constraint, Events, Sleeping, Composite, Svg} from "matter-js/src/module/main";
 import _ from "underscore";
 
-const DEPTH_BOX_BREAK_THRESHOLD = 10;
+//const DEPTH_BOX_BREAK_THRESHOLD = 1;
 
 export default class PhysicsSystem {
     constructor(entities) {
         this.entities = entities;
-        this.engine = Engine.create({
+        this.engine = Engine.create(
+        /*{
             render: {
                 controller: NoopRenderer
             },
             enableSleeping: true
-        }
-        /*{
+        }*/
+        {
             render: {
                 canvas: document.querySelector("canvas"),
                 options: {
@@ -37,8 +38,8 @@ export default class PhysicsSystem {
                     showShadows: false
                 }
             },
-            enableSleeping: false
-        }*/
+            enableSleeping: true
+        }
         );
 
         let initialBall = this.getBalls()[0];
@@ -49,6 +50,7 @@ export default class PhysicsSystem {
             this.createGround(),
             this.createBoxes(),
             this.createBall(initialBall),
+            this.createEnemies(),
             this.createElastics()
         ]);
 
@@ -74,11 +76,25 @@ export default class PhysicsSystem {
 
                 if (ball.ball.active && ball.ball.x > 140) {
                     this.nextBall();
+
+                    this._wakeUpAll();
                 }
             }
         });
 
+        this.getEnemies().forEach(enemy => {
+            enemy.enemy.x = enemy.physics.body.position.x;
+            enemy.enemy.y = enemy.physics.body.position.y;
+            enemy.enemy.angle = enemy.physics.body.angle;
+        });
+
         this.checkPull();
+    }
+
+    _wakeUpAll() {
+        this.getBoxes().forEach(box => {
+            Sleeping.set(box.physics.body, false);
+        });
     }
 
     getBoxes() {
@@ -87,6 +103,10 @@ export default class PhysicsSystem {
 
     getBalls() {
         return this.entities.queryComponents([Physics, Ball]);
+    }
+
+    getEnemies() {
+        return this.entities.queryComponents([Physics, Enemy]);
     }
 
     getCurrentBall() {
@@ -131,7 +151,9 @@ export default class PhysicsSystem {
                 position: { x: box.box.x, y: box.box.y },
                 vertices: Vertices.fromPath(`L 0 0 L ${box.box.width} 0 L ${box.box.width} ${box.box.height} L 0 ${box.box.height}`),
                 angle: box.box.angle,
-                friction: 0.005
+                density: 0.0005,
+                friction: 0.05,
+                restitution: 0
             });
             body.isBox = true;
             body.entity = box;
@@ -142,10 +164,28 @@ export default class PhysicsSystem {
 
     createBall(ball) {
         let body = Bodies.circle(this.initialPoint.x, this.initialPoint.y, ball.ball.radius);
-        body.density = 0.004;
+        body.density = 0.8;
         ball.physics.body = body;
         body.isBall = true;
         return body;
+    }
+
+    createEnemies() {
+        return this.getEnemies().map(enemy => {
+            let body = Body.create({
+                label: "Enemy Body",
+                position: { x: enemy.enemy.x, y: enemy.enemy.y },
+                vertices: Svg.pathToVertices(enemy.enemy.body),
+                angle: enemy.enemy.angle,
+                density: 0.0005,
+                friction: 0.05,
+                restitution: 0,
+            });
+            body.isEnemy = true;
+            body.entity = enemy;
+            enemy.physics.body = body;
+            return body;
+        });
     }
 
     nextBall() {
@@ -184,7 +224,7 @@ export default class PhysicsSystem {
     }
 
     listenToEvents() {
-        Events.on(this.engine, "collisionStart", event => {
+       /* Events.on(this.engine, "collisionStart", event => {
             event.pairs.forEach(pair => {
                 if (pair.bodyA.isBall || pair.bodyB.isBall) {
                     //let ballBody = pair.bodyA.isBall ? pair.bodyA : pair.bodyB;
@@ -196,16 +236,15 @@ export default class PhysicsSystem {
                     }
                 }
             });
-        });
+        });*/
     }
-
+/*
     breakBox(box) {
-        // There seems to be a bug in matter.js that makes removing objects impossible.
-        // Will wait until I've heard back from dev
-        /*Composite.removeBody(this.engine.world, box, true);
+        Composite.removeBody(this.engine.world, box);
         box.entity.box.explode = true;
-        console.log(box.entity.box);*/
-    }
+        console.log(box.entity.box);
+        this._wakeUpAll();
+    }*/
 }
 
 class NoopRenderer {

@@ -30,6 +30,21 @@ export function Ball() {
     };
 }
 
+export function Enemy() {
+    this.x = 0;
+    this.y = 0;
+    this.angle = 0;
+
+    this.initiate = element => {
+        this.element = element;
+        let transform = element.getAttribute("transform").match(/translate\((\d+), (\d+)\) rotate\((\d+)\)/);
+        this.x = parseInt(transform[1], 10);
+        this.y = parseInt(transform[2], 10);
+        this.angle = parseInt(transform[3], 10) / 180 * Math.PI;
+        this.body = element.querySelector(".body");
+    };
+}
+
 export function Physics() {
     this.body = null;
 }

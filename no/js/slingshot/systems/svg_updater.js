@@ -1,4 +1,4 @@
-import {Box, Ball} from "../components";
+import {Box, Ball, Enemy} from "../components";
 
 export default class SvgUpdaterSystem {
     constructor(entities) {
@@ -35,6 +35,24 @@ export default class SvgUpdaterSystem {
                 ball.oldX = x;
                 ball.oldY = y;
             }
+
+        });
+
+        this.entities.queryComponents([Enemy]).forEach(enemy => {
+            let {x, y, angle, oldX, oldY, oldAngle} = enemy.enemy;
+
+            x = this.roundPosition(x);
+            y = this.roundPosition(y);
+            angle = this.roundPosition(angle * 180 / Math.PI);
+
+            if (x !== oldX || y !== oldY || angle !== oldAngle) {
+                enemy.enemy.element.setAttribute("transform", `translate(${x}, ${y}) rotate(${angle})`);
+                enemy.oldX = x;
+                enemy.oldY = y;
+                enemy.oldAngle = angle;
+            }
+
+            enemy.enemy.element.setAttribute("style", enemy.physics.body.isSleeping ? "fill:red;" : "");
 
         });
     }

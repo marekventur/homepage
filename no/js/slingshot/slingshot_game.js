@@ -1,5 +1,5 @@
 import {EntityManager} from "tiny-ecs";
-import {Box, Physics, Ball, UserInteraction} from "./components";
+import {Box, Physics, Ball, UserInteraction, Enemy} from "./components";
 import PhysicsSystem from "./systems/physics";
 import SvgUpdaterSystem from "./systems/svg_updater";
 import SlingshotUpdaterSystem from "./systems/slingshot_updater";
@@ -14,6 +14,7 @@ export default class SlingshotGame {
 
         this.addBoxes();
         this.addBalls();
+        this.addEnemies();
         this.addEventListener();
 
         this.systems = [
@@ -34,29 +35,37 @@ export default class SlingshotGame {
 
     addBoxes() {
         let boxes = this.element.querySelectorAll(".box");
-        for (let i = 0; i < boxes.length; ++i) {
-            let boxElement = boxes[i];
-
+        for (let i = 0; i < boxes.length; i++) {
             let box =
                 this.entities.createEntity()
                 .addComponent(Box)
                 .addComponent(Physics);
 
-            box.box.initiate(boxElement);
+            box.box.initiate(boxes[i]);
         }
     }
 
     addBalls() {
         let balls = this.element.querySelectorAll(".ball");
-        for (let i = 0; i < balls.length; ++i) {
-            let ballElement = balls[i];
-
+        for (let i = 0; i < balls.length; i++) {
             let ball =
                 this.entities.createEntity()
                 .addComponent(Ball)
                 .addComponent(Physics);
 
-            ball.ball.initiate(ballElement);
+            ball.ball.initiate( balls[i]);
+        }
+    }
+
+    addEnemies() {
+        let enemies = this.element.querySelectorAll(".enemy");
+        for (let i = 0; i < enemies.length; i++) {
+            let enemy =
+                this.entities.createEntity()
+                .addComponent(Enemy)
+                .addComponent(Physics);
+
+            enemy.enemy.initiate(enemies[i]);
         }
     }
 

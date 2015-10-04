@@ -12,7 +12,7 @@
 
     svg {
         .wood {
-            fill:#fff403;
+            fill:color-yellow;
             fill-opacity:1
         }
 
@@ -34,6 +34,30 @@
             text {
                 color: #000;
                 font-size: 12px;
+                dominant-baseline: middle;
+                text-anchor: middle;
+            }
+        }
+
+        .box.box-large {
+            text {
+                fill: color-blue ;
+                font-size: 16px;
+                font-weight: bold;
+            }
+        }
+
+        .enemy {
+            .body {
+                fill: color-yellow;
+            }
+
+            .mouth, .eye {
+                fill: color-gray;
+            }
+
+            .sweat {
+                fill: color-dark-blue;
             }
         }
     }
