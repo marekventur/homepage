@@ -52,13 +52,47 @@
                 fill: color-yellow;
             }
 
-            .mouth, .eye {
+            .mouth {
                 fill: color-gray;
+            }
+
+            .eye {
+                fill: color-gray;
+                animation: enemy-eyes 5s infinite;
+                transform-origin: center;
             }
 
             .sweat {
                 fill: color-dark-blue;
+
+                animation: enemy-sweat 7s infinite;
             }
         }
     }
+}
+
+@keyframes enemy-eyes {
+    0% { transform: scaleY(1); }
+    22% { transform: scaleY(1); }
+    25% { transform: scaleY(0); }
+    30% { transform: scaleY(1); }
+    35% { transform: scaleY(0); }
+    38% { transform: scaleY(1); }
+}
+
+@keyframes enemy-sweat {
+    0% {
+        opacity: 0;
+        transform: translate(0px, 0px);
+    }
+    30% { opacity: 1; }
+    40% { transform: translate(0px, 0px); }
+    50% { opacity: 1; }
+
+    70% {
+        transform: translate(-3px, 10px);
+        opacity: 0;
+    }
+
+    100% { opacity: 0; }
 }

@@ -152,8 +152,8 @@ export default class PhysicsSystem {
                 position: { x: box.box.x, y: box.box.y },
                 vertices: Vertices.fromPath(`L 0 0 L ${box.box.width} 0 L ${box.box.width} ${box.box.height} L 0 ${box.box.height}`),
                 angle: box.box.angle,
-                density: 0.0005,
-                friction: 0.05,
+                density: 0.001,
+                friction: 0.005,
                 restitution: 0
             });
             body.isBox = true;
@@ -180,7 +180,7 @@ export default class PhysicsSystem {
                 angle: enemy.enemy.angle,
                 density: 0.0005,
                 friction: 0.05,
-                restitution: 0,
+                restitution: 0
             });
             body.isEnemy = true;
             body.entity = enemy;
@@ -191,7 +191,7 @@ export default class PhysicsSystem {
 
     nextBall() {
         this.getCurrentBall().ball.active = false;
-        let newBall = this.getBalls().find(ball => ball.ball.x < 100);
+        let newBall = this.getBalls().find(ball => ball.ball.x <= 100);
         if (newBall) {
             newBall.ball.active = true;
             World.add(this.engine.world, this.createBall(newBall));

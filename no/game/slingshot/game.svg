@@ -27,8 +27,10 @@
     </svg>
 
     <circle class="ball" cx="133" cy="377" r="13" />
+    <circle class="ball" cx="100" cy="457" r="13" />
     <circle class="ball" cx="70" cy="457" r="13" />
     <circle class="ball" cx="40" cy="457" r="13" />
+
 
     <svg class="slingshot-front">
         <rect
