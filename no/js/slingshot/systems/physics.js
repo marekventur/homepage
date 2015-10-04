@@ -8,13 +8,13 @@ export default class PhysicsSystem {
     constructor(entities) {
         this.entities = entities;
         this.engine = Engine.create(
-        /*{
+        {
             render: {
                 controller: NoopRenderer
             },
             enableSleeping: true
-        }*/
-        {
+        }
+        /*{
             render: {
                 canvas: document.querySelector("canvas"),
                 options: {
@@ -39,7 +39,7 @@ export default class PhysicsSystem {
                 }
             },
             enableSleeping: true
-        }
+        }*/
         );
 
         let initialBall = this.getBalls()[0];
@@ -116,6 +116,7 @@ export default class PhysicsSystem {
     createGround() {
         let ground = Bodies.rectangle(0, 520, 10000, 100, { isStatic: true });
         ground.friction = 0.9;
+        ground.isGround = true;
         return ground;
     }
 
@@ -224,9 +225,9 @@ export default class PhysicsSystem {
     }
 
     listenToEvents() {
-       /* Events.on(this.engine, "collisionStart", event => {
+        Events.on(this.engine, "collisionStart", event => {
             event.pairs.forEach(pair => {
-                if (pair.bodyA.isBall || pair.bodyB.isBall) {
+                /*if (pair.bodyA.isBall || pair.bodyB.isBall) {
                     //let ballBody = pair.bodyA.isBall ? pair.bodyA : pair.bodyB;
                     let otherBody = pair.bodyA.isBall ? pair.bodyB : pair.bodyA;
                     if (otherBody.isBox) {
@@ -234,11 +235,22 @@ export default class PhysicsSystem {
                             this.breakBox(otherBody);
                         }
                     }
+                }*/
+
+                if (pair.bodyA.isEnemy || pair.bodyB.isEnemy) {
+                    let otherBody = pair.bodyA.isEnemy ? pair.bodyB : pair.bodyA;
+                    if (otherBody.isGround) {
+                        this.isWon = true;
+                    }
                 }
             });
-        });*/
+        });
     }
-/*
+
+    cleanup() {
+        Events.off(this.engine, "collisionStart");
+    }
+    /*
     breakBox(box) {
         Composite.removeBody(this.engine.world, box);
         box.entity.box.explode = true;

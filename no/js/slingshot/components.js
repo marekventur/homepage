@@ -54,3 +54,9 @@ export function UserInteraction() {
     this.x = null;
     this.y = null;
 }
+
+export function Win() {
+    this.pressed = null;
+    this.x = null;
+    this.y = null;
+}
