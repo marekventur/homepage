@@ -31,7 +31,6 @@
     <circle class="ball" cx="70" cy="457" r="13" />
     <circle class="ball" cx="40" cy="457" r="13" />
 
-
     <svg class="slingshot-front">
         <rect
             class="elastic"
@@ -147,7 +146,7 @@
 
     <g class="box box-small" transform="translate(685, 218) rotate(270)">
         <rect width="70" height="18" x="-35" y="-9" />
-        <text width="70" height="18">HTML</text>
+        <text width="70" height="18">HTML5</text>
     </g>
 
     <g class="box box-small" transform="translate(720, 218) rotate(90)">
