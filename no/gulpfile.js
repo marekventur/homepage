@@ -80,9 +80,15 @@ gulp.task("html", function () {
     }))
     .pipe(htmlhint())
     .pipe(htmlhint.failReporter())
-    .on('error', notify.onError(function(err) {
+    .on("error", notify.onError(function(err) {
         return err.message;
     }))
+    .pipe(gulp.dest("build/"))
+    .pipe(browserSync.stream());
+});
+
+gulp.task("cv", function () {
+    gulp.src(["cv.html"])
     .pipe(gulp.dest("build/"))
     .pipe(browserSync.stream());
 });
@@ -93,12 +99,20 @@ gulp.task("img", function () {
     .pipe(browserSync.stream());
 });
 
-gulp.task("build", [ "js", "css", "html", "img"]);
+gulp.task("lib", function () {
+    gulp.src(["lib/*.js"])
+    .pipe(gulp.dest("build/lib/"))
+    .pipe(browserSync.stream());
+});
+
+gulp.task("build", [ "js", "css", "html", "img", "lib", "cv"]);
 
 gulp.task("watch", ["build", "js:watch"], function () {
     gulp.watch(["index.html", "game/**"], ["html"]);
     gulp.watch("img/**", ["img"]);
     gulp.watch("css/*.styl", ["css"]);
+    gulp.watch("lib/**", ["lib"]);
+    gulp.watch("cv.html", ["cv"]);
 });
 
 gulp.task("default", ["build", "server", "watch"]);

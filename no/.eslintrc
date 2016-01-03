@@ -16,5 +16,6 @@
     },
     "ecmaFeatures": {
         "modules": true
-    }
+    },
+    "extends": "eslint:recommended",
 }
