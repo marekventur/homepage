@@ -1,160 +1,171 @@
+<!DOCTYPE html>
 <html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Marek Ventur - CV</title>
+    <link href="http://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" type="text/css">
 
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Marek Ventur - CV</title>
-        <link href="http://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" type="text/css">
+    <!-- Inline CSS to make this file easier to move around -->
+    <style>
+        body {
+            font-family: 'Merriweather Sans', sans-serif;
+            line-height: 1.4em;
+        }
+        a, a:visited, a:active {
+            color: #2B77B1;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
 
-        <!-- Inline CSS to make this file easier to move around -->
-        <style>
-            body {
-                font-family: 'Merriweather Sans', sans-serif;
-                line-height: 1.4em;
-            }
-            a, a:visited, a:active {
-                color: #555;
-                text-decoration: none;
-            }
-            a:hover {
-                text-decoration: underline;
-            }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
 
-            nav ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
+        nav {
+            padding-bottom: 0.5em;
+            border-bottom: 1px solid #555;
+        }
 
-            nav {
-                padding-bottom: 0.5em;
-                border-bottom: 1px solid #555;
-            }
+        nav li { display: inline; }
+        nav li + li:before { content: " • ";}
 
-            nav li { display: inline; }
-            nav li + li:before { content: " • ";}
+        section h2 {
+            padding-top: 0.5em;
+            padding-bottom: 0.2em;
+            border-bottom: 1px solid #555;
+        }
 
-            h3 { margin-bottom:0; }
-            h4 { margin-top: 0.5em; }
+        h3 { margin-bottom:0; }
+        h4 { margin-top: 0.5em; }
 
-            .private-projects h2 { margin-bottom: 0.25em; }
-            .private-projects small { margin-top: 0; }
+        .print-only {
+            display: none;
+        }
+    </style>
 
-            .education h4 { margin-bottom: 0; }
-            .education p { margin-top: 0.5em; }
+    <style type="text/css" media="print">
+        body {
+            font-size: 12px;
+        }
 
-        </style>
+        .print-only {
+            display: auto;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <header>
+            <h1>Marek Ventur</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="https://marekventur.com">marekventur.com</a></li>
+                <li><a href="mailto:mail@marekventur.de">mail@marekventur.de</a></li>
+                <li><a href="https://github.com/marekventur">github.com/marekventur</a></li>
+            </ul>
+        </nav>
 
-        <!-- Optimize for dead trees -->
-        <style type="text/css" media="print">
-            body {
-                font-size: 12px;
-            }
-        </style>
+        <section>
+            <p>After finishing my studies and working for IBM Germany I decided to move abroad in 2011. I arrived in London at <a href="http://last.fm">Last.fm</a> and have now moved on to work at <a href="http://gamevy.com">Gamevy</a>.</p>
+            <p>I enjoy working on both frontend and backend and my ideal job combines both.</p>
+        </section>
 
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li><strong>Web Frontend</strong>: Javascript, CSS, HTML (I'm not going to list frameworks here, they'll be outdated tomorrow)</li>
+                <li><strong>Backend</strong>: Node.js, Python, Java, PHP</li>
+                <li><strong>Operations</strong>: Linux server administration, cloud infrastructure, CI, scaling, automation, monitoring</li>
+                <li><strong>Data</strong>: SQL(Postgres, Hadoop via Hive), Business Intelligence, reporting, batch processing</li>
+                <li><strong>UX</strong>: Planing, Organisation between teams, user-testing, tracking</li>
+                <li><strong>Game concept design</strong> (especially for the real-money space)</li>
+            </ul>
+        </section>
 
-        <article>
-            <header>
-                <h1>Marek Ventur</h1>
-            </header>
-            <nav>
+        <section id="projects">
+            <h2>Projects and Code</h2>
+            <ul>
+                <li><a href="http://gamevy.com/the-heist.html">The Heist</a>, <a href="http://gamevy.com/buzzword.html">Buzzword</a>, <a href="http://gamevy.com/boss-the-lotto.html">Boss the Lotto</a>, <a href="http://gamevy.com/gears-of-fortune.html">Gears of Fortune</a>: Games I worked on at Gamevy</li>
+                <li><a href="https://wortopia.de">Wortopia</a>: Multi-player word game based on "Boggle". Played by roughly 1800 players every month. (German, code available <a href="https://github.com/marekventur/wortopia-node">via github</a>)</li>
+                <li><a href="https://github.com/Gamevy/pixi-packer">PIXI-Packer</a>: Open-source project that streamlines asset resizing and packaging for HTML5 games</li>
+                <li><a href="https://github.com/marekventur/dependency-updater">dependency-updater</a>: Open-source script that detects outdated npm dependencies in github projects and opens a PR to update them</li>
+                <li><a href="http://www.rapidletter.de">rapidletter.de</a> – Generate formal .pdf letters (German)</li>
+                <li><a href="http://qtagr.com">qtagr.com</a> – A service to create changeable QR-Codes (Back when they were still cool)</li>
+                <li><a href="http://urmash.com/">u r mash</a> – A HTML/JS/node.js powered multiplayer racing game (Hackday project)</li>
+            </ul>
+        </section>
+
+        <section id="employment">
+            <h2>Employment history</h2>
+
+            <div class="job">
+                <h3>Gamevy (Aug 2013 - Present), London</h3>
+
+                <summary>As the first developer to join Gamevy I've worked on games, backend infrastructure and operations as well as game design</summary>
+
                 <ul>
-                    <li><a href="mailto:mail@marekventur.de">mail@marekventur.de</a></li>
-                    <li><a href="http://twitter.com/marekventur">@marekventur</a></li>
-                    <li><a href="https://github.com/marekventur">github.com/marekventur</a></li>
+                    <li>Worked on <strong>developing game concepts</strong> for nearly all Gamevy games to date.</li>
+                    <li><strong>Tweaking, Prototyping and mathematical verification</strong>: This involved creating playable prototypes and mathematical simulations as well as quite a lot of probabilistic maths (HTML5, node.js, python)</li>
+                    <li><strong>UX</strong>: Worked with our designers to maximise player enjoyment and make the game flow as easy as possible. This involved advanced planing and external UX testing on the working game</li>
+                    <li>Implementation of <strong>backend</strong> infrastructure for games that conforms with licensing requirements of the UK gambling commission. Due to the nature of Gamevy's games this involved not only the creation of random outcomes but also elements like trivia questions or word games (node.js, Debian, Postgres, python, Go)</li>
+                    <li>Implementation of <strong>frontend</strong> for both mobile and desktop through an HTML5 gaming library (Javascript ES6, PIXI.js, Objective C, C++)</li>
+                    <li>Creation of <strong>infrastructure</strong> for continuous deployment, scaling, monitoring and auditing (Jenkins, Ansible) </li>
                 </ul>
-            </nav>
-            <summary>
-                <p>Looking for new and interesting things to work on, I moved from Germany to the UK in 2011. I enjoy finding new, creative and unusual solutions and using the newest technologies.</p>
-                <p>My focus and interest lies in back-end development that power large scale services that are used (and hopefully enjoyed) by many.</p>
-            </summary>
-            <section>
-                <h2>Employment history</h2>
+            </div>
 
-                <h3>Last.fm (Dec 2012 - Present), London</h3>
+            <div class="job">
+                <h3>Last.fm (Dec 2012 - Aug 2013), London</h3>
                 <h4>Java Developer</h4>
 
-                <summary class="job-tldr">Designing and maintaining back-end services in Java, venturing into Hadoop and Big Data</summary>
+                <summary>Designing and maintaining back-end services in Java, working with Hadoop</summary>
 
                 <ul>
                     <li>Refactoring and enhancements for <a href="http://musicmanager.last.fm">Music Manager</a>, a plattform for labels that supplies most of Last.fm's streams (Java, Spring, Maven, Thrift)</li>
-                    <li>Data research (Hadoop, Hive, SQL)</li>
+                    <li><strong>Data research</strong> (Hadoop, Hive, SQL)</li>
                 </ul>
+            </div>
 
+            <div class="job">
                 <h3>Last.fm (Oct 2011 - Dec 2012), London</h3>
                 <h4>Web Developer</h4>
 
-                <summary class="job-tldr">Back-end focused, with occasional front end projects in a 10 to 5 developer sized agile team. <span class="keywords">(HTML, CSS, JS, PHP, Apache)</span></summary>
+                <summary>Back-end focused, with occasional front end projects in a small team</summary>
 
                 <ul>
-                    <li>Migrated a <a href="http://www.last.fm/tools/charts">chart-image generator service</a>, serving millions of requests per day, to Apache and ImageMagick</li>
+                    <li>Refactored a <a href="http://www.last.fm/tools/charts">chart-image generator service</a>, serving millions of requests per day</li>
                     <li>Maintenance and debugging of infrastructure that handles user-uploaded images</li>
-                    <li>Suggested and implemented parts of Last.fm's "frictionless sharing" to Facebook</li>
-                    <li>Suggested, prototyped, designed and implemented main parts of Last.fm's <a href="http://www.last.fm/live">realtime charts</a> infrastructure (Node.js, WebSockets, Varnish)</li>
-                    <li>Integrating HTML5 app <a href="http://www.last.fm/discover">Last.fm/discover</a> into our stack after is has been developed by third part developers
-                    </li><li>Helped implement <a href="http://www.last.fm/labs">Labs</a>, a way to ship beta-grade-features for feedback, drove "labification" of first four labs</li>
-                    <li>Took part in a major <a href="http://blog.last.fm/2012/08/03/design-changes-to-lastfm">redesign project</a></li>
-                    <li>Had lots of fun <a href="http://www.last.fm/christmas">annoying my colleagues</a> over Christmas</li>
+                    <li>Suggested, prototyped, designed and implemented main parts of Last.fm's <strong>realtime charts infrastructure</strong> that provided second-by-second resolution (Node.js, WebSockets, Varnish)</li>
+                    <li>Took part in a major redesign project</li>
                 </ul>
+            </div>
 
+            <div class="job">
                 <h3>IBM (Oct 2008 - Nov 2011), Mannheim and Mainz</h3>
                 <h4>Corporate Student, 6 internships</h4>
 
-                <summary class="job-tldr">3 months of University followed by 3 months of internships, repeated six times. A good way of getting into both the academical and the business side of IT.</summary>
+                <summary>6 iterations of each 3 months of University followed by 3 months of internships involving short projects in different IBM departments.</summary>
 
                 <ul>
                     <li>Planning, design and development of a virtual walkabout through an IBM datacenter, designed to be multi-lingual and multi-tenancy <span class="keywords">(Java, HTML, CSS, JS)</span></li>
-                    <li>Assisting an international team in analyzing SaaS offers and evaluation of leads created by business partners <span class="keywords">(EC2, AWS, GAE)</span></li>
                     <li>Development of various tools to improve reusability of automated test cases on z/Linux <span class="keywords">(Linux, software testing)</span></li>
                     <li>Development, roll out and support of a web based process planning tool <span class="keywords">(PHP, CSS, DB2)</span></li>
-                    <li>Integration of internal knowledge-sharing-plattform into other services to increase awareness of the service <span class="keywords">(Java)</span></li>
                 </ul>
-            </section>
+            </div>
+        </section>
 
-            <section class="education">
-                <h2>Stuff I'm good at (and like doing)</h2>
-                <ul>
-                    <li>Agile development (Scrum, Kanban)</li>
-                    <li>Apache on Linux</li>
-                    <li>Log file analysis (I love bash one-liners)</li>
-                    <li>Programming for a large scale environment (Java, PHP)</li>
-                    <li>SQL (MySQL, PostgreSQL, Hive)</li>
-                    <li>JavaScript, jQuery, NodeJS</li>
-                </ul>
-            </section>
+        <section id="education">
+            <h2>Education</h2>
 
-            <section class="education">
-                <h2>Education</h2>
+            <h3>Baden-Wuerttemberg Cooperative State University Mannheim (Oct 2008 - Nov 2011)</h3>
+            <h4>BSc Science, Business Informatics</h4>
+            <p>6 theoretical terms, 6 internships at IBM</p>
+        </section>
+    </article>
 
-                <h3>Baden-Wuerttemberg Cooperative State University Mannheim (Oct 2008 - Nov 2011)</h3>
-                <h4>BSc Science, Business Informatics</h4>
-                <p>6 theoretical terms, 6 internships at IBM</p>
-            </section>
-
-            <section class="private-projects">
-                <h2>Private projects</h2>
-                <small>(Sorry, they are mostly in German)</small>
-                <ul>
-                    <li><a href="http://www.rapidletter.de">rapidletter.de</a> – Generate formal .pdf letters</li>
-                    <li><a href="http://www.wortopia.de">wortopia.de</a> – Multiplayer boggle clone</li>
-                    <li><a href="http://qtagr.com">qtagr.com</a> – A service to create changeable QR-Codes (Back when they were still cool)</li>
-                    <li><a href="http://youchoose.cloudfoundry.com/">YouChoose</a> – A collaborative YouTube playlisting service (Hackday project)</li>
-                    <li><a href="http://urmash.com/">u r mash</a> – A HTML/JS/node.js powered multiplayer racing game (Hackday project)</li>
-                </ul>
-            </section>
-            <section>
-
-                <h2>Also...</h2>
-                <ul>
-                    <li>I love living in London, but I wouldn't say no to discovering (and moving to) new great places</li>
-                    <li>I enjoy working on projects that have a positive impact on peoples lives</li>
-                    <li>Coming up with and prototyping new ideas is one of the things I most love about programming</li>
-                    <li>I can get really passionate about new technology. When can I have my brain interface?</li>
-                    <li>I'm terrible at playing foosball (but I still really like playing it)</li>
-                </ul>
-            </section>
-            <footer>
-                <p>Liked what you read? Get in touch <a href="mailto:mail@marekventur.de">mail@marekventur.de</a></p>
-            </footer>
-        </article>
-
-
-</div></body></html>
+</body>
+</html>

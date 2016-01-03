@@ -72,7 +72,7 @@ gulp.task("css", function() {
 });
 
 gulp.task("html", function () {
-    gulp.src("index.html")
+    gulp.src("*.html")
     .pipe(htmlhint())
     .pipe(htmlhint.failReporter())
     .on('error', notify.onError(function(err) {
@@ -91,7 +91,7 @@ gulp.task("img", function () {
 gulp.task("build", [ "js", "css", "html", "img"]);
 
 gulp.task("watch", ["build", "js:watch"], function () {
-    gulp.watch("index.html", ["html"]);
+    gulp.watch("*.html", ["html"]);
     gulp.watch("img/**", ["img"]);
     gulp.watch("css/*.styl", ["css"]);
 });
