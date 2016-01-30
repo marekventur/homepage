@@ -21,10 +21,10 @@ export default class Box extends DomObject {
     }
 
     static createAll(root) {
-        let balls = root.querySelectorAll(".box");
+        let boxes = root.querySelectorAll(".box");
         let result = [];
-        for (let i = 0; i < balls.length; i++) {
-            result.push(new Box(balls[i]));
+        for (let i = 0; i < boxes.length; i++) {
+            result.push(new Box(boxes[i]));
         }
         return result;
     }

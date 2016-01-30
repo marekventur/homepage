@@ -1,26 +1,25 @@
 /*eslint-env node */
+/*eslint-disable no-console */
 "use strict";
 
 var gulp = require("gulp");
-var server = require("gulp-develop-server");
 var stylus = require("gulp-stylus");
-var concat = require('gulp-concat');
 var fileinclude = require("gulp-file-include");
-var browserify = require('browserify');
+var browserify = require("browserify");
 var babelify = require("babelify");
 var watchify = require("watchify");
-var browserSync = require('browser-sync').create();
+var browserSync = require("browser-sync").create();
 var source = require("vinyl-source-stream");
 var nib = require("nib");
 var gutil = require("gulp-util");
 var notify = require("gulp-notify");
 var htmlhint = require("gulp-htmlhint");
-
-gulp.task('server', function() {
+gulp.task("server", function() {
     browserSync.init({
         server: {
             baseDir: "./build/"
-        }
+        },
+        open: false
     });
 });
 
@@ -35,12 +34,14 @@ function bundleMainBrowserify(b) {
 
 function createMainBrowserify() {
     return browserify({
-        entries: "./js/main.js",
-        transform: [babelify],
-        cache: {},        // for watchify
-        packageCache: {}, // for watchify
-        debug: true
-    });
+            entries: "./js/main.js",
+            transform: [babelify],
+            //presets: ["es2015"],
+            cache: {},        // for watchify
+            packageCache: {}, // for watchify
+            debug: true
+        })
+        .transform(babelify, {presets: ["es2015"]})
 }
 
 gulp.task("js", function() {
@@ -60,7 +61,7 @@ gulp.task("js:watch", function() {
 gulp.task("css", function() {
     return gulp.src("./css/index.styl")
         .pipe(stylus({ use: [nib()] }))
-        .on('error', notify.onError(function(err) {
+        .on("error", notify.onError(function(err) {
             var errorName = err.name;
             var errorMessage = err.message;
             var lines = err.message.split("\n");
