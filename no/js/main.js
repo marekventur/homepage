@@ -1,35 +1,49 @@
 import $ from "jquery";
+import enableSmoothScroll from "./smooth_scroll";
 
 $(() => {
-	$( window ).resize(onResize);
+	$( window ).resize(onResize).scroll(onScroll);
 	onResize();
+	onScroll();
+	enableSmoothScroll();
 });
 
+let viewportHeight, viewportWidth;
+
 function onResize() {
-	let nav = $("nav");
-	let navHeight = nav.outerHeight() + 2 * parseInt(nav.css("top"), 10);
-	let viewportHeight = $(window).height();
-	let viewportWidth = $(window).width();
+	viewportHeight = $(window).innerHeight();
+	viewportWidth = $(window).width();
 
 	let introduction = $("#landing .introduction");
 	let introductionHeight = introduction.outerHeight();
 
-	let leftoverHeight = viewportHeight - navHeight - introductionHeight;
+	let leftoverHeight = viewportHeight - introductionHeight;
 
-	let top = 0;
-	if (viewportWidth > 650) {
-		top = 0;
-	}
+	let top = 30;
 
-	let size = Math.min(leftoverHeight, viewportWidth) * 0.9 - top;
+	let min = Math.min(leftoverHeight, viewportWidth);
+
+	let size = min - top * 2;
+
+	size = Math.min(size, 350);
 
 	$("#landing .circle").css({
-		top,
+		top: (min - size) / 2,
 		fontSize: size / 100
 	});
 
 	$("#landing").css({
-		height: viewportHeight - navHeight
+		height: viewportHeight
 	});
 
 }
+
+function onScroll() {
+	let scrollPos = $(document).scrollTop();
+	let viewportHeight = $(window).height();
+
+	let opacity = Math.max(0, Math.min(1, (scrollPos - viewportHeight / 2) / (viewportHeight / 2)));
+
+	$("nav").css({ opacity });
+}
+

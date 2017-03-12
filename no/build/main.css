@@ -2613,15 +2613,12 @@ main {
 }
 /*** Landing ***/
 section#landing {
+  z-index: 1;
   text-align: center;
   width: 100vw;
-  margin-top: 90px;
+  height: 100vh;
   font-size: 1vmin;
-}
-@media (max-width: 600px) {
-  section#landing {
-    margin-top: 70px;
-  }
+  position: relative;
 }
 section#landing .circle {
   position: relative;
@@ -2631,8 +2628,6 @@ section#landing .circle {
   width: 100em;
   height: 100em;
   margin: auto;
-  -webkit-box-shadow: 2px 2px 5px #888;
-  box-shadow: 2px 2px 5px #888;
 }
 section#landing .circle h2 {
 /*font-family: 'Chewy', sans-serif;*/
@@ -2646,7 +2641,6 @@ section#landing .circle h3 {
 }
 section#landing .introduction {
   position: absolute;
-  padding-top: 5vmin;
   padding-bottom: 5vmin;
   bottom: 0px;
   line-height: 1.2em;
@@ -2675,11 +2669,11 @@ section#landing .introduction .arrow-down {
 /*** Work ***/
 section#work {
   min-height: 100vh;
-  margin-top: 90px;
+  padding-top: 120px;
 }
 @media (max-width: 600px) {
   section#work {
-    margin-top: 70px;
+    padding-top: 100px;
   }
 }
 section#work ul {
@@ -2687,9 +2681,9 @@ section#work ul {
 }
 section#work li {
   padding: 0 20px;
+  height: 300px;
   text-align: center;
   width: 200px;
-  margin-bottom: 40px;
   display: inline-block;
 }
 section#work li .teaser {

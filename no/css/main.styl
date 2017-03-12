@@ -66,15 +66,15 @@ main {
 /*** Landing ***/
 
 section#landing {
+    z-index: 1;
+
     text-align: center;
     width: 100vw;
-
-    margin-top: 90px;
-    @media (max-width: 600px) {
-        margin-top: 70px;
-    }
+    height: 100vh;
 
     font-size: 1vmin;
+
+    position: relative;
 
     .circle {
         position: relative;
@@ -85,8 +85,6 @@ section#landing {
         height: 100em;
 
         margin: auto;
-
-        box-shadow: 2px 2px 5px #888888;
 
         h2 {
             /*font-family: 'Chewy', sans-serif;*/
@@ -104,7 +102,6 @@ section#landing {
 
     .introduction {
         position: absolute;
-        padding-top: 5vmin;
         padding-bottom: 5vmin;
         bottom: 0px;
         line-height: 1.2em;
@@ -135,9 +132,9 @@ section#landing {
 section#work {
     min-height: 100vh;
 
-    margin-top: 90px;
+    padding-top: 120px;
     @media (max-width: 600px) {
-        margin-top: 70px;
+        padding-top: 100px;
     }
 
     ul {
@@ -147,10 +144,10 @@ section#work {
     li {
         padding: 0 20px;
 
+        height: 300px;
+
         text-align: center;
         width: 200px;
-
-        margin-bottom: 40px;
 
         display: inline-block;
 

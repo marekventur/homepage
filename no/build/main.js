@@ -7,38 +7,86 @@ var _jquery = require("jquery");
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+var _smooth_scroll = require("./smooth_scroll");
+
+var _smooth_scroll2 = _interopRequireDefault(_smooth_scroll);
+
 (0, _jquery2["default"])(function () {
-	(0, _jquery2["default"])(window).resize(onResize);
+	(0, _jquery2["default"])(window).resize(onResize).scroll(onScroll);
 	onResize();
+	onScroll();
+	(0, _smooth_scroll2["default"])();
 });
 
+var viewportHeight = undefined,
+    viewportWidth = undefined;
+
 function onResize() {
-	var nav = (0, _jquery2["default"])("nav");
-	var navHeight = nav.outerHeight() + 2 * parseInt(nav.css("top"), 10);
-	var viewportHeight = (0, _jquery2["default"])(window).height();
-	var viewportWidth = (0, _jquery2["default"])(window).width();
+	viewportHeight = (0, _jquery2["default"])(window).innerHeight();
+	viewportWidth = (0, _jquery2["default"])(window).width();
 
 	var introduction = (0, _jquery2["default"])("#landing .introduction");
 	var introductionHeight = introduction.outerHeight();
 
-	var leftoverHeight = viewportHeight - navHeight - introductionHeight;
+	var leftoverHeight = viewportHeight - introductionHeight;
 
-	var top = 0;
-	if (viewportWidth > 650) {
-		top = 0;
-	}
+	var top = 30;
 
-	var size = Math.min(leftoverHeight, viewportWidth) * 0.9 - top;
+	var min = Math.min(leftoverHeight, viewportWidth);
+
+	var size = min - top * 2;
+
+	size = Math.min(size, 350);
 
 	(0, _jquery2["default"])("#landing .circle").css({
-		top: top,
+		top: (min - size) / 2,
 		fontSize: size / 100
 	});
 
 	(0, _jquery2["default"])("#landing").css({
-		height: viewportHeight - navHeight
+		height: viewportHeight
 	});
 }
+
+function onScroll() {
+	var scrollPos = (0, _jquery2["default"])(document).scrollTop();
+	var viewportHeight = (0, _jquery2["default"])(window).height();
+
+	var opacity = Math.max(0, Math.min(1, (scrollPos - viewportHeight / 2) / (viewportHeight / 2)));
+
+	(0, _jquery2["default"])("nav").css({ opacity: opacity });
+}
+
+},{"./smooth_scroll":"/Users/marekventur/workspace/marekventur-homepage/no/js/smooth_scroll.js","jquery":"/Users/marekventur/workspace/marekventur-homepage/no/node_modules/jquery/dist/jquery.js"}],"/Users/marekventur/workspace/marekventur-homepage/no/js/smooth_scroll.js":[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _jquery = require("jquery");
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+exports['default'] = function () {
+    (0, _jquery2['default'])('a[href*="#"]:not([href="#"])').click(function () {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var target = (0, _jquery2['default'])(this.hash);
+            target = target.length ? target : (0, _jquery2['default'])('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                (0, _jquery2['default'])('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
+        }
+    });
+};
+
+;
+module.exports = exports['default'];
 
 },{"jquery":"/Users/marekventur/workspace/marekventur-homepage/no/node_modules/jquery/dist/jquery.js"}],"/Users/marekventur/workspace/marekventur-homepage/no/node_modules/jquery/dist/jquery.js":[function(require,module,exports){
 /*!
