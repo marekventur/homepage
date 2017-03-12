@@ -8,288 +8,174 @@ $fa-font-path = "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts"
 
 
 body {
-    background-color: color-background;
-    color: color-text;
-    margin: 10px;
-    font-family: Arial;
-    background-image: url(/img/cream-dust.png);
-}
-
-em {
-    font-weight: bold;
+    color: color-grey;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
 }
 
 a, a:visited {
-    color: color-box-text;
+    color: color-grey;
+    text-decoration: none;
 }
 
-p {
-    margin-bottom: 5px;
-}
+/*** Nav ***/
 
-/***********
- * Container
- ***********/
+nav {
+    z-index: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 30px;
 
-container-width = 960px;
-collapse-point = container-width + 20px; /* Used for media queries, includes margin*/
-.container {
-    max-width: container-width;
-    margin: 0 auto;
-    position: relative;
-}
+    border: 20px solid #ffffff;
 
-/***********
- * Headers
- ***********/
+    background: #ffffff url("./img/marekventur.png") no-repeat;
+    background-position: top left;
+    background-size: contain;
 
-h1, h2, h3 {
-    color: color-text;
-    clear: left;
-    position: relative;
-    font-family: 'Bowlby One SC', cursive;
-
-}
-
-h1 {
-    font-size: 5em;
-    @media screen and (max-width:920px) { font-size: 8vw; }
-    margin-bottom: 10px;
-
-    small {
-        font-size: 0.5em;
-    }
-}
-
-h2 {
-    margin-bottom: 10px;
-    font-size: 2em;
-}
-
-h3 {
-    color: color-box-text;
-    a {
-        text-decoration: none;
-    }
-}
-
-/***********
- * Boxes
- ***********/
-
-box() {
-    display: block;
-    line-height: 1.2em;
-    border-radius: 2px;
-    text-align: left;
-    position: relative;
-    overflow: hidden;
-    background: color-box-background;
-    color: color-box-text;
-    padding: 10px;
-
-    margin-bottom: 10px;
-}
-
-half-size(gap = 5px, childOffset=0) {
-    @media screen and (min-width:collapse-point) {
-        display: block;
-        float: left;
-        width: container-width * 0.5 - gap;
-
-        &:nth-child(2n+{childOffset}) {
-            margin-right: 10px;
+    h1 {
+        position: absolute;
+        a, a:hover, a:visited {
+            color: transparent;
         }
     }
-}
-
-half-size-box(childOffset=1) {
-    box();
-    half-size(25px, childOffset);
-}
-
-/***********
- * Sections
- ***********/
-
-.introduction {
-    .main-text {
-        box();
-    }
-
-    .contact {
-        a {
-            box();
-            text-decoration: none;
-        }
-
-        .twitter a {
-            fa-before("twitter");
-        }
-        .lastfm a {
-            fa-before("lastfm");
-        }
-        .goodreads a {
-            fa-before("book");
-        }
-        .foursquare a {
-            fa-before("foursquare");
-        }
-        .email a {
-            fa-before("envelope-o");
-        }
-        .irc a {
-            fa-before("weixin");
-        }
-
-        @media screen and (max-width:collapse-point) {
-            a:before {
-                padding-right:4px;
-            }
-        }
-
-        @media screen and (min-width:collapse-point) {
-            a:before {
-                line-height: 38px;
-            }
-
-            li {
-                display: block;
-                float: left;
-
-                margin-left: 10px;
-                &:nth-child(1) {
-                    margin-left: 0px;
-                }
-
-                a{
-
-
-                    width: 151px;
-
-                    font-size: 2em;
-                    text-align: center;
-                    min-height: 70px;
-                    padding: 10px 0px;
-
-                    &:hover {
-                        background: color-contrast;
-                        color: color-contrast-text;
-                    }
-
-                    span {
-                        display: block;
-                        font-size: 0.8rem;
-                        line-height: 1.2em;
-                    }
-
-                }
-
-                &:nth-child(2n+1) {
-                    a {
-                        width: 152px; /* Make some boxes 1px wider to make them align with 960px*/
-                    }
-                }
-            }
-        }
-    }
-}
-
-.interested-in,
-.good-at {
-    half-size();
 
     ul {
-        box();
+        display: block;
+        position: absolute;
+        left: 150px;
+        right: 0px;
+        line-height: 1.2em;
+        font-size: 14px;
+    }
 
-        @media screen and (min-width:collapse-point) {
-            min-height: 165px;
-        }
+    @media (max-width: 600px) {
+        border-width: 10px
 
-        li {
-            margin-bottom: 5px;
+        ul {
+            text-align: right;
         }
     }
 }
 
-.things-i-did {
-    thumbnail-factor = 0.18; /* Original image size 997 x 732 */
-    thumbnail-width = 997px * thumbnail-factor;
-    thumbnail-height = 732px * thumbnail-factor;
-    one-column-point = container-width * 0.5 - 27px;
+main {
+    overflow: hidden;
+}
 
-    >ul>li {
-        half-size-box();
+/*** Landing ***/
 
-        min-height: thumbnail-height + 25px;
+section#landing {
+    text-align: center;
+    width: 100vw;
+
+    margin-top: 90px;
+    @media (max-width: 600px) {
+        margin-top: 70px;
+    }
+
+    font-size: 1vmin;
+
+    .circle {
+        position: relative;
+        background-color: color-blue;
+        color: #ffffff;
+        border-radius: 50%;
+        width: 100em;
+        height: 100em;
+
+        margin: auto;
+
+        box-shadow: 2px 2px 5px #888888;
+
+        h2 {
+            /*font-family: 'Chewy', sans-serif;*/
+            font-weight: 900;
+            font-size: 21em;
+            padding-top: 1.8em;
+        }
+
+        h3 {
+            font-size: 7em;
+            margin-top: 0.4em;
+        }
+
+    }
+
+    .introduction {
+        position: absolute;
+        padding-top: 5vmin;
+        padding-bottom: 5vmin;
+        bottom: 0px;
+        line-height: 1.2em;
+        font-size: 18px;
+        width: 100vw;
 
         p {
-            position: relative;
-
-            &.qualifier {
-                color: color-box-text-minor;
-                font-size:0.8em;
+            padding-bottom: 1vmin;
+            margin: 0 20px;
+            @media (max-width: 600px) {
+                margin: 0 10px;
             }
         }
 
-        ul.links {
-            li {
-                margin-right: 10px;
-                min-height: 0px;
-                display: inline-block;
+        .arrow-down {
+            margin-top: 4vmin;
+            display: block;
+            height: 2vmin;
+            background: url("./img/down.png") no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+    }
+}
 
-                &.code a {
-                    fa-before("github-square");
-                }
+/*** Work ***/
 
-                &.link a {
-                    fa-before("external-link");
-                }
+section#work {
+    min-height: 100vh;
 
-                a:before {
-                    padding-right: 3px;
-                }
+    margin-top: 90px;
+    @media (max-width: 600px) {
+        margin-top: 70px;
+    }
 
-                a {
-                    text-decoration: none
-                    color: color-box-text-minor;
-                    font-size:1em;
-                }
-            }
+    ul {
+        text-align: center;
+    }
 
-            @media screen and (min-width:one-column-point) {
-                position: absolute;
-                left: thumbnail-width + 20px;
-                bottom: 5px;
-                text-align: right;
-                right: 0px;
-            }
+    li {
+        padding: 0 20px;
+
+        text-align: center;
+        width: 200px;
+
+        margin-bottom: 40px;
+
+        display: inline-block;
+
+        .teaser {
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            box-shadow: 2px 2px 5px #888888;
+
+            border-radius: 50%;
+            height: 200px;
+            width: 200px;
+            margin-bottom: 20px;
+            margin: auto;
         }
 
-        img {
-            width: thumbnail-width;
-            height: thumbnail-height;
-            top: 10px;
+        h3 {
+            font-size: 14px;
+            margin-top: 20px;
         }
 
-        @media screen and (min-width:one-column-point) {
-            p {
-                margin-left: thumbnail-width + 10px;
-
-                &.qualifier {
-                    position: absolute;
-                    bottom: 5px;
-                    margin-left: 0px;
-                    margin-bottom: 0px;
-                }
-            }
-            h3 {
-                margin-left: thumbnail-width + 10px;
-            }
-
-            img {
-                position: absolute;
-            }
+        p {
+            font-size: 14px;
+            margin-top: 5px;
+            color: color-light-grey;
         }
     }
 }
