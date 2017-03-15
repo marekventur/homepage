@@ -15,6 +15,18 @@ var _smooth_scroll2 = _interopRequireDefault(_smooth_scroll);
 	(0, _jquery2["default"])(window).resize(onResize).scroll(onScroll);
 	onResize();
 	onScroll();
+
+	/*$("#work li").each((i, element) => {
+ 	element = $(element);
+ 	element.click((event) => {
+ 		 event.stopPropagation();
+ 		 element.toggleClass("detailed");
+ 			$("#work li").not(element).each((i, element) => {
+ 			$(element).removeClass("detailed");
+ 		})
+ 	});
+ });*/
+
 	(0, _smooth_scroll2["default"])();
 });
 
@@ -36,10 +48,10 @@ function onResize() {
 
 	var size = min - top * 2;
 
-	size = Math.min(size, 350);
+	size = Math.min(size, 300);
 
 	(0, _jquery2["default"])("#landing .circle").css({
-		top: (min - size) / 2,
+		top: (leftoverHeight - size) / 2,
 		fontSize: size / 100
 	});
 
@@ -78,7 +90,7 @@ exports['default'] = function () {
             if (target.length) {
                 (0, _jquery2['default'])('html, body').animate({
                     scrollTop: target.offset().top
-                }, 1000);
+                }, 500);
                 return false;
             }
         }

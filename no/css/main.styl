@@ -3,10 +3,6 @@
 @import "reset"
 @import "colors"
 
-$fa-font-path = "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts"
-@import "../node_modules/font-awesome-stylus/stylus/index"
-
-
 body {
     color: color-grey;
     font-family: 'Lato', sans-serif;
@@ -42,12 +38,14 @@ nav {
     }
 
     ul {
-        display: block;
-        position: absolute;
-        left: 150px;
-        right: 0px;
-        line-height: 1.2em;
-        font-size: 14px;
+        float: right;
+
+        li {
+            line-height: 30px;
+            display: inline-block;
+            font-size: 16px;
+            margin-left: 30px;
+        }
     }
 
     @media (max-width: 600px) {
@@ -114,6 +112,11 @@ section#landing {
             @media (max-width: 600px) {
                 margin: 0 10px;
             }
+
+            em {
+                font-weight: 400;
+                stext-transform: uppercase;
+            }
         }
 
         .arrow-down {
@@ -129,50 +132,31 @@ section#landing {
 
 /*** Work ***/
 
-section#work {
-    min-height: 100vh;
+@import "work"
 
-    padding-top: 120px;
+
+/*** Contact ***/
+
+section#contact {
+    margin: 100px 20px;
     @media (max-width: 600px) {
-        padding-top: 100px;
+        margin: 100px 10px;
+    }
+    text-align: center;
+
+    h2 {
+        font-size: 30px;
+        margin-bottom: 40px;
     }
 
-    ul {
-        text-align: center;
+    p {
+        font-size: 20px;
+        max-width: 600px;
+        margin: auto;
+        margin-bottom: 20px;
     }
 
-    li {
-        padding: 0 20px;
-
-        height: 300px;
-
-        text-align: center;
-        width: 200px;
-
-        display: inline-block;
-
-        .teaser {
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-            box-shadow: 2px 2px 5px #888888;
-
-            border-radius: 50%;
-            height: 200px;
-            width: 200px;
-            margin-bottom: 20px;
-            margin: auto;
-        }
-
-        h3 {
-            font-size: 14px;
-            margin-top: 20px;
-        }
-
-        p {
-            font-size: 14px;
-            margin-top: 5px;
-            color: color-light-grey;
-        }
+    a {
+        color: color-blue;
     }
 }

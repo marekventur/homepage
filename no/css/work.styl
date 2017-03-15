@@ -1,0 +1,105 @@
+section#work {
+    min-height: 100vh;
+
+    padding-top: 120px;
+    @media (max-width: 600px) {
+        padding-top: 100px;
+    }
+
+    ul {
+        text-align: center;
+    }
+
+    li {
+        a {
+            cursor: pointer;
+        }
+
+        padding: 0 20px;
+
+        height: 300px;
+
+        text-align: center;
+        width: 200px;
+
+        display: inline-block;
+
+        .circle {
+            .image {
+                position: absolute;
+                top: 0;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                border-radius: 50%;
+                height: 200px;
+                width: 200px;
+            }
+
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            border-radius: 50%;
+            height: 200px;
+            width: 200px;
+            margin-bottom: 20px;
+            margin: auto;
+        }
+
+        h3 {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        h4 {
+            font-size: 14px;
+            margin-top: 5px;
+            color: color-light-grey;
+        }
+
+        /* Hide / Reveal */
+
+        perspective: 1000px;
+
+        .description {
+            opacity: 0;
+            transition: opacity 0.4s, transform 0.4s;
+            stransform: rotateZ(-180deg) ;
+            width: 200px;
+            line-height: 1.3em;
+
+        }
+
+        .circle {
+            .image {
+                opacity: 1;
+                transition: opacity 0.4s;
+                transform: rotateZ(0deg) ;
+                transition: transform 0.4s, opacity 0.4s;
+            }
+
+
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+
+        }
+
+        overflow: hidden;
+
+        &.detailed, &:hover {
+            .description {
+                opacity: 1;
+                stransform: rotateZ(0deg);
+            }
+
+            .circle {
+                .image {
+                    opacity: 0.05;
+                    transform: rotateZ(3deg);
+                }
+            }
+        }
+    }
+}

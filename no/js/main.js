@@ -5,6 +5,19 @@ $(() => {
 	$( window ).resize(onResize).scroll(onScroll);
 	onResize();
 	onScroll();
+
+	/*$("#work li").each((i, element) => {
+		element = $(element);
+		element.click((event) => {
+			 event.stopPropagation();
+			 element.toggleClass("detailed");
+
+			$("#work li").not(element).each((i, element) => {
+				$(element).removeClass("detailed");
+			})
+		});
+	});*/
+
 	enableSmoothScroll();
 });
 
@@ -25,10 +38,10 @@ function onResize() {
 
 	let size = min - top * 2;
 
-	size = Math.min(size, 350);
+	size = Math.min(size, 300);
 
 	$("#landing .circle").css({
-		top: (min - size) / 2,
+		top: (leftoverHeight - size) / 2,
 		fontSize: size / 100
 	});
 
