@@ -16,16 +16,27 @@ var _smooth_scroll2 = _interopRequireDefault(_smooth_scroll);
 	onResize();
 	onScroll();
 
-	/*$("#work li").each((i, element) => {
- 	element = $(element);
- 	element.click((event) => {
- 		 event.stopPropagation();
- 		 element.toggleClass("detailed");
- 			$("#work li").not(element).each((i, element) => {
- 			$(element).removeClass("detailed");
- 		})
- 	});
- });*/
+	(0, _jquery2["default"])("#work li").each(function (i, element) {
+		element = (0, _jquery2["default"])(element);
+		element.click(function (event) {
+			event.stopPropagation();
+			element.toggleClass("detailed").removeClass("faded");
+
+			var open = element.hasClass("detailed");
+
+			(0, _jquery2["default"])("#work li").not(element).each(function (i, element) {
+				(0, _jquery2["default"])(element).removeClass("detailed");
+
+				if (open) {
+					(0, _jquery2["default"])(element).addClass("faded");
+				} else {
+					(0, _jquery2["default"])(element).removeClass("faded");
+				}
+			});
+
+			onResize();
+		});
+	});
 
 	(0, _smooth_scroll2["default"])();
 });
@@ -57,6 +68,17 @@ function onResize() {
 
 	(0, _jquery2["default"])("#landing").css({
 		height: viewportHeight
+	});
+
+	// Desciption
+	(0, _jquery2["default"])("#work li.detailed .info").each(function (i, element) {
+		element = (0, _jquery2["default"])(element);
+		var offset = element.offset();
+		console.log(offset, element.css("margin-left"));
+		element.css({
+			marginLeft: parseInt(element.css("margin-left"), 10) - offset.left - 1,
+			width: viewportWidth + 1
+		});
 	});
 }
 

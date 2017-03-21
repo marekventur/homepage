@@ -16,7 +16,7 @@ section#work {
         }
 
         padding: 0 20px;
-
+        vertical-align: top;
         height: 300px;
 
         text-align: center;
@@ -48,12 +48,12 @@ section#work {
             margin: auto;
         }
 
-        h3 {
+        &>h3 {
             font-size: 14px;
             margin-top: 20px;
         }
 
-        h4 {
+        &>h4 {
             font-size: 14px;
             margin-top: 5px;
             color: color-light-grey;
@@ -61,15 +61,13 @@ section#work {
 
         /* Hide / Reveal */
 
-        perspective: 1000px;
-
-        .description {
-            opacity: 0;
-            transition: opacity 0.4s, transform 0.4s;
-            stransform: rotateZ(-180deg) ;
-            width: 200px;
-            line-height: 1.3em;
-
+        .info {
+            position: relative;
+            background: color-blue;
+            width: 100%;
+            color: white;
+            display: none;
+            z-index: 1;
         }
 
         .circle {
@@ -79,26 +77,68 @@ section#work {
                 transform: rotateZ(0deg) ;
                 transition: transform 0.4s, opacity 0.4s;
             }
-
-
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
-
+            position: relative;
         }
 
         overflow: hidden;
 
-        &.detailed, &:hover {
-            .description {
-                opacity: 1;
-                stransform: rotateZ(0deg);
+        &.detailed {
+            overflow: initial;
+            height: auto;
+            .info {
+                display: block;
+                margin-bottom: 20px;
+                padding: 20px;
+                box-sizing: border-box;
+
+                h3 {
+                    display: inline-block;
+                    font-weight: 600;
+                }
+
+                h4 {
+                    display: inline-block;
+                    color: color-light-blue;
+                    margin-left: 0.2em;
+                }
+
+                p {
+                    margin: 1.5em auto;
+                    line-height: 1.2em;
+                    max-width: 600px;
+                }
+
+                a {
+                    text-decoration: underline;
+                    color: #fff;
+                    margin-left: 0.5em;
+                }
+
+                em {
+                    font-weight: 600;
+                    color: #fff;
+                }
             }
 
-            .circle {
-                .image {
-                    opacity: 0.05;
-                    transform: rotateZ(3deg);
-                }
+            .arrow {
+                content: "";
+                margin: auto;
+                margin-top: 10px;
+                width: 0;
+                height: 0;
+                border-left: 15px solid transparent;
+                border-right: 15px solid transparent;
+                border-bottom: 15px solid color-blue;
+            }
+
+            &>h3, &>h4 {
+                display: none;
+            }
+        }
+
+        &.faded {
+            h3, h4, .circle {
+                opacity: 0.3;
             }
         }
     }

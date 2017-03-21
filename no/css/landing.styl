@@ -1,0 +1,65 @@
+section#landing {
+    z-index: 1;
+
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+
+    font-size: 1vmin;
+
+    position: relative;
+
+    .circle {
+        position: relative;
+        background-color: color-blue;
+        color: #ffffff;
+        border-radius: 50%;
+        width: 100em;
+        height: 100em;
+
+        margin: auto;
+
+        h2 {
+            font-weight: 900;
+            font-size: 21em;
+            padding-top: 1.8em;
+        }
+
+        h3 {
+            font-size: 7em;
+            margin-top: 0.4em;
+        }
+
+    }
+
+    .introduction {
+        position: absolute;
+        padding-bottom: 5vmin;
+        bottom: 0px;
+        line-height: 1.2em;
+        font-size: 18px;
+        width: 100vw;
+
+        p {
+            padding-bottom: 1vmin;
+            margin: 0 20px;
+            @media (max-width: 600px) {
+                margin: 0 10px;
+            }
+
+            em {
+                font-weight: 400;
+                stext-transform: uppercase;
+            }
+        }
+
+        .arrow-down {
+            margin-top: 4vmin;
+            display: block;
+            height: 2vmin;
+            background: url("./img/down.png") no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+    }
+}

@@ -6,17 +6,28 @@ $(() => {
 	onResize();
 	onScroll();
 
-	/*$("#work li").each((i, element) => {
+	$("#work li").each((i, element) => {
 		element = $(element);
 		element.click((event) => {
-			 event.stopPropagation();
-			 element.toggleClass("detailed");
+			event.stopPropagation();
+			element.toggleClass("detailed").removeClass("faded");
+
+			let open = element.hasClass("detailed");
+
 
 			$("#work li").not(element).each((i, element) => {
 				$(element).removeClass("detailed");
-			})
+
+				if (open) {
+					$(element).addClass("faded");
+				} else {
+					$(element).removeClass("faded");
+				}
+			});
+
+			onResize();
 		});
-	});*/
+	});
 
 	enableSmoothScroll();
 });
@@ -47,6 +58,17 @@ function onResize() {
 
 	$("#landing").css({
 		height: viewportHeight
+	});
+
+	// Desciption
+	$("#work li.detailed .info").each((i, element) => {
+		element = $(element);
+		let offset = element.offset();
+		console.log(offset, element.css("margin-left"));
+		element.css({
+			marginLeft: parseInt(element.css("margin-left"), 10) - offset.left - 1,
+			width: viewportWidth + 1
+		});
 	});
 
 }

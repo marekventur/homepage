@@ -131,7 +131,9 @@ a:visited {
   color: #434343;
   text-decoration: none;
 }
-/*** Nav ***/
+main {
+  overflow: hidden;
+}
 nav {
   z-index: 1;
   position: fixed;
@@ -171,10 +173,6 @@ nav ul li {
     text-align: right;
   }
 }
-main {
-  overflow: hidden;
-}
-/*** Landing ***/
 section#landing {
   z-index: 1;
   text-align: center;
@@ -193,7 +191,6 @@ section#landing .circle {
   margin: auto;
 }
 section#landing .circle h2 {
-/*font-family: 'Chewy', sans-serif;*/
   font-weight: 900;
   font-size: 21em;
   padding-top: 1.8em;
@@ -233,7 +230,6 @@ section#landing .introduction .arrow-down {
   -moz-background-size: contain;
   background-size: contain;
 }
-/*** Work ***/
 section#work {
   min-height: 100vh;
   padding-top: 120px;
@@ -248,15 +244,12 @@ section#work ul {
 }
 section#work li {
   padding: 0 20px;
+  vertical-align: top;
   height: 300px;
   text-align: center;
   width: 200px;
   display: inline-block;
 /* Hide / Reveal */
-  -webkit-perspective: 1000px;
-  -moz-perspective: 1000px;
-  -ms-perspective: 1000px;
-  perspective: 1000px;
   overflow: hidden;
 }
 section#work li a {
@@ -299,38 +292,25 @@ section#work li .circle .image {
   height: 200px;
   width: 200px;
 }
-section#work li h3 {
+section#work li>h3 {
   font-size: 14px;
   margin-top: 20px;
 }
-section#work li h4 {
+section#work li>h4 {
   font-size: 14px;
   margin-top: 5px;
   color: #999;
 }
-section#work li .description {
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
-  -webkit-transition: opacity 0.4s, -webkit-transform 0.4s;
-  -moz-transition: opacity 0.4s, -moz-transform 0.4s;
-  -o-transition: opacity 0.4s, -o-transform 0.4s;
-  -ms-transition: opacity 0.4s, -ms-transform 0.4s;
-  transition: opacity 0.4s, transform 0.4s;
-  stransform: rotateZ(-180deg);
-  width: 200px;
-  line-height: 1.3em;
+section#work li .info {
+  position: relative;
+  background: #4177d4;
+  width: 100%;
+  color: #fff;
+  display: none;
+  z-index: 1;
 }
 section#work li .circle {
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  backface-visibility: hidden;
+  position: relative;
 }
 section#work li .circle .image {
   opacity: 1;
@@ -352,25 +332,62 @@ section#work li .circle .image {
   -ms-transition: -ms-transform 0.4s, opacity 0.4s;
   transition: transform 0.4s, opacity 0.4s;
 }
-section#work li.detailed .description,
-section#work li:hover .description {
-  opacity: 1;
-  -ms-filter: none;
-  filter: none;
-  stransform: rotateZ(0deg);
+section#work li.detailed {
+  overflow: initial;
+  height: auto;
 }
-section#work li.detailed .circle .image,
-section#work li:hover .circle .image {
-  opacity: 0.05;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=5)";
-  filter: alpha(opacity=5);
-  -webkit-transform: rotateZ(3deg);
-  -moz-transform: rotateZ(3deg);
-  -o-transform: rotateZ(3deg);
-  -ms-transform: rotateZ(3deg);
-  transform: rotateZ(3deg);
+section#work li.detailed .info {
+  display: block;
+  margin-bottom: 20px;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-/*** Contact ***/
+section#work li.detailed .info h3 {
+  display: inline-block;
+  font-weight: 600;
+}
+section#work li.detailed .info h4 {
+  display: inline-block;
+  color: #b4c8fb;
+  margin-left: 0.2em;
+}
+section#work li.detailed .info p {
+  margin: 1.5em auto;
+  line-height: 1.2em;
+  max-width: 600px;
+}
+section#work li.detailed .info a {
+  text-decoration: underline;
+  color: #fff;
+  margin-left: 0.5em;
+}
+section#work li.detailed .info em {
+  font-weight: 600;
+  color: #fff;
+}
+section#work li.detailed .arrow {
+  content: "";
+  margin: auto;
+  margin-top: 10px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid #4177d4;
+}
+section#work li.detailed>h3,
+section#work li.detailed>h4 {
+  display: none;
+}
+section#work li.faded h3,
+section#work li.faded h4,
+section#work li.faded .circle {
+  opacity: 0.3;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  filter: alpha(opacity=30);
+}
 section#contact {
   margin: 100px 20px;
   text-align: center;
