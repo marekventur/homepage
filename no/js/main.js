@@ -1,4 +1,3 @@
-import $ from "jquery";
 import enableSmoothScroll from "./smooth_scroll";
 
 $(() => {
@@ -8,7 +7,7 @@ $(() => {
 
 	$("#work li").each((i, element) => {
 		element = $(element);
-		element.click((event) => {
+		element.find(".trigger").click((event) => {
 			event.stopPropagation();
 			element.toggleClass("detailed").removeClass("faded");
 

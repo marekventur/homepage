@@ -6,7 +6,6 @@ var server = require("gulp-develop-server");
 var stylus = require("gulp-stylus");
 var concat = require('gulp-concat');
 var browserify = require('browserify');
-var babelify = require("babelify");
 var watchify = require("watchify");
 var browserSync = require('browser-sync').create();
 var source = require("vinyl-source-stream");
@@ -14,6 +13,7 @@ var nib = require("nib");
 var gutil = require("gulp-util");
 var notify = require("gulp-notify");
 var htmlhint = require("gulp-htmlhint");
+var pump = require("pump");
 
 gulp.task('server', function() {
     browserSync.init({
@@ -35,7 +35,7 @@ function bundleMainBrowserify(b) {
 function createMainBrowserify() {
     return browserify({
         entries: "./js/main.js",
-        transform: [babelify],
+        transform: ["babelify"],
         cache: {},        // for watchify
         packageCache: {}, // for watchify
         fullPaths: true

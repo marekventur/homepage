@@ -5,7 +5,7 @@ section#landing {
     width: 100vw;
     height: 100vh;
 
-    font-size: 1vmin;
+    font-size: 0.001px;
 
     position: relative;
 
@@ -33,6 +33,10 @@ section#landing {
     }
 
     .introduction {
+        a {
+            cursor: default;
+        }
+
         position: absolute;
         padding-bottom: 5vmin;
         bottom: 0px;
@@ -60,6 +64,8 @@ section#landing {
             background: url("./img/down.png") no-repeat;
             background-position: center;
             background-size: contain;
+
+            cursor: pointer;
         }
     }
 }
