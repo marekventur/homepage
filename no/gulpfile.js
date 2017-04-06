@@ -88,7 +88,13 @@ gulp.task("img", function () {
     .pipe(browserSync.stream());
 });
 
-gulp.task("build", [ "js", "css", "html", "img"]);
+gulp.task("pdf", function () {
+    gulp.src("*.pdf")
+    .pipe(gulp.dest("build/"))
+    .pipe(browserSync.stream());
+});
+
+gulp.task("build", [ "js", "css", "html", "img", "pdf"]);
 
 gulp.task("watch", ["build", "js:watch"], function () {
     gulp.watch("*.html", ["html"]);
