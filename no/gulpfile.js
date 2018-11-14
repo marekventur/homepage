@@ -83,7 +83,7 @@ gulp.task("html", function () {
 });
 
 gulp.task("img", function () {
-    gulp.src("img/*.png")
+    gulp.src("img/*")
     .pipe(gulp.dest("build/img/"))
     .pipe(browserSync.stream());
 });

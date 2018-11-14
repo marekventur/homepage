@@ -151,6 +151,7 @@
         h3 {
             margin-top: 1em;
         }
+
         h4 {
             margin-top: 0em;
             font-weight: 300;
@@ -173,7 +174,7 @@
 
         <header>
             <h1>Marek Ventur</h1>
-            <h2>Senior Developer / Project Manager / Game Producer</h2>
+            <h2>Full-Stack Developer</h2>
         </header>
 
         <nav>
@@ -185,23 +186,33 @@
         </nav>
 
         <section id="summary">
-            <p>I have worked for different companies and industries, such as tech giant <a href="https://ibm.com">IBM</a> and music industry disruptor <a href="https://last.fm">Last.fm</a>. At the moment I'm creating games for gambling startup <a href="http://gamevy.com">Gamevy</a>.</p>
-            <p>I combine <strong>full stack tech experience</strong> with the skills to <strong>manage and deliver successful projects</strong>.</p>
-            <p>My current focus is on <strong>creating innovative real money games</strong> - from slots with a twist to completely new concepts.</p>
-            <p>Please visit <a href="http://marekventur.com">marekventur.com</a> for a selection of projects and games I've worked on.</p>
+            <p>I have worked for different companies and industries, such as tech giant <a href="https://ibm.com">IBM</a>, music industry disruptor <a href="https://last.fm">Last.fm</a> and gambling startup <a href="http://gamevy.com">Gamevy</a>. At the moment I'm working at <a href="https://amazon.com">Amazon</a> as a Software Development Engineer.</p>
+            <p>In my spare time I'm part of the team that designs and builds the increasingly complex conference badges for the <a href="https://www.emfcamp.org/">Electromagnetic Field</a> hacker camp.</p>
+            <p>I combine <strong>in-depth frontend and backend knowledge</strong> with the skills to <strong>plan and deliver successful projects</strong>.</p>
         </section>
 
         <section id="skills">
             <h2>Skills</h2>
             <ul>
-                <li><strong>Game Development</strong>: Concept, prototype, pay table, simulation</li>
-                <li><strong>Project Management</strong>: Agile methodologies, team and client communication</li>
-                <li><strong>UX</strong>: Wire framing, user flow, A/B testing</li>
-                <li><strong>Frontend Development</strong>: HTML5 Game Development, JS, CSS, PIXI.js</li>
-                <li><strong>Backend Development</strong>: Node.js, Python, Java, PHP</li>
+                <li><strong>Backend Development</strong>: Java, Python, Node.js, PHP</li>
+                <li><strong>HTTP infrastructure</strong>: Apache, nginx, Websockets, load balancing</li>
+                <li><strong>Frontend Development</strong>: JS, CSS, React, HTML5 Game Development</li>
                 <li><strong>Operations</strong>: Server administration, CI, scaling, automation, monitoring</li>
-                <li><strong>Data analysis</strong>: Reporting, BI, web analytics</li>
+                <li><strong>Data Analysis</strong>: Reporting, Hadoop/Hive, Big Query, SQL, DynamoDB</li>
+                <li><strong>Project Management</strong>: Product ownership, Client communication, Resourcing, Prioritisation</li>
                 <li><strong>Bilingual</strong>: English, German</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Selected projects (the ones I'm allowed to talk about)</h2>
+            <ul>
+                <li><strong>Reporting infrastructure</strong>: ETL service for normalising and pushing game data to Google Big Query.</li>
+                <li><strong>Rohrpost</strong>: PubSub-to-Websocket server build for one of Gamevy's multiplayer games. Designed to separate long lasting websocket connections from backend services and to handle automatic load balancing, server restarts and backend handover during deploys - <a href="https://github.com/Gamevy/rohrpost-server">github.com/Gamevy/rohrpost-server</a></li>
+                <li><strong>Realtime Scrobbles</strong>: How many users are listening to what music in which country? Second-level-resolution of Last.fm's "currently listening" data fronted by a custom load-balancing infrastructure</li>
+                <li><strong>PIXI Packer</strong>: Assets packer focused on small download sizes and speed. Reduced build time of Gamevy's games by 50% - <a href="github.com/Gamevy/pixi-packer">github.com/Gamevy/pixi-packer</a></li>
+                <li><strong>Monte Carlo</strong>: Game simulation framework designed to speed up testing of new game concepts - <a href="https://github.com/Gamevy/monte-carlo">github.com/Gamevy/monte-carlo</a></li>
+                <li><strong>Tilda Mk2, Mk3 and Mk4</strong>: Custom designed (and fully working) PCBs used conference badges for UKs biggest hackers and makers gathering - <a href="http://blog.emfcamp.org/post/177423823788/tilda-mk4-the-emf-2018-badge">blog.emfcamp.org</a></li>
             </ul>
         </section>
 
@@ -209,8 +220,22 @@
             <h2>Employment history</h2>
 
             <div class="job">
-                <h3>Gamevy (Aug 2013 - Present), London</h3>
-                <h4>Senior Developer and Game Producer</h4>
+                <h3>Amazon (Oct 2017 - Present), London</h3>
+                <h4>Software Development Engineer</h4>
+
+                <summary>Working on services that enable Amazon's massive product catalog</summary>
+
+                <ul>
+                    <li><strong>Design and implementation</strong> of new features.</li>
+                    <li>Day-to-day running of services, including <strong>on-call</strong> support</li>
+                    <li><strong>Operations and tooling</strong></li>
+                    <li><strong>Trouble shooting and support</strong> in one of the worlds most complex product pipelines</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <h3>Gamevy (Aug 2013 - Sep 2017), London</h3>
+                <h4>Senior Developer and Product Lead</h4>
 
                 <summary>As the first non-founder to join Gamevy I've worked on game design, HTML5 frontends, backend infrastructure and operations</summary>
 
@@ -226,24 +251,13 @@
             </div>
 
             <div class="job">
-                <h3>Last.fm (Dec 2012 - Aug 2013), London</h3>
-                <h4>Data Developer</h4>
+                <h3>Last.fm (Oct 2011 - Aug 2013), London</h3>
+                <h4>Web and Data Developer</h4>
 
-                <summary>Designing and maintaining back-end services in Java, Hadoop</summary>
+                <summary>Back-end and focused (Hadoop, Java and PHP) with occasional front end projects</summary>
 
                 <ul>
-                    <li>Refactoring and enhancements for <a href="http://musicmanager.last.fm">Music Manager</a>, a platform for labels that supplies most of Last.fm's streams</li>
                     <li><strong>Data research</strong> (Hadoop, Hive, SQL)</li>
-                </ul>
-            </div>
-
-            <div class="job">
-                <h3>Last.fm (Oct 2011 - Dec 2012), London</h3>
-                <h4>Web Developer</h4>
-
-                <summary>Back-end focused, with occasional front end projects in a small team</summary>
-
-                <ul>
                     <li>Refactor of a chart-image generator service, serving millions of requests per day</li>
                     <li>Maintenance of infrastructure that handles user-uploaded images</li>
                     <li>Suggested, prototyped, designed and implemented main parts of Last.fm's <strong>realtime charts infrastructure</strong> that provided up-to-the-second resolution</li>
@@ -255,13 +269,7 @@
                 <h3>IBM (Oct 2008 - Nov 2011), Germany</h3>
                 <h4>Corporate Student Program</h4>
 
-                <summary>Full time project work in various IBM teams combined with an integrated university BSc program</summary>
-
-                <ul>
-                    <li>Planning, design and development of a virtual tour through IBM data centres</li>
-                    <li>Development of various tools to improve reusability of automated test cases on z/Linux</li>
-                    <li>Development, roll out and support of a web based process planning tool</li>
-                </ul>
+                <summary>Project work in various IBM teams combined with an integrated university BSc program</summary>
             </div>
         </section>
 
@@ -269,7 +277,7 @@
             <h2>Education</h2>
 
             <h3>Baden-Wuerttemberg Cooperative State University Mannheim (Oct 2008 - Nov 2011)</h3>
-            <h4>BSc Science, Business Informatics</h4>
+            <h4>BSc Science, Business IT</h4>
         </section>
     </article>
 
