@@ -8,7 +8,7 @@
     "babelify": "~6.1.2",
     "browser-sync": "^2.7.12",
     "browserify": "^10.2.4",
-    "eslint": "^0.23.0",
+    "eslint": "^6.8.0",
     "font-awesome-stylus": "^4.3.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
