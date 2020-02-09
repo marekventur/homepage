@@ -12,8 +12,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-const server = app.listen(36007, function () {
+const server = app.listen(36007, 'localhost', function () {
   console.log("port:", server.address().port);
 });
 
+app.get("/", (req, res) => res.send({hello: "world"}));
+
 pylonCeramics(app);
+
