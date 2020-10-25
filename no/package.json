@@ -27,5 +27,12 @@
     "vinyl-source-stream": "~1.1.0",
     "watchify": "^3.2.2",
     "xc": "0.0.2"
+  },
+  "scripts": {
+    "preinstall": "npx npm-force-resolutions",
+    "start": "./node_modules/gulp/bin/gulp.js"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
   }
 }
