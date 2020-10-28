@@ -2,6 +2,12 @@ const axios = require("axios");
 const csv = require("csvtojson");
 const { getData, setData } = require("./data");
 
+/**
+ * How to get these tokens:
+ * - go to https://developers.facebook.com/apps/1044411865901880/instagram-basic-display/basic-display/
+ * - create a /tmp/data.json and put it in there as a {"instagramAccessToken": ""}
+ **/
+
 function cachePromise(worker) {
   let resultPromise = null;
   return () => {
@@ -20,10 +26,6 @@ function cachePromise(worker) {
   }
 }
 
-const instagramCredentials = {
-  username: process.env.IG_USERNAME, 
-  password: process.env.IG_PASSWORD
-};
 
 const refreshIgToken = () => {
   const accessToken = getData().instagramAccessToken;

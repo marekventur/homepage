@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const filename = path.join(__dirname, '../data.json');
+const filename = path.join('/tmp/data.json');
 
 let cache = null;
 const getData = () => {
