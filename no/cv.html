@@ -81,6 +81,10 @@
             margin: 0;
         }
 
+        p {
+            margin-bottom: 0.2em;
+        }
+
         a:hover {
             text-decoration: underline;
         }
@@ -94,6 +98,26 @@
 
         nav li { display: inline; }
         nav li + li:before { content: " | "; width: 20px;}
+
+        ul.no-dots {
+            list-style-type: none;
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+        ul.vertical {
+            margin-top: 1em;
+            display: flex;
+        }
+
+        ul.vertical li {
+            flex-grow: 1;
+            flex-basis: 0;
+        }
+
+        ul.vertical strong {
+            display: block;
+        }
 
         h1, h2, h3, h4 {
             font-weight: 900;
@@ -134,13 +158,14 @@
         }
 
         section h2 {
-            padding-top: 0.5em;
+            padding-top: 1em;
             padding-bottom: 0.2em;
         }
 
         section h2, header {
             border-bottom: 1px solid #434343;
             margin-bottom: 0.5em;
+            margin-top: 1em;
         }
 
         ul {
@@ -161,6 +186,12 @@
         summary {
             margin: 0.5em 0;
         }
+
+        .job h4 {
+            position: absolute;
+            right: 20px;
+            margin-top: -1.4em;
+        }
     </style>
 
     <style type="text/css" media="print">
@@ -174,7 +205,7 @@
 
         <header>
             <h1>Marek Ventur</h1>
-            <h2>Software Development Engineer</h2>
+            <h2>Senior Software Developer</h2>
         </header>
 
         <nav>
@@ -186,37 +217,41 @@
         </nav>
 
         <section id="summary">
-            <p>I have worked for different companies and industries, such as <a href="https://ibm.com">IBM</a>, <a href="https://last.fm">Last.fm</a> and gaming startup <a href="http://gamevy.com">Gamevy</a>. At <a href="https://amazon.com">Amazon</a> I have worked both for their retail branch and in <a href="https://aws.amazon.com/">AWS</a>, as part of its <a href="https://aws.amazon.com/machine-learning/">machine learning org</a>.</p>
-            <p>My experience goes all the way from working on the custom large-scale database backends, to developing games, leading UI/UX projects and designing ML systems. I am comfortable working between teams and roles and I love picking up new skills.</p>
-            <p>In my spare time I'm part of the team that designs and builds the increasingly complex electronical conference badges for the <a href="https://www.emfcamp.org/">Electromagnetic Field</a> hacker camp.</p>
+            <p>
+                Currently working for <a href="https://aws.amazon.com/">AWS</a>'s machine learning org, 
+                having moved there from <a href="https://amazon.com">Amazon Retail</a>. 
+                First-day employee at gaming-startup <a href="http://gamevy.com">Gamevy</a> 
+                and data engineer at the music website <a href="https://last.fm">Last.fm</a>. 
+                Worked at <a href="https://www.ibm.com">IBM</a> while doing my Bachelor.
+            </p>
+            <p>
+                I have worked on petabyte-scale databases all the way to one-off game prototypes. 
+                I have experience in leading teams and projects and my passion is for maths and 
+                algorithms, with a focus on research.
+            </p>
+            <p>
+                Helped design and build <a href="https://badge.emfcamp.org/wiki/TiLDA_MK3">digital conference badges</a> for the hacker camp
+                <a href="https://www.emfcamp.org/">Electromagnetic Field</a>.
+            </p>
         </section>
 
         <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li><strong>Backend Development</strong>: Java, Kotlin, Python, NodeJS</li>
-                <li><strong>Frontend Development</strong>: React, JS/CSS/HTML, WebGL</li>
-                <li><strong>Data</strong>: PostgreSQL, Hadoop, Redshift</li>
-                <li><strong>ML</strong>: PyTorch, fastai, pandas</li>
-                <li><strong>UI/UX</strong>: UI Design, user research, accessibility, usability, i18n</li>
-                <li><strong>HTTP infrastructure</strong>: Load balancing, websockets, high-throughput architectures</li>
-                <li><strong>Operations</strong>: Unix, CD, monitoring, high-severity on-call</li>
-                <li><strong>Project Management</strong>: Product ownership, Client communication, Resourcing, Prioritisation</li>
-                <li><strong>Languages</strong>: English, German, Spanish (beginner)</li>
+            <ul class="no-dots vertical">
+                <li><strong>Backend</strong> Java, Kotlin, Python</li> 
+                <li><strong>Frontend</strong> JS, WebGL, HTML, CSS</li>
+                <li><strong>Data</strong> SQL, Hadoop, PyTorch</li>
+                <li><strong>Languages</strong> English, German, (Spanish)</li>
             </ul>
         </section>
 
         <section id="projects">
-            <h2>Selected projects (the ones I can talk about)</h2>
-            <ul>
-                <li><strong>Anomaly Detection</strong>: Prototyping, designing and launching CodeGuru Profiler's <a href="https://aws.amazon.com/codeguru/features/">Anomaly Detection</a> feature, which detects anomalies in time series.</li>
-                <li><strong>Launching an AWS service</strong>: Building, launching and operating <a href="https://aws.amazon.com/codeguru/">Amazon CodeGuru Profiler</a>. Leading UX and UI work to improve usability and comprehension of data visualization</li>
-                <li><strong>Transactional product database</strong>: Worked on large scale, low latency data store that acted as an entry point to Amazon's product pipeline running on a 4-digit-size fleet of hosts and DynamoDB table that ranked in the Top 5 of all DynamoDB tables world-wide. Extensive re-design of the internal data structure and migration of storage format.</li>
-                <li><strong>Rohrpost</strong>: PubSub-to-Websocket server build for one of Gamevy's multiplayer games. Designed to separate long lasting websocket connections from backend services and to handle automatic load balancing, server restarts and backend handover during deploys and failures - <a href="https://github.com/Gamevy/rohrpost-server">github.com/Gamevy/rohrpost-server</a></li>
-                <li><strong>Realtime Scrobbles</strong>: How many users are listening to what music in which country? Second-level-resolution of Last.fm's "currently listening" data fronted by a custom load-balancing infrastructure</li>
-                <li><strong>PIXI Packer</strong>: Assets packer focused on small download sizes and speed. Reduced build time of Gamevy's games by 50% - <a href="github.com/Gamevy/pixi-packer">github.com/Gamevy/pixi-packer</a></li>
-                <li><strong>Monte Carlo</strong>: Game simulation framework designed to speed up testing of new game concepts - <a href="https://github.com/Gamevy/monte-carlo">github.com/Gamevy/monte-carlo</a></li>
-                <li><strong>Tilda Mk2, Mk3 and Mk4</strong>: Custom designed (and fully working) PCBs used conference badges for UKs biggest hackers and makers gathering - <a href="http://blog.emfcamp.org/post/177423823788/tilda-mk4-the-emf-2018-badge">blog.emfcamp.org</a></li>
+            <h2>Selected projects</h2>
+            <ul class="no-dots">
+                <li><strong>Frame classification</strong>: Research into categorizing Java methods by using unsupervised learning.</li>
+                <li><strong>Anomaly Detection</strong>: Prototyping, designing and launching CodeGuru Profiler's <a href="https://aws.amazon.com/codeguru/features/">Anomaly Detection</a> feature.</li>
+                <li><strong>Launching an AWS service</strong> <a href="https://aws.amazon.com/codeguru/">Amazon CodeGuru Profiler</a>. Leading UI and UX work</li>
+                <li><strong>Petabyte-scale database</strong>: Worked on low latency data store that acted as an entry point to Amazon's product pipeline, using one of the largest DynamoDB tables worldwide</li>
+                <li><strong>Realtime Scrobbles</strong>: Second-level-resolution of Last.fm's listening data, streamed via websockets</li>
             </ul>
         </section>
 
@@ -227,12 +262,12 @@
                 <h3>AWS, Machine Learning (May 2019 - Present), London</h3>
                 <h4>Software Development Engineer</h4>
 
-                <summary>Develope and launch Amazon CodeGuru Profiler</summary>
+                <summary>Developed and launched Amazon CodeGuru Profiler</summary>
 
                 <ul>
+                    <li><strong>Launched new AWS service</strong></li>
                     <li>Leading <strong>UX/UI</strong> for the AWS console component and the profiler visualizations.</li>
                     <li>Prototyped, developed, designed and launched <strong>anomaly detection</strong> feature</li>
-                    <li>Day-to-day running of services, including <strong>on-call</strong> support</li>
                 </ul>
             </div>
 
@@ -243,27 +278,22 @@
                 <summary>Working on services that enable Amazon's massive product catalog</summary>
 
                 <ul>
-                    <li><strong>Design and implementation</strong> of new features.</li>
-                    <li>Day-to-day running of services, including <strong>on-call</strong> support</li>
-                    <li><strong>Operations and tooling</strong></li>
-                    <li><strong>Trouble shooting and support</strong> in one of the worlds most complex product pipelines</li>
+                    <li><strong>High-level design and implementation</strong> to enable removal of legacy services.</li>
+                    <li>Day-to-day running of service, including <strong>tier-1 on-call</strong> shifts</li>
+                    <li><strong>Performance optimisation</strong></li>
                 </ul>
             </div>
 
             <div class="job">
                 <h3>Gamevy (Aug 2013 - Sep 2017), London</h3>
-                <h4>Senior Developer and Product Lead</h4>
+                <h4>Senior Developer/Project Manager</h4>
 
-                <summary>As the first non-founder to join Gamevy I've worked on game design, HTML5 frontends, backend infrastructure and operations</summary>
+                <summary>As the first-day engineer at startup Gamevy I've worked on game design, frontend, backend and operations, as well as acting as project manager. Frequent contributer to <a href="https://www.pixijs.com/">PIXI.js</a>.</summary>
 
                 <ul>
                     <li><strong>Developing game concepts</strong> for the majority of Gamevy's games to date.</li>
-                    <li><strong>Project management</strong> from customer request to delivery</li>
-                    <li>Creating playable <strong>prototypes and simulations</strong> as well as the probabilistic maths to verify their correctness</li>
-                    <li><strong>UX</strong>: Making sure that Gamevy's games not only look great but are also easy to understand and a fun to play</li>
-                    <li>Implementation of <strong>backend</strong> infrastructure in accordance with gambling regulations</li>
-                    <li>Implementation of <strong>game frontend</strong> for both mobile and desktop via HTML5. Frequent contributer to PIXI.js</li>
-                    <li>Creation of <strong>infrastructure</strong> for continuous deployment, scaling, monitoring and auditing</li>
+                    <li><strong>Project management</strong> for various games</li>
+                    <li><strong>Probabilistic modelling</strong> to verify mathematical correctness</li>
                 </ul>
             </div>
 
@@ -271,22 +301,12 @@
                 <h3>Last.fm (Oct 2011 - Aug 2013), London</h3>
                 <h4>Web and Data Developer</h4>
 
-                <summary>Back-end and focused (Hadoop, Java and PHP) with occasional front end projects</summary>
+                <summary>Initially front-end developer, later move to data team.</summary>
 
                 <ul>
-                    <li><strong>Data research</strong> (Hadoop, Hive, SQL)</li>
-                    <li>Refactor of a chart-image generator service, serving millions of requests per day</li>
-                    <li>Maintenance of infrastructure that handles user-uploaded images</li>
-                    <li>Suggested, prototyped, designed and implemented main parts of Last.fm's <strong>realtime charts infrastructure</strong> that provided up-to-the-second resolution</li>
-                    <li>Participated in major redesign project</li>
+                    <li><strong>Data developer</strong> (Hadoop, Hive, SQL)</li>
+                    <li>Designed and implemented main parts of <strong>realtime charts</strong></li>
                 </ul>
-            </div>
-
-            <div class="job">
-                <h3>IBM (Oct 2008 - Nov 2011), Germany</h3>
-                <h4>Corporate Student Program</h4>
-
-                <summary>Project work in various IBM teams combined with an integrated university BSc program</summary>
             </div>
         </section>
 
@@ -294,7 +314,8 @@
             <h2>Education</h2>
 
             <h3>Baden-Wuerttemberg Cooperative State University Mannheim (Oct 2008 - Nov 2011)</h3>
-            <h4>BSc Science, Business IT</h4>
+            <h4>Corporate Student Program, IBM, Germany</h4>
+            <p>BSc Science, Business IT</p> 
         </section>
     </article>
 
