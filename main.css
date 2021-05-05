@@ -1,0 +1,426 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  color: #434343;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+a,
+a:visited {
+  color: #434343;
+  text-decoration: none;
+}
+main {
+  overflow: hidden;
+}
+nav {
+  z-index: 2;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 30px;
+  border: 20px solid #fff;
+  background: #fff url("./img/marekventur.png") no-repeat;
+  background-position: top left;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  background-size: contain;
+}
+nav h1 {
+  position: absolute;
+}
+nav h1 a,
+nav h1 a:hover,
+nav h1 a:visited {
+  color: transparent;
+}
+nav ul {
+  float: right;
+}
+nav ul li {
+  line-height: 30px;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 30px;
+}
+@media (max-width: 600px) {
+  nav {
+    border-width: 10px;
+  }
+  nav ul {
+    text-align: right;
+  }
+}
+section#landing {
+  z-index: 1;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  font-size: 0.001px;
+  position: relative;
+}
+section#landing .circle {
+  position: relative;
+  background-color: #4177d4;
+  color: #fff;
+  border-radius: 50%;
+  width: 100em;
+  height: 100em;
+  margin: auto;
+}
+section#landing .circle h2 {
+  font-weight: 900;
+  font-size: 21em;
+  padding-top: 1.8em;
+}
+section#landing .circle h3 {
+  font-size: 7em;
+  margin-top: 0.4em;
+}
+section#landing .introduction {
+  position: absolute;
+  padding-bottom: 5vmin;
+  bottom: 0px;
+  line-height: 1.2em;
+  font-size: 18px;
+  width: 100vw;
+}
+section#landing .introduction a {
+  cursor: default;
+}
+section#landing .introduction p {
+  padding-bottom: 1vmin;
+  margin: 0 20px;
+}
+@media (max-width: 600px) {
+  section#landing .introduction p {
+    margin: 0 10px;
+  }
+}
+section#landing .introduction p em {
+  font-weight: 400;
+  stext-transform: uppercase;
+}
+section#landing .introduction .arrow-down {
+  margin-top: 4vmin;
+  display: block;
+  height: 2vmin;
+  background: url("./img/down.png") no-repeat;
+  background-position: center;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  background-size: contain;
+  cursor: pointer;
+}
+section#work {
+  min-height: 100vh;
+  padding-top: 120px;
+}
+@media (max-width: 600px) {
+  section#work {
+    padding-top: 100px;
+  }
+}
+section#work ul {
+  text-align: center;
+}
+section#work li {
+  padding: 0 20px;
+  vertical-align: top;
+  height: 300px;
+  text-align: center;
+  width: 200px;
+  display: inline-block;
+/* Hide / Reveal */
+  overflow: hidden;
+}
+section#work li a {
+  cursor: pointer;
+}
+section#work li .circle {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  margin-bottom: 20px;
+  margin: auto;
+}
+section#work li .circle .image {
+  position: absolute;
+  top: 0;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  background-size: contain;
+  background-position: center;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+section#work li .circle .image.image--add-slant {
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+section#work li .trigger {
+  cursor: pointer;
+}
+section#work li .trigger h3 {
+  font-size: 14px;
+  margin-top: 20px;
+}
+section#work li .trigger h4 {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #999;
+}
+section#work li .info {
+  position: relative;
+  background: #4177d4;
+  width: 100%;
+  color: #fff;
+  display: none;
+  z-index: 1;
+}
+section#work li .circle {
+  position: relative;
+}
+section#work li .circle .image {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+  -webkit-transform: rotateZ(0deg);
+  -moz-transform: rotateZ(0deg);
+  -o-transform: rotateZ(0deg);
+  -ms-transform: rotateZ(0deg);
+  transform: rotateZ(0deg);
+  -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+  -moz-transition: -moz-transform 0.4s, opacity 0.4s;
+  -o-transition: -o-transform 0.4s, opacity 0.4s;
+  -ms-transition: -ms-transform 0.4s, opacity 0.4s;
+  transition: transform 0.4s, opacity 0.4s;
+}
+section#work li.detailed {
+  overflow: initial;
+  height: auto;
+}
+section#work li.detailed .info {
+  display: block;
+  margin-bottom: 20px;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+section#work li.detailed .info h3 {
+  display: inline-block;
+  font-weight: 600;
+}
+section#work li.detailed .info h4 {
+  display: inline-block;
+  color: #b4c8fb;
+  margin-left: 0.2em;
+}
+section#work li.detailed .info p {
+  margin: 1.5em auto;
+  line-height: 1.2em;
+  max-width: 600px;
+}
+section#work li.detailed .info a {
+  text-decoration: underline;
+  color: #fff;
+  margin-left: 0.5em;
+}
+section#work li.detailed .info em {
+  font-weight: 600;
+  color: #fff;
+}
+section#work li.detailed .arrow {
+  content: "";
+  margin: auto;
+  margin-top: 10px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid #4177d4;
+}
+section#work li.detailed>h3,
+section#work li.detailed>h4 {
+  display: none;
+}
+section#work li.faded h3,
+section#work li.faded h4,
+section#work li.faded .circle {
+  opacity: 0.3;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+  filter: alpha(opacity=30);
+}
+section#contact {
+  margin: 100px 20px;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  section#contact {
+    margin: 100px 10px;
+  }
+}
+section#contact h2 {
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+section#contact p {
+  font-size: 20px;
+  max-width: 600px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+section#contact a {
+  color: #4177d4;
+}
