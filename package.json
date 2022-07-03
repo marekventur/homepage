@@ -31,5 +31,8 @@
   "scripts": {
     "start": "./node_modules/gulp/bin/gulp.js",
     "build": "./node_modules/gulp/bin/gulp.js build"
+  },
+  "overrides": {
+    "graceful-fs": "^4.2.9"
   }
 }
