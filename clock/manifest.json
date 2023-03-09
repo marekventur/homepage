@@ -1,0 +1,10 @@
+{
+    "name": "Ca$h!",
+    "short_name": "Ca$h!",
+    "theme_color": "#4a2dff",
+    "background_color": "#4A2DFF",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "https://marekentur.com/clock/index.html"
+  }
