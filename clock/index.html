@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="manifest" href="./manifest.json">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,8 +17,12 @@
     <style>
         body {
             font-family: 'Climate Crisis', cursive;
-            background: #f5f5f5;
+            background-color: #4A2DFF;
             color: #fff;
+        }
+
+        body::backdrop {
+            background-color: #4A2DFF;
         }
 
         .money {
@@ -28,7 +33,7 @@
         }
 
         .card {
-            background-color: #4A2DFF;
+
             width: 390px;
             padding: 40px;
             padding-top: 73px;
@@ -56,12 +61,12 @@
 
         .money-block__pound {
             font-size: 30px;
-            margin-top: 14px;
+            margin-top: 10px;
             margin-right: 10px;
         }
 
         .money-block__amount {
-            font-size: 60px;
+            font-size: 50px;
             background: -webkit-linear-gradient(left, #fdffaa, #82fff7 70%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -72,15 +77,16 @@
             line-height: 40px;
             margin-top: 128px;
         }
+
         .month-text__amount {
             color: #ffaeed;
         }
     </style>
 </head>
 
-<body class="antialiased">
-    <div class="flex justify-center justify-items-center h-full p-12">
-        <div class="card w-96 flex justify-center flex-col p-6 rounded-md">
+<body class="antialiased" id="fullscreen-trigger">
+    <div class="flex justify-center justify-items-center h-full">
+        <div class="card w-96 flex justify-center flex-col ">
             <div class="title-text text-left">
                 What a lovely day.
             </div>
@@ -98,24 +104,40 @@
                         fill="white" />
                 </svg>
             </div>
-            <div class="month-text">You made<br /><span class="month-text__amount">+£<span id="month"></span></span><br>since<br> beginning<br>of
-                    the<br>month</div>
+            <div class="month-text">You made<br /><span class="month-text__amount">+£<span
+                        id="month"></span></span><br>since<br> beginning<br>of
+                the<br>month</div>
 
         </div>
     </div>
 
     <script>
-        const start = Date.now();
+        function enterFullScreen(element) {
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();     // Firefox
+            } else if (element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen();  // Safari
+            } else if (element.msRequestFullscreen) {
+                element.msRequestFullscreen();      // IE/Edge
+            }
+        };
+
+        let startDay = new Date();
+        startDay.setHours(9, 0, 0, 0);
+        startDay = startDay.getTime();
+
         let startMonth = new Date();
         startMonth.setDate(1);
         startMonth.setHours(0, 0, 0, 0);
-        console.log(startMonth);
         startMonth = startMonth.getTime();
         const rateDay = 35 / 60 / 60;
         const rateMonth = 6000 / 30 / 24 / 60 / 60;
         function update() {
             const now = Date.now();
-            const elapsedDay = (now - start) / 1000;
+            const elapsedDay = Math.min((now - startDay) / 1000, 8 * 60 * 60);
+
             const amountDay = (elapsedDay * rateDay);
 
             const elapsedMonth = (now - startMonth) / 1000;
@@ -124,6 +146,10 @@
             document.getElementById("month").innerHTML = amountMonth.toFixed(0);
         }
         setInterval(update, 300);
+
+        document.getElementById("fullscreen-trigger").addEventListener("click", function () {
+            enterFullScreen(document.body);
+        });
     </script>
 </body>
 
