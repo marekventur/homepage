@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap" rel="stylesheet">
+
+    <title>Clock!</title>
+    <style>
+        body {
+            font-family: 'Climate Crisis', cursive;
+            background: #f5f5f5;
+            color: #fff;
+        }
+
+        .money {
+            font-size: 5em;
+            background: -webkit-linear-gradient(#fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card {
+            background-color: #4A2DFF;
+            width: 390px;
+            padding: 40px;
+            padding-top: 73px;
+            box-sizing: border-box;
+        }
+
+        .title-text {
+            font-size: 40px;
+            line-height: 53px;
+            background: -webkit-linear-gradient(left, #82fff7, #fdffaa, #ffaeed 70%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .so-far-text {
+            font-size: 30px;
+            line-height: 40px;
+            margin-top: 60px;
+        }
+
+        .money-block {
+            margin-top: 24;
+
+        }
+
+        .money-block__pound {
+            font-size: 30px;
+            margin-top: 14px;
+            margin-right: 10px;
+        }
+
+        .money-block__amount {
+            font-size: 60px;
+            background: -webkit-linear-gradient(left, #fdffaa, #82fff7 70%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .month-text {
+            font-size: 30px;
+            line-height: 40px;
+            margin-top: 128px;
+        }
+        .month-text__amount {
+            color: #ffaeed;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <div class="flex justify-center justify-items-center h-full p-12">
+        <div class="card w-96 flex justify-center flex-col p-6 rounded-md">
+            <div class="title-text text-left">
+                What a lovely day.
+            </div>
+            <div class="so-far-text text-left">
+                So far, you've made
+            </div>
+            <div class="money-block flex ">
+                <div class="money-block__pound">£</div>
+                <div id="today" class="money-block__amount"></div>
+            </div>
+            <div class="">
+                <svg width="278" height="11" viewBox="0 0 278 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M276.418 3.88594C277.21 3.64385 277.656 2.80534 277.414 2.01308C277.172 1.22081 276.334 0.774807 275.541 1.0169C274.471 1.34391 273.446 1.7058 272.461 2.05952L272.034 2.21291C271.193 2.51524 270.383 2.80663 269.565 3.07499C267.664 3.69786 265.797 4.16808 263.736 4.26866C261.658 4.37004 259.576 4.37816 257.489 4.3197C257.4 3.57629 256.767 3.00001 256 3.00001H241.234C237.706 2.62907 234.154 2.26732 230.626 2.04753C208.503 0.669393 186.737 1.34195 164.963 3.00001H8.43565L1.98894 2.83756C1.16077 2.81669 0.472496 3.47113 0.451627 4.2993C0.430759 5.12746 1.0852 5.81574 1.91337 5.83661L2.33995 5.84736C2.53912 5.94512 2.76315 6.00001 3 6.00001H8.39786L53.8928 7.14642C56.967 7.22389 60.0336 7.25271 63.0912 7.28145C70.1031 7.34736 77.0672 7.41282 83.9646 8.06343C84.5344 8.11718 85.1046 8.17115 85.6752 8.22516C100.241 9.60376 115.048 11.0052 129.86 9.37263C141.66 8.07191 153.379 6.8928 165.079 6.00001H241.074C241.318 6.0257 241.562 6.05146 241.807 6.07723C243.529 6.25886 245.259 6.44138 247.003 6.61027C252.572 7.14951 258.214 7.54159 263.882 7.2651C266.32 7.14617 268.472 6.59007 270.499 5.92579C271.362 5.6429 272.217 5.33519 273.056 5.0335L273.474 4.88318C274.455 4.53115 275.422 4.19034 276.418 3.88594ZM133.108 6.00001H94.2265C106.046 7.03058 117.799 7.68383 129.531 6.39069C130.724 6.25919 131.916 6.12891 133.108 6.00001Z"
+                        fill="white" />
+                </svg>
+            </div>
+            <div class="month-text">You made<br /><span class="month-text__amount">+£<span id="month"></span></span><br>since<br> beginning<br>of
+                    the<br>month</div>
+
+        </div>
+    </div>
+
+    <script>
+        const start = Date.now();
+        let startMonth = new Date();
+        startMonth.setDate(1);
+        startMonth.setHours(0, 0, 0, 0);
+        console.log(startMonth);
+        startMonth = startMonth.getTime();
+        const rateDay = 35 / 60 / 60;
+        const rateMonth = 6000 / 30 / 24 / 60 / 60;
+        function update() {
+            const now = Date.now();
+            const elapsedDay = (now - start) / 1000;
+            const amountDay = (elapsedDay * rateDay);
+
+            const elapsedMonth = (now - startMonth) / 1000;
+            const amountMonth = (elapsedMonth * rateMonth);
+            document.getElementById("today").innerHTML = amountDay.toFixed(2);
+            document.getElementById("month").innerHTML = amountMonth.toFixed(0);
+        }
+        setInterval(update, 300);
+    </script>
+</body>
+
+</html>
