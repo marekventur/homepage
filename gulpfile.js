@@ -82,6 +82,12 @@ gulp.task("html", function () {
     .pipe(browserSync.stream());
 });
 
+gulp.task("clock", function () {
+    gulp.src("clock/*")
+    .pipe(gulp.dest("build/clock"))
+    .pipe(browserSync.stream());
+});
+
 gulp.task("img", function () {
     gulp.src("img/*")
     .pipe(gulp.dest("build/img/"))
@@ -94,7 +100,7 @@ gulp.task("pdf", function () {
     .pipe(browserSync.stream());
 });
 
-gulp.task("build", [ "js", "css", "html", "img", "pdf"]);
+gulp.task("build", [ "js", "css", "html", "img", "pdf", "clock"]);
 
 gulp.task("watch", ["build", "js:watch"], function () {
     gulp.watch("*.html", ["html"]);
