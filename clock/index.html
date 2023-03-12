@@ -56,18 +56,29 @@
 
         .money-block {
             margin-top: 24;
-
+            line-height: 1em;
         }
 
         .money-block__pound {
+            line-height: 1em;
             font-size: 30px;
-            margin-top: 10px;
+            margin-top: 4px;
             margin-right: 10px;
         }
 
         .money-block__amount {
+            line-height: 1em;
             font-size: 50px;
             background: -webkit-linear-gradient(left, #fdffaa, #82fff7 70%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .money-block__fraction {
+            line-height: 1em;
+            margin-top: 17px;
+            font-size: 30px;
+            background: -webkit-linear-gradient(left, #82fff7, #82fff7 70%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -96,6 +107,7 @@
             <div class="money-block flex ">
                 <div class="money-block__pound">£</div>
                 <div id="today" class="money-block__amount"></div>
+                <div id="today-fraction" class="money-block__fraction"></div>
             </div>
             <div class="">
                 <svg width="278" height="11" viewBox="0 0 278 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -141,7 +153,9 @@
             const now = Date.now();
             const elapsedDay = Math.max(0, Math.min((now - startDay) / 1000, 8 * 60 * 60));
             const elapsedMonth = (now - startMonth) / 1000;
-            document.getElementById("today").innerHTML = (elapsedDay * rateDay  / 60 / 60).toFixed(2);
+            const today =  (elapsedDay * rateDay  / 60 / 60).toFixed(2).split('.');
+            document.getElementById("today").innerHTML = today[0];
+            document.getElementById("today-fraction").innerHTML = '.' + today[1];
             document.getElementById("month").innerHTML = (elapsedMonth * rateMonth / 30 / 24 / 60 / 60).toFixed(0);
         }
         setInterval(update, 300);
