@@ -124,31 +124,67 @@
             }
         };
 
-        let startDay = new Date();
-        startDay.setHours(9, 0, 0, 0);
-        startDay = startDay.getTime();
-
-        let startMonth = new Date();
-        startMonth.setDate(1);
-        startMonth.setHours(0, 0, 0, 0);
-        startMonth = startMonth.getTime();
-        const rateDay = 35 / 60 / 60;
-        const rateMonth = 6000 / 30 / 24 / 60 / 60;
+        const rateDay = 35;
+        const rateMonth = 6000 ;
         function update() {
+            // get start times
+            let startDay = new Date();
+            startDay.setHours(9, 0, 0, 0);
+            startDay = startDay.getTime();
+
+            let startMonth = new Date();
+            startMonth.setDate(1);
+            startMonth.setHours(0, 0, 0, 0);
+            startMonth = startMonth.getTime();
+
+            // calculate elapsed time
             const now = Date.now();
-            const elapsedDay = Math.min((now - startDay) / 1000, 8 * 60 * 60);
-
-            const amountDay = (elapsedDay * rateDay);
-
+            const elapsedDay = Math.max(0, Math.min((now - startDay) / 1000, 8 * 60 * 60));
             const elapsedMonth = (now - startMonth) / 1000;
-            const amountMonth = (elapsedMonth * rateMonth);
-            document.getElementById("today").innerHTML = amountDay.toFixed(2);
-            document.getElementById("month").innerHTML = amountMonth.toFixed(0);
+            document.getElementById("today").innerHTML = (elapsedDay * rateDay  / 60 / 60).toFixed(2);
+            document.getElementById("month").innerHTML = (elapsedMonth * rateMonth / 30 / 24 / 60 / 60).toFixed(0);
         }
         setInterval(update, 300);
 
-        document.getElementById("fullscreen-trigger").addEventListener("click", function () {
-            enterFullScreen(document.body);
+    </script>
+
+
+    <script>
+        let video = null;
+        const mp4Src = "data:video/mp4;base64,AAAAHGZ0eXBpc29tAAACAGlzb21pc28ybXA0MQAAAyBtb292AAAAbG12aGQAAAAAAAAAAAAAAAAAAAPoAAAAGwABAAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAACSnRyYWsAAABcdGtoZAAAAAMAAAAAAAAAAAAAAAEAAAAAAAAAGwAAAAAAAAAAAAAAAQEAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAACRlZHRzAAAAHGVsc3QAAAAAAAAAAQAAABoAAAgAAAEAAAAAAcJtZGlhAAAAIG1kaGQAAAAAAAAAAAAAAAAAAKxEAAAEgFXEAAAAAAAxaGRscgAAAAAAAAAAc291bgAAAAAAAAAAAAAAAENvcmUgTWVkaWEgQXVkaW8AAAABaW1pbmYAAAAQc21oZAAAAAAAAAAAAAAAJGRpbmYAAAAcZHJlZgAAAAAAAAABAAAADHVybCAAAAABAAABLXN0YmwAAAB7c3RzZAAAAAAAAAABAAAAa21wNGEAAAAAAAAAAQAAAAAAAAAAAAIAEAAAAACsRAAAAAAAM2VzZHMAAAAAA4CAgCIAAQAEgICAFEAVAAAAAAJ/9wACf/cFgICAAhIQBoCAgAECAAAAFGJ0cnQAAAAAAAJ/9wACf/cAAAAgc3R0cwAAAAAAAAACAAAAAwAABAAAAAABAAAAgAAAABxzdHNjAAAAAAAAAAEAAAABAAAABAAAAAEAAAAkc3RzegAAAAAAAAAAAAAABAAAAXMAAAF0AAABcwAAAXQAAAAUc3RjbwAAAAAAAAABAAADTAAAABpzZ3BkAQAAAHJvbGwAAAACAAAAAf//AAAAHHNiZ3AAAAAAcm9sbAAAAAEAAAAEAAAAAQAAAGJ1ZHRhAAAAWm1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNzYuMTAwAAAACGZyZWUAAAXWbWRhdCERRQAUUAFG//EKWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaXemCFLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS8IRFFABRQAUb/8QpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpd6aIUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS8IRFFABRQAUb/8QpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpd6YIUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLwhEUUAFFABRv/xClpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWlpaWl3pohS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLw=";
+        const webmSrc = "data:video/webm;base64,GkXfo59ChoEBQveBAULygQRC84EIQoKEd2VibUKHgQRChYECGFOAZwEAAAAAAANXEU2bdLpNu4tTq4QVSalmU6yBoU27i1OrhBZUrmtTrIHYTbuMU6uEElTDZ1OsggE/TbuMU6uEHFO7a1OsggNB7AEAAAAAAABZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVSalmsirXsYMPQkBNgI1MYXZmNTguNzYuMTAwV0GNTGF2ZjU4Ljc2LjEwMESJiEBBAAAAAAAAFlSua+KuAQAAAAAAAFnXgQFzxYjHh4Jmxpm3C5yBACK1nIN1bmSGhkFfT1BVU1aqg2MuoFa7hATEtACDgQLhkZ+BArWIQOdwAAAAAABiZIEYY6KTT3B1c0hlYWQBAjgBgLsAAAAAABJUw2dB03NzAQAAAAAAAQ5jwIBnyAEAAAAAAAAVRaOLTUFKT1JfQlJBTkREh4RxdCAgZ8gBAAAAAAAAFEWjjU1JTk9SX1ZFUlNJT05Eh4EwZ8gBAAAAAAAAG0WjkUNPTVBBVElCTEVfQlJBTkRTRIeEcXQgIGfIAQAAAAAAABlFo4hUSU1FQ09ERUSHizAwOjAwOjAwOjAwZ8gBAAAAAAAAKkWjn0NPTS5BUFBMRS5RVUlDS1RJTUUuRElTUExBWU5BTUVEh4VlbXB0eWfIAQAAAAAAACRFo5lDT00uQVBQTEUuUVVJQ0tUSU1FLlRJVExFRIeFZW1wdHlnyAEAAAAAAAAaRaOHRU5DT0RFUkSHjUxhdmY1OC43Ni4xMDBzcwEAAAAAAACxY8CLY8WIx4eCZsaZtwtnyAEAAAAAAAAiRaOMSEFORExFUl9OQU1FRIeQQ29yZSBNZWRpYSBBdWRpb2fIAQAAAAAAABtFo4lWRU5ET1JfSUREh4xbMF1bMF1bMF1bMF1nyAEAAAAAAAAjRaOHRU5DT0RFUkSHlkxhdmM1OC4xMzQuMTAwIGxpYm9wdXNnyKJFo4hEVVJBVElPTkSHlDAwOjAwOjAwLjAzNDAwMDAwMAAAH0O2daTngQCjh4EAAID8//6gAQAAAAAAAA+hh4EAFQD8//51ooNwiJgcU7trkbuPs4EAt4r3gQHxggMY8IED";
+
+        function activate () {
+            function frame() {
+                video && video.play();
+            }
+            setInterval(frame, 10000);       
+        };
+
+        window.addEventListener("click", function enable() {
+            window.removeEventListener("click", enable);
+
+            // Initialize video element
+            video = document.createElement("video");
+            video.setAttribute("playsinline", "");
+
+            // Add mp4 source
+            let source = document.createElement("source");
+            source.src = mp4Src;
+            source.type = "video/mp4";
+            video.append(source);
+
+            // Add webm source
+            source = document.createElement("source");
+            source.src = webmSrc;
+            source.type = "video/webm";
+            video.append(source);
+
+            // Play it as a result of user interaction
+            video.play();
+            video.style="position:absolute;top:0;left:0;width:1px;height:1px;z-index:-1;";
+            document.body.appendChild(video);
+            activate()
         });
     </script>
 </body>
