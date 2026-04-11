@@ -1,487 +1,521 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Marek Li-Ventur - CV</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:300,400,900"
-      rel="stylesheet"
-    />
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Marek Li-Ventur – CV</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            :root {
+                --ink: #1a1a18;
+                --ink-mid: #44443f;
+                --ink-muted: #888780;
+                --rule: #d3d1c7;
+                --accent: #185fa5;
+                --accent-light: #e6f1fb;
+                --page: #ffffff;
+                --serif: "DM Serif Display", Georgia, serif;
+                --sans: "DM Sans", system-ui, sans-serif;
+            }
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --ink: #e8e6df;
+                    --ink-mid: #b4b2a9;
+                    --ink-muted: #888780;
+                    --rule: #444441;
+                    --accent: #85b7eb;
+                    --accent-light: #0c447c;
+                    --page: #1e1e1c;
+                }
+            }
+            body {
+                font-family: var(--sans);
+                font-size: 13.5px;
+                line-height: 1.55;
+                color: var(--ink);
+                background: var(--page);
+            }
+            .page {
+                max-width: 720px;
+                margin: 0 auto;
+                padding: 48px 48px 60px;
+            }
+            /* Header */
+            .cv-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                border-bottom: 2px solid var(--ink);
+                padding-bottom: 14px;
+                margin-bottom: 10px;
+            }
+            .cv-header h1 {
+                font-family: var(--serif);
+                font-size: 32px;
+                font-weight: 400;
+                letter-spacing: -0.3px;
+                color: var(--ink);
+                line-height: 1;
+            }
+            .cv-header .title-tag {
+                font-size: 13px;
+                font-weight: 500;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--ink-muted);
+            }
+            .contact-row {
+                display: flex;
+                gap: 20px;
+                margin-bottom: 22px;
+                font-size: 12.5px;
+                color: var(--ink-muted);
+            }
+            .contact-row a {
+                color: var(--accent);
+                text-decoration: none;
+            }
+            .contact-row a:hover {
+                text-decoration: underline;
+            }
+            /* Section */
+            section {
+                margin-bottom: 22px;
+            }
+            .section-label {
+                font-size: 10.5px;
+                font-weight: 500;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--ink-muted);
+                border-bottom: 0.5px solid var(--rule);
+                padding-bottom: 5px;
+                margin-bottom: 12px;
+            }
+            /* Summary */
+            .summary p {
+                font-size: 13.5px;
+                line-height: 1.65;
+                color: var(--ink-mid);
+                margin-bottom: 6px;
+            }
+            .summary p:last-child {
+                margin-bottom: 0;
+            }
+            /* Skills grid */
+            .skills-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+            }
+            .skill-col strong {
+                display: block;
+                font-size: 11px;
+                font-weight: 500;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                color: var(--ink-muted);
+                margin-bottom: 3px;
+            }
+            .skill-col span {
+                font-size: 12.5px;
+                color: var(--ink-mid);
+                line-height: 1.5;
+            }
+            /* Job */
+            .job {
+                margin-bottom: 20px;
+            }
+            .job:last-child {
+                margin-bottom: 0;
+            }
+            .job-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                margin-bottom: 1px;
+            }
+            .job-title {
+                font-family: var(--serif);
+                font-size: 15.5px;
+                font-weight: 400;
+                color: var(--ink);
+            }
+            .job-meta {
+                font-size: 12.5px;
+                color: var(--ink-muted);
+                white-space: nowrap;
+                margin-left: 12px;
+            }
+            .job-role {
+                font-size: 12.5px;
+                color: var(--accent);
+                font-weight: 500;
+                margin-bottom: 5px;
+            }
+            .job-summary {
+                font-size: 13px;
+                color: var(--ink-mid);
+                margin-bottom: 7px;
+                font-style: italic;
+            }
+            .job ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .job li {
+                font-size: 13px;
+                line-height: 1.6;
+                color: var(--ink-mid);
+                padding-left: 14px;
+                margin-bottom: 5px;
+                position: relative;
+            }
+            .job li::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 9px;
+                width: 5px;
+                height: 1px;
+                background: var(--accent);
+            }
+            .job li strong {
+                font-weight: 500;
+                color: var(--ink);
+            }
+            /* Tag pill */
+            .pill {
+                display: inline-block;
+                font-size: 10.5px;
+                font-weight: 500;
+                background: var(--accent-light);
+                color: var(--accent);
+                border-radius: 3px;
+                padding: 1px 6px;
+                margin-right: 4px;
+                vertical-align: middle;
+                letter-spacing: 0.03em;
+            }
+            /* Education row */
+            .edu-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+            }
+            .edu-name {
+                font-size: 12.5px;
+                font-weight: 500;
+                color: var(--ink);
+            }
+            .edu-detail {
+                font-size: 13px;
+                color: var(--ink-mid);
+            }
+            .edu-date {
+                font-size: 12px;
+                color: var(--ink-muted);
+                white-space: nowrap;
+            }
+            /* Interests */
+            .interests {
+                font-size: 13px;
+                color: var(--ink-mid);
+            }
+            a {
+                color: var(--accent);
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page">
+            <div class="cv-header">
+                <h1>Marek Li-Ventur</h1>
+                <span class="title-tag">Staff Engineer</span>
+            </div>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <div class="contact-row">
+                <a href="https://marekventur.com">marekventur.com</a>
+                <a href="mailto:mail@marekventur.com">mail@marekventur.com</a>
+                <a href="https://github.com/marekventur"
+                    >github.com/marekventur</a
+                >
+            </div>
 
-    <!-- Inline CSS to make this file easier to move around -->
-    <style>
-      /* http://meyerweb.com/eric/tools/css/reset/
-           v2.0 | 20110126
-           License: none (public domain)
-        */
+            <section class="summary">
+                <div class="section-label">Profile</div>
+                <p>
+                    Staff engineer with 17 years of experience across big tech,
+                    cloud infrastructure and early-stage startups. I specialise
+                    in building end-to-end features across backend and frontend,
+                    with cross-functional technical leadership spanning
+                    engineering, product and research. I have shipped production
+                    systems operating at million-RPS scale, launched a public
+                    AWS service from scratch, and spent the last four years at
+                    Meta leading and growing teams, with a recent focus on
+                    internal AI tooling.
+                </p>
+                <p>
+                    I am drawn to hard problems where the engineering and
+                    product thinking are inseparable and I care strongly about
+                    investing in tools, automation and operational excellence.
+                </p>
+            </section>
 
-      html,
-      body,
-      div,
-      span,
-      applet,
-      object,
-      iframe,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      p,
-      blockquote,
-      pre,
-      a,
-      abbr,
-      acronym,
-      address,
-      big,
-      cite,
-      code,
-      del,
-      dfn,
-      em,
-      img,
-      ins,
-      kbd,
-      q,
-      s,
-      samp,
-      small,
-      strike,
-      strong,
-      sub,
-      sup,
-      tt,
-      var,
-      b,
-      u,
-      i,
-      center,
-      dl,
-      dt,
-      dd,
-      ol,
-      ul,
-      li,
-      fieldset,
-      form,
-      label,
-      legend,
-      table,
-      caption,
-      tbody,
-      tfoot,
-      thead,
-      tr,
-      th,
-      td,
-      article,
-      aside,
-      canvas,
-      details,
-      embed,
-      figure,
-      figcaption,
-      footer,
-      header,
-      hgroup,
-      menu,
-      nav,
-      output,
-      ruby,
-      section,
-      summary,
-      time,
-      mark,
-      audio,
-      video {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        font: inherit;
-        vertical-align: baseline;
-      }
-      /* HTML5 display-role reset for older browsers */
-      article,
-      aside,
-      details,
-      figcaption,
-      figure,
-      footer,
-      header,
-      hgroup,
-      menu,
-      nav,
-      section {
-        display: block;
-      }
-      body {
-        line-height: 1;
-      }
-      ol,
-      ul {
-        list-style: none;
-      }
-      blockquote,
-      q {
-        quotes: none;
-      }
-      blockquote:before,
-      blockquote:after,
-      q:before,
-      q:after {
-        content: "";
-        content: none;
-      }
-      table {
-        border-collapse: collapse;
-        border-spacing: 0;
-      }
-    </style>
+            <section>
+                <div class="section-label">Skills</div>
+                <div class="skills-grid">
+                    <div class="skill-col">
+                        <strong>Backend</strong
+                        ><span>Python, Java/Kotlin, Node, Hack</span>
+                    </div>
+                    <div class="skill-col">
+                        <strong>Frontend</strong
+                        ><span>JS/HTML/CSS, React, Android</span>
+                    </div>
+                    <div class="skill-col">
+                        <strong>Data &amp; ML</strong
+                        ><span>PyTorch, SQL, Hive, Hadoop</span>
+                    </div>
+                    <div class="skill-col">
+                        <strong>Languages</strong><span>English, German</span>
+                    </div>
+                </div>
+            </section>
 
-    <style>
-      body {
-        font-family: "Lato", Arial, sans-serif;
-        line-height: 1.4em;
-        font-weight: 300;
-        font-size: 14px;
-      }
+            <section>
+                <div class="section-label">Employment</div>
 
-      article {
-        margin: 20px auto;
-        padding: 0 20px;
-        max-width: 640px;
-        position: relative;
-      }
+                <div class="job">
+                    <div class="job-header">
+                        <span class="job-title"
+                            >Meta — Reality Labs &amp; Facebook</span
+                        >
+                        <span class="job-meta"
+                            >July 2021 – Present · London</span
+                        >
+                    </div>
+                    <div class="job-role">Staff Engineer / Tech Lead</div>
+                    <div class="job-summary">
+                        Founding member of the London Reality Labs Avatar org.
+                        Spent 3 years as tech lead on the Mobile Avatar Editor
+                        across Facebook, Instagram and Messenger, then moved to
+                        the Mobile Data Frameworks team to help with backend
+                        efficiency and AI-agent infrastructure work.
+                    </div>
+                    <ul>
+                        <li>
+                            Joined as a founding member of the London Reality
+                            Labs team, helping to grow the London Avatar
+                            engineering organisation from a handful of engineers
+                            to <strong>30+ engineers</strong>
+                        </li>
+                        <li>
+                            Supported multiple redesigns of the avatar editor
+                            across iOS and Android, driving improvements in
+                            avatar expressiveness, funnel conversion, mobile
+                            performance and overall usage rates across major
+                            surfaces (IG, FB, Messenger)
+                        </li>
+                        <li>
+                            Led the frontend work on the launch of an
+                            <strong>ML-based avatar creation flow</strong> using
+                            the device camera — significantly reducing
+                            time-to-creation and markedly increasing user
+                            affinity with their own avatars
+                        </li>
+                        <li>
+                            Helped set technical direction for two org-wide
+                            avatar style evolutions resulting in
+                            <strong>two pending patents</strong>
+                        </li>
+                        <li>
+                            Transferred to the
+                            <strong>Mobile Data Frameworks team</strong> in
+                            early 2025, supporting <em>Elastic GraphQL</em>: a
+                            system routing non-critical requests to
+                            opportunistic compute tiers during peak load,
+                            delivering
+                            <strong>multi-million dollar annual savings</strong>
+                            and unlocking prefetch and refresh patterns that had
+                            previously been cost-prohibitive — driving
+                            measurable engagement improvements for surfaces like
+                            NewsFeed
+                        </li>
+                        <li>
+                            <span class="pill">AI</span>
+                            In early 2026, joined an internal initiative to
+                            build an
+                            <strong>AI-powered prototyping portal</strong> for
+                            cross-platform mobile UI using Meta's internal
+                            cross-platform mobile framework — demonstrating that
+                            internal tooling could match the speed and quality
+                            of open-source based prototyping workflows. Focused
+                            on the quality and verification layer: building
+                            agentic tools for autonomous screen rendering,
+                            testing and verification, and evolving the
+                            architecture from a single-agent one-shot approach
+                            to a
+                            <strong>plan–code–verify orchestrator</strong>
+                            with coordinated agent teams
+                        </li>
+                        <li>
+                            <span class="pill">AI</span>
+                            Currently building Meta's first
+                            <strong>agentic engineering team</strong> — an
+                            experimental system blending persistent
+                            team-specific AI lead agents with ephemeral
+                            specialist agents for individual tasks, covering
+                            maintenance, operations and feature development
+                        </li>
+                    </ul>
+                </div>
 
-      a,
-      a:visited,
-      a:active {
-        color: #4177d4;
-        text-decoration: none;
-        cursor: pointer;
-        margin: 0;
-      }
+                <div class="job">
+                    <div class="job-header">
+                        <span class="job-title"
+                            >Amazon / AWS Machine Learning</span
+                        >
+                        <span class="job-meta"
+                            >Oct 2017 – May 2021 · London</span
+                        >
+                    </div>
+                    <div class="job-role">Software Development Engineer</div>
+                    <div class="job-summary">
+                        Four years across two distinct phases: Amazon's retail
+                        platform at petabyte scale, followed by the small team
+                        that built and publicly launched Amazon CodeGuru
+                        Profiler.
+                    </div>
+                    <ul>
+                        <li>
+                            First 18 months in Amazon's retail inventory
+                            platform, working on services backing first- and
+                            third-party seller catalogues. The team managed one
+                            of the
+                            <strong
+                                >three largest DynamoDB tables globally</strong
+                            >, with engineering priorities centred on fault
+                            tolerance, operational resilience and backend
+                            performance. This is where I developed specialist
+                            expertise in JVM performance analysis and
+                            optimisation
+                        </li>
+                        <li>
+                            That expertise led to joining a nascent internal
+                            team building
+                            <strong>Amazon's profiling tooling</strong>,
+                            allowing engineering teams across Amazon to identify
+                            and fix performance regressions. Led the frontend
+                            engineering effort, designing and building
+                            interactive visualisation renderers including
+                            interactive flame graphs, icicle graphs and time
+                            series.
+                        </li>
+                        <li>
+                            As the tool gained internal traction, the team
+                            pivoted to launching it as a
+                            <strong
+                                >public AWS service: Amazon CodeGuru
+                                Profiler</strong
+                            >. The scope broadened from pure performance
+                            analysis to operational support — pairing profiling
+                            data with a dedicated ML team to build proactive
+                            anomaly detection. Led prototyping and validation of
+                            anomaly detection approaches through to GA launch of
+                            the service
+                        </li>
+                    </ul>
+                </div>
 
-      p {
-        margin-bottom: 0.2em;
-      }
+                <div class="job">
+                    <div class="job-header">
+                        <span class="job-title">Gamevy</span>
+                        <span class="job-meta"
+                            >Aug 2013 – Sep 2017 · London</span
+                        >
+                    </div>
+                    <div class="job-role">
+                        Software Engineer / Project Manager
+                    </div>
+                    <div class="job-summary">
+                        Day-one engineer at a London gaming startup, working
+                        across game design, frontend, backend and operations.
+                    </div>
+                    <ul>
+                        <li>
+                            Developed game concepts and led full-stack delivery
+                            for the majority of Gamevy's catalogue, acting as
+                            project manager across multiple simultaneous
+                            releases
+                        </li>
+                        <li>
+                            Built probabilistic models to verify statistical
+                            behaviour of game mechanics
+                        </li>
+                    </ul>
+                </div>
 
-      a:hover {
-        text-decoration: underline;
-      }
+                <div class="job">
+                    <div class="job-header">
+                        <span class="job-title">Last.fm</span>
+                        <span class="job-meta"
+                            >Oct 2011 – Aug 2013 · London</span
+                        >
+                    </div>
+                    <div class="job-role">Data Engineer</div>
+                    <div class="job-summary">
+                        Joined as a frontend engineer and later moved to the
+                        data team.
+                    </div>
+                    <ul>
+                        <li>
+                            Supported various product launches, and implemented
+                            core parts of Last.fm's real-time music charts
+                            pipeline.
+                        </li>
+                    </ul>
+                </div>
+            </section>
 
-      nav ul {
-        margin: 0;
-        padding: 0;
-        font-size: 1em;
-        margin-bottom: 0.5em;
-      }
+            <section>
+                <div class="section-label">Education</div>
+                <div class="edu-row" style="margin-bottom: 3px">
+                    <span class="edu-name"
+                        >Baden-Württemberg Cooperative State University
+                        Mannheim</span
+                    >
+                    <span class="edu-date">2008 – 2011</span>
+                </div>
+                <div class="edu-detail">
+                    BSc Computer Science · Dual programme with IBM
+                </div>
+            </section>
 
-      nav li {
-        display: inline;
-      }
-      nav li + li:before {
-        content: " | ";
-        width: 20px;
-      }
-
-      ul.no-dots {
-        list-style-type: none;
-        padding-left: 0;
-        margin-left: 0;
-      }
-
-      ul.vertical {
-        margin-top: 1em;
-        display: flex;
-      }
-
-      ul.vertical li {
-        flex-grow: 1;
-        flex-basis: 0;
-      }
-
-      ul.vertical strong {
-        display: block;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4 {
-        font-weight: 900;
-      }
-
-      strong {
-        font-weight: 400;
-      }
-
-      h1 {
-        font-size: 1.4em;
-        margin-bottom: 0.3em;
-      }
-
-      header h2 {
-        font-weight: 300;
-        clear: both;
-        color: #999;
-        line-height: 1.4em;
-        position: absolute;
-        right: 20px;
-        top: 0;
-      }
-
-      @media only screen and (max-width: 500px) {
-        header h2 {
-          position: relative;
-          right: 0;
-        }
-      }
-
-      section h2 {
-        font-size: 1.2em;
-      }
-
-      #summary p {
-        margin: 0.3em 0;
-      }
-
-      section h2 {
-        padding-top: 1em;
-        padding-bottom: 0.2em;
-      }
-
-      section h2,
-      header {
-        border-bottom: 1px solid #434343;
-        margin-bottom: 0.5em;
-        margin-top: 1em;
-      }
-
-      ul {
-        list-style: disc;
-        margin-left: 1.5em;
-      }
-
-      h3 {
-        margin-top: 1em;
-      }
-
-      h4 {
-        margin-top: 0em;
-        font-weight: 300;
-        color: #999;
-      }
-
-      summary {
-        margin: 0.5em 0;
-      }
-
-      .job h4 {
-        position: absolute;
-        right: 20px;
-        margin-top: -1.4em;
-      }
-    </style>
-
-    <style type="text/css" media="print">
-      body {
-        font-size: 12px;
-      }
-    </style>
-  </head>
-  <body>
-    <article>
-      <header>
-        <h1>Marek Li-Ventur</h1>
-        <h2>Staff Engineer</h2>
-      </header>
-
-      <nav>
-        <ul>
-          <li><a href="https://marekventur.com">marekventur.com</a></li>
-          <li><a href="mailto:mail@marekventur.de">mail@marekventur.de</a></li>
-          <li>
-            <a href="https://github.com/marekventur">github.com/marekventur</a>
-          </li>
-        </ul>
-      </nav>
-
-      <section id="summary">
-        <p>
-          In my 18 years of experience across a wide range of companies and
-          teams I have helped teams ship various projects, with a focus on ML
-          and Frontend development. My goal is to bridge the gap between
-          technical and product roles, as well as push for high operational and
-          quality standards.
-        </p>
-        <p>
-          I have worked on petabyte-scale databases and
-          million-requests-per-second APIs, all the way to one-off game
-          prototypes. If I can spent a bit more time to build an internal tool
-          to make a repetitive process faster, I will do it.
-        </p>
-        <p>
-          In my spare time I'm part of the team that organises
-          <a href="https://www.emfcamp.org/">Electromagnetic Field festival</a>
-          and you can find me at traveling around the world on off-years.
-        </p>
-      </section>
-
-      <section id="skills">
-        <ul class="no-dots vertical">
-          <li><strong>Backend</strong> Python, Java, Kotlin, Hack</li>
-          <li><strong>Frontend</strong> JS, HTML, CSS, Android</li>
-          <li><strong>Data</strong> SQL, Hive, PyTorch</li>
-          <li><strong>Languages</strong> English, German</li>
-        </ul>
-      </section>
-
-      <section id="projects">
-        <h2>Selected projects</h2>
-        <ul class="no-dots">
-          <li>
-            <strong>Avatar Creation</strong>: Create avatars from user provided
-            images via ML.
-          </li>
-          <li>
-            <strong>Frame classification</strong>: Categorizing Java methods by
-            using unsupervised learning.
-          </li>
-          <li>
-            <strong>Anomaly Detection</strong>: Prototyping, designing and
-            launching CodeGuru Profiler's
-            <a href="https://aws.amazon.com/codeguru/features/"
-              >Anomaly Detection</a
-            >
-            feature.
-          </li>
-          <li>
-            <strong>Launching an AWS service</strong>
-            <a href="https://aws.amazon.com/codeguru/"
-              >Amazon CodeGuru Profiler</a
-            >. Leading UI and UX work
-          </li>
-          <li>
-            <strong>Petabyte-scale database</strong>: Worked on one of the
-            largest DynamoDB tables worldwide
-          </li>
-        </ul>
-      </section>
-
-      <section id="employment">
-        <h2>Employment history</h2>
-
-        <div class="job">
-          <h3>Meta (July 2021 - Present), London</h3>
-          <h4>TL/Staff Engineer</h4>
-
-          <summary>
-            Worked on avatar creation for Meta's Reality Labs, as well as on API
-            efficiency in the Facebook team
-          </summary>
-
-          <ul>
-            <li>
-              Lead multiple large technical projects, often working between
-              teams and roles, connecting technical artists, ML teams and
-              product owners.
-            </li>
-            <li>
-              Launched vision-based avatar creation flows, significantly
-              reducing time to avatar creation.
-            </li>
-            <li>
-              Helped Facebook teams to reduce capacity spends by millions of
-              dollars by predicting prefetch utilisation and shifting traffic
-              patterns to opportunistic server tiers
-            </li>
-            <li>Helped grow the London Avatar team from 3 to 30+ engineers</li>
-            <li>Co-inventor for two (pending) patent applications</li>
-          </ul>
+            <section>
+                <div class="section-label">Interests</div>
+                <div class="interests">
+                    Volunteered for multiple years at
+                    <a href="https://www.emfcamp.org/">Electromagnetic Field</a
+                    >, a UK technology and arts festival for hackers and makers.
+                    I like fine dining, travel, and endurance running.
+                </div>
+            </section>
         </div>
-
-        <div class="job">
-          <h3>Amazon / AWS Machine Learning (Oct 2017 - May 2021), London</h3>
-          <h4>Software Development Engineer</h4>
-
-          <summary>
-            Working on services that enable Amazon's massive product catalog,
-            later moved to AWS Machine Learning to launched Amazon CodeGuru
-            Profiler
-          </summary>
-
-          <ul>
-            <li><strong>Launched new AWS service</strong></li>
-            <li>
-              Leading <strong>UX/UI</strong> for the AWS console component and
-              the profiler visualizations.
-            </li>
-            <li>
-              Prototyped, developed, designed and launched
-              <strong>anomaly detection</strong> feature
-            </li>
-            <li>Strong focus on <strong>performance optimisation</strong></li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <h3>Gamevy (Aug 2013 - Sep 2017), London</h3>
-          <h4>Software Engineer/Project Manager</h4>
-
-          <summary>
-            As the first-day engineer at startup Gamevy I've worked on game
-            design, frontend, backend and operations, as well as acting as
-            project manager. Frequent contributer to
-            <a href="https://www.pixijs.com/">PIXI.js</a>.
-          </summary>
-
-          <ul>
-            <li>
-              <strong>Developing game concepts</strong> for the majority of
-              Gamevy's games to date.
-            </li>
-            <li><strong>Project management</strong> for various games</li>
-            <li>
-              <strong>Probabilistic modelling</strong> to verify mathematical
-              correctness
-            </li>
-          </ul>
-        </div>
-
-        <div class="job">
-          <h3>Last.fm (Oct 2011 - Aug 2013), London</h3>
-          <h4>Data Engineer</h4>
-
-          <summary>
-            Initially hired as front-end engineer, I quickly moved to join the
-            data team.
-          </summary>
-
-          <ul>
-            <li><strong>Data developer</strong> (Hadoop, Hive, SQL)</li>
-            <li>
-              Designed and implemented main parts of
-              <strong>realtime charts</strong>
-            </li>
-          </ul>
-        </div>
-        <div class="job">
-          <h3>
-            BSc Science (Oct 2008 - Nov 2011), Baden-Wuerttemberg Cooperative
-            State University Mannheim
-          </h3>
-          <summary>
-            While working for <strong>IBM</strong>, as part of a corporate
-            student program
-          </summary>
-        </div>
-      </section>
-    </article>
-  </body>
+    </body>
 </html>
