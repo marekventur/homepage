@@ -241,7 +241,15 @@
                 text-decoration: underline;
             }
         </style>
-    </head>
+      <!-- Analytics: self-hosted GoatCounter. count.js ignores localhost,
+         private ranges and file:// by default, so a local `npm start`
+         does not need gating. -->
+    <script
+      data-goatcounter="https://analytics.marekventur.com/count"
+      async
+      src="https://analytics.marekventur.com/count.js"
+    ></script>
+  </head>
     <body>
         <div class="page">
             <div class="cv-header">
